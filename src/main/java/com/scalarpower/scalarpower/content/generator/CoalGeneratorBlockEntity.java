@@ -1,0 +1,187 @@
+package com.scalarpower.scalarpower.content.generator;
+
+import com.scalarpower.scalarpower.power.PowerNode;
+import com.scalarpower.scalarpower.power.PowerUtil;
+import com.scalarpower.scalarpower.registry.ModBlockEntities;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.Container;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
+
+public class CoalGeneratorBlockEntity extends BlockEntity implements Container, PowerNode, MenuProvider {
+    private static final int ENERGY_CAPACITY = 20000;
+    private static final int ENERGY_PER_TICK = 40;
+    private static final int PUSH_PER_SIDE = 120;
+
+    private ItemStack fuelStack = ItemStack.EMPTY;
+    private int burnTime;
+    private int burnTimeTotal;
+    private int energy;
+
+    public CoalGeneratorBlockEntity(BlockPos pos, BlockState blockState) {
+        super(ModBlockEntities.COAL_GENERATOR.get(), pos, blockState);
+    }
+
+    public static void tick(Level level, BlockPos pos, BlockState state, CoalGeneratorBlockEntity blockEntity) {
+        if (level == null || level.isClientSide()) {
+            return;
+        }
+
+        boolean changed = false;
+
+        if (blockEntity.burnTime > 0) {
+            blockEntity.burnTime--;
+            int generated = Math.min(ENERGY_PER_TICK, ENERGY_CAPACITY - blockEntity.energy);
+            blockEntity.energy += generated;
+            changed = true;
+        }
+
+        if (blockEntity.burnTime <= 0) {
+            int newBurnTime = getFuelTicks(blockEntity.fuelStack.getItem());
+            if (!blockEntity.fuelStack.isEmpty() && newBurnTime > 0) {
+                blockEntity.fuelStack.shrink(1);
+                blockEntity.burnTime = newBurnTime;
+                blockEntity.burnTimeTotal = newBurnTime;
+                changed = true;
+            }
+        }
+
+        if (blockEntity.energy > 0) {
+            int moved = PowerUtil.pushEnergy(level, pos, blockEntity, PUSH_PER_SIDE);
+            changed |= moved > 0;
+        }
+
+        if (changed) {
+            blockEntity.setChanged();
+        }
+    }
+
+    private static int getFuelTicks(net.minecraft.world.item.Item item) {
+        return (item == Items.COAL || item == Items.CHARCOAL) ? 1600 : 0;
+    }
+
+    @Override
+    protected void saveAdditional(ValueOutput output) {
+        super.saveAdditional(output);
+        output.putInt("BurnTime", burnTime);
+        output.putInt("BurnTimeTotal", burnTimeTotal);
+        output.putInt("Energy", energy);
+        output.store("Fuel", ItemStack.OPTIONAL_CODEC, fuelStack);
+    }
+
+    @Override
+    protected void loadAdditional(ValueInput input) {
+        super.loadAdditional(input);
+        burnTime = input.getIntOr("BurnTime", 0);
+        burnTimeTotal = input.getIntOr("BurnTimeTotal", 0);
+        energy = input.getIntOr("Energy", 0);
+        fuelStack = input.read("Fuel", ItemStack.OPTIONAL_CODEC).orElse(ItemStack.EMPTY);
+    }
+
+    @Override
+    public Component getDisplayName() {
+        return Component.literal("Coal Generator");
+    }
+
+    @Override
+    public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
+        return new CoalGeneratorMenu(id, inv, this, new ContainerData() {
+            @Override
+            public int get(int index) {
+                return switch (index) {
+                    case 0 -> burnTime;
+                    case 1 -> burnTimeTotal;
+                    case 2 -> energy;
+                    case 3 -> ENERGY_CAPACITY;
+                    default -> 0;
+                };
+            }
+            @Override
+            public void set(int index, int value) {
+                switch (index) {
+                    case 0 -> burnTime = value;
+                    case 1 -> burnTimeTotal = value;
+                    case 2 -> energy = value;
+                    default -> {}
+                }
+            }
+            @Override
+            public int getCount() { return 4; }
+        });
+    }
+
+    @Override
+    public int getContainerSize() { return 1; }
+    @Override
+    public boolean isEmpty() { return fuelStack.isEmpty(); }
+    @Override
+    public ItemStack getItem(int slot) { return slot == 0 ? fuelStack : ItemStack.EMPTY; }
+    @Override
+    public ItemStack removeItem(int slot, int count) {
+        if (slot == 0) {
+            ItemStack split = fuelStack.split(count);
+            if (!split.isEmpty()) setChanged();
+            return split;
+        }
+        return ItemStack.EMPTY;
+    }
+    @Override
+    public ItemStack removeItemNoUpdate(int slot) {
+        if (slot == 0) {
+            ItemStack stack = fuelStack;
+            fuelStack = ItemStack.EMPTY;
+            return stack;
+        }
+        return ItemStack.EMPTY;
+    }
+    @Override
+    public void setItem(int slot, ItemStack stack) {
+        if (slot == 0) {
+            fuelStack = stack;
+            if (stack.getCount() > getMaxStackSize()) stack.setCount(getMaxStackSize());
+            setChanged();
+        }
+    }
+    @Override
+    public boolean stillValid(Player player) { return Container.stillValidBlockEntity(this, player); }
+    @Override
+    public void clearContent() { fuelStack = ItemStack.EMPTY; }
+
+    @Override
+    public int getEnergyStored() { return energy; }
+    @Override
+    public int getEnergyCapacity() { return ENERGY_CAPACITY; }
+    @Override
+    public int receiveEnergy(int amount, boolean simulate) { return 0; }
+    @Override
+    public int extractEnergy(int amount, boolean simulate) {
+        int extracted = Math.min(amount, energy);
+        if (!simulate) {
+            energy -= extracted;
+            setChanged();
+        }
+        return extracted;
+    }
+    @Override
+    public boolean canConnectPower(Direction side) { return true; }
+
+    public int getBurnTime() { return burnTime; }
+    public int getBurnTimeTotal() { return burnTimeTotal; }
+    public int getEnergy() { return energy; }
+    public boolean isFuel(ItemStack stack) { return getFuelTicks(stack.getItem()) > 0; }
+}
+
+
+
