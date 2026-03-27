@@ -37,23 +37,24 @@ public class PoweredFurnaceBlockEntity extends BlockEntity implements Container,
 
     private ItemStack inputStack = ItemStack.EMPTY;
     private ItemStack outputStack = ItemStack.EMPTY;
-    private int energy;
     private int progress;
     private int recipeTime = DEFAULT_RECIPE_TIME;
+    private final net.neoforged.neoforge.transfer.energy.SimpleEnergyHandler energyHandler = new net.neoforged.neoforge.transfer.energy.SimpleEnergyHandler(ENERGY_CAPACITY, ENERGY_CAPACITY, ENERGY_CAPACITY, 0) {
+        @Override
+        protected void onEnergyChanged(int previousAmount) {
+            setChanged();
+        }
+    };
 
     public PoweredFurnaceBlockEntity(BlockPos pos, BlockState blockState) {
         super(ScalarPowerBlockEntities.POWERED_FURNACE.get(), pos, blockState);
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, PoweredFurnaceBlockEntity blockEntity) {
-        if (level == null || level.isClientSide()) {
-            return;
-        }
-
         boolean changed = false;
         boolean isWorking = false;
 
-        if (blockEntity.energy < ENERGY_CAPACITY) {
+        if (blockEntity.energyHandler.getAmountAsLong() < blockEntity.energyHandler.getCapacityAsLong()) {
             int pulled = PowerUtil.pullEnergy(level, pos, blockEntity, PULL_PER_SIDE);
             changed |= pulled > 0;
         }
@@ -73,22 +74,22 @@ public class PoweredFurnaceBlockEntity extends BlockEntity implements Container,
                 changed = true;
             }
 
-            if (blockEntity.energy >= ENERGY_PER_TICK) {
-                blockEntity.energy -= ENERGY_PER_TICK;
+            if (blockEntity.energyHandler.getAmountAsLong() >= ENERGY_PER_TICK) {
+                blockEntity.energyHandler.set((int)(blockEntity.energyHandler.getAmountAsLong() - ENERGY_PER_TICK));
                 blockEntity.progress++;
                 changed = true;
                 isWorking = true;
+            }
 
-                if (blockEntity.progress >= blockEntity.recipeTime) {
-                    blockEntity.inputStack.shrink(1);
-                    if (blockEntity.outputStack.isEmpty()) {
-                        blockEntity.outputStack = result.copy();
-                    } else {
-                        blockEntity.outputStack.grow(result.getCount());
-                    }
-                    blockEntity.progress = 0;
-                    changed = true;
+            if (blockEntity.progress >= blockEntity.recipeTime) {
+                blockEntity.inputStack.shrink(1);
+                if (blockEntity.outputStack.isEmpty()) {
+                    blockEntity.outputStack = result.copy();
+                } else {
+                    blockEntity.outputStack.grow(result.getCount());
                 }
+                blockEntity.progress = 0;
+                changed = true;
             }
         } else {
             if (blockEntity.progress > 0) {
@@ -174,7 +175,7 @@ public class PoweredFurnaceBlockEntity extends BlockEntity implements Container,
     @Override
     protected void saveAdditional(ValueOutput output) {
         super.saveAdditional(output);
-        output.putInt("Energy", energy);
+        energyHandler.serialize(output);
         output.putInt("Progress", progress);
         output.putInt("RecipeTime", recipeTime);
         output.store("Input", ItemStack.OPTIONAL_CODEC, inputStack);
@@ -184,7 +185,7 @@ public class PoweredFurnaceBlockEntity extends BlockEntity implements Container,
     @Override
     protected void loadAdditional(ValueInput input) {
         super.loadAdditional(input);
-        energy = input.getIntOr("Energy", 0);
+        energyHandler.deserialize(input);
         progress = input.getIntOr("Progress", 0);
         recipeTime = input.getIntOr("RecipeTime", DEFAULT_RECIPE_TIME);
         inputStack = input.read("Input", ItemStack.OPTIONAL_CODEC).orElse(ItemStack.EMPTY);
@@ -204,8 +205,8 @@ public class PoweredFurnaceBlockEntity extends BlockEntity implements Container,
                 return switch (index) {
                     case 0 -> progress;
                     case 1 -> recipeTime;
-                    case 2 -> energy;
-                    case 3 -> ENERGY_CAPACITY;
+                    case 2 -> (int)energyHandler.getAmountAsLong();
+                    case 3 -> (int)energyHandler.getCapacityAsLong();
                     default -> 0;
                 };
             }
@@ -215,7 +216,7 @@ public class PoweredFurnaceBlockEntity extends BlockEntity implements Container,
                 switch (index) {
                     case 0 -> progress = value;
                     case 1 -> recipeTime = value;
-                    case 2 -> energy = value;
+                    case 2 -> energyHandler.set(value);
                     default -> {
                     }
                 }
@@ -298,26 +299,30 @@ public class PoweredFurnaceBlockEntity extends BlockEntity implements Container,
 
     @Override
     public int getEnergyStored() {
-        return energy;
+        return (int)energyHandler.getAmountAsLong();
     }
 
     @Override
     public int getEnergyCapacity() {
-        return ENERGY_CAPACITY;
+        return (int)energyHandler.getCapacityAsLong();
     }
 
     @Override
     public int receiveEnergy(int amount, boolean simulate) {
-        int accepted = Math.min(amount, ENERGY_CAPACITY - energy);
-        if (!simulate) {
-            energy += accepted;
-            setChanged();
+        if (simulate) {
+            return Math.min(amount, (int)(energyHandler.getCapacityAsLong() - energyHandler.getAmountAsLong()));
         }
-        return accepted;
+        int inserted;
+        try (var tx = net.neoforged.neoforge.transfer.transaction.Transaction.openRoot()) {
+            inserted = energyHandler.insert(amount, tx);
+            // tx is committed on close
+        }
+        return inserted;
     }
 
     @Override
     public int extractEnergy(int amount, boolean simulate) {
+        // Powered furnace does not output energy
         return 0;
     }
 

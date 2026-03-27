@@ -15,14 +15,19 @@ public class CopperWireBlockEntity extends BlockEntity implements PowerNode {
     private static final int ENERGY_CAPACITY = 2000;
     private static final int PUSH_PER_SIDE = 90;
 
-    private int energy;
+    private final net.neoforged.neoforge.transfer.energy.SimpleEnergyHandler energyHandler = new net.neoforged.neoforge.transfer.energy.SimpleEnergyHandler(ENERGY_CAPACITY, ENERGY_CAPACITY, ENERGY_CAPACITY, 0) {
+        @Override
+        protected void onEnergyChanged(int previousAmount) {
+            setChanged();
+        }
+    };
 
     public CopperWireBlockEntity(BlockPos pos, BlockState blockState) {
         super(ScalarPowerBlockEntities.COPPER_WIRE.get(), pos, blockState);
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, CopperWireBlockEntity blockEntity) {
-        if (level == null || level.isClientSide() || blockEntity.energy <= 0) {
+        if (level == null || level.isClientSide() || blockEntity.energyHandler.getAmountAsLong() <= 0) {
             return;
         }
 
@@ -35,39 +40,38 @@ public class CopperWireBlockEntity extends BlockEntity implements PowerNode {
     @Override
     protected void saveAdditional(ValueOutput output) {
         super.saveAdditional(output);
-        output.putInt("Energy", energy);
+        energyHandler.serialize(output);
     }
 
     @Override
     protected void loadAdditional(ValueInput input) {
         super.loadAdditional(input);
-        energy = input.getIntOr("Energy", 0);
+        energyHandler.deserialize(input);
     }
 
     @Override
-    public int getEnergyStored() { return energy; }
+    public int getEnergyStored() { return (int)energyHandler.getAmountAsLong(); }
     @Override
-    public int getEnergyCapacity() { return ENERGY_CAPACITY; }
+    public int getEnergyCapacity() { return (int)energyHandler.getCapacityAsLong(); }
     @Override
     public int receiveEnergy(int amount, boolean simulate) {
-        int accepted = Math.min(amount, ENERGY_CAPACITY - energy);
-        if (!simulate) {
-            energy += accepted;
-            setChanged();
+        if (simulate) {
+            return Math.min(amount, (int)(energyHandler.getCapacityAsLong() - energyHandler.getAmountAsLong()));
         }
-        return accepted;
+        int inserted;
+        try (var tx = net.neoforged.neoforge.transfer.transaction.Transaction.openRoot()) {
+            inserted = energyHandler.insert(amount, tx);
+        }
+        return inserted;
     }
     @Override
     public int extractEnergy(int amount, boolean simulate) {
-        int extracted = Math.min(amount, energy);
-        if (!simulate) {
-            energy -= extracted;
-            setChanged();
+        int extracted = Math.min(amount, (int)energyHandler.getAmountAsLong());
+        if (!simulate && extracted > 0) {
+            energyHandler.set((int)(energyHandler.getAmountAsLong() - extracted));
         }
         return extracted;
     }
     @Override
     public boolean canConnectPower(Direction side) { return true; }
 }
-
-

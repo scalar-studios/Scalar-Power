@@ -28,7 +28,12 @@ public class CoalGeneratorBlockEntity extends BlockEntity implements Container, 
     private ItemStack fuelStack = ItemStack.EMPTY;
     private int burnTime;
     private int burnTimeTotal;
-    private int energy;
+    private final net.neoforged.neoforge.transfer.energy.SimpleEnergyHandler energyHandler = new net.neoforged.neoforge.transfer.energy.SimpleEnergyHandler(ENERGY_CAPACITY, ENERGY_CAPACITY, ENERGY_CAPACITY, 0) {
+        @Override
+        protected void onEnergyChanged(int previousAmount) {
+            setChanged();
+        }
+    };
 
     public CoalGeneratorBlockEntity(BlockPos pos, BlockState blockState) {
         super(ScalarPowerBlockEntities.COAL_GENERATOR.get(), pos, blockState);
@@ -43,9 +48,11 @@ public class CoalGeneratorBlockEntity extends BlockEntity implements Container, 
 
         if (blockEntity.burnTime > 0) {
             blockEntity.burnTime--;
-            int generated = Math.min(ENERGY_PER_TICK, ENERGY_CAPACITY - blockEntity.energy);
-            blockEntity.energy += generated;
-            changed = true;
+            int generated = Math.min(ENERGY_PER_TICK, (int)(blockEntity.energyHandler.getCapacityAsLong() - blockEntity.energyHandler.getAmountAsLong()));
+            if (generated > 0) {
+                blockEntity.energyHandler.set((int)(blockEntity.energyHandler.getAmountAsLong() + generated));
+                changed = true;
+            }
         }
 
         if (blockEntity.burnTime <= 0) {
@@ -58,7 +65,7 @@ public class CoalGeneratorBlockEntity extends BlockEntity implements Container, 
             }
         }
 
-        if (blockEntity.energy > 0) {
+        if (blockEntity.energyHandler.getAmountAsLong() > 0) {
             int moved = PowerUtil.pushEnergy(level, pos, blockEntity, PUSH_PER_SIDE);
             changed |= moved > 0;
         }
@@ -80,18 +87,18 @@ public class CoalGeneratorBlockEntity extends BlockEntity implements Container, 
     @Override
     protected void saveAdditional(ValueOutput output) {
         super.saveAdditional(output);
+        energyHandler.serialize(output);
         output.putInt("BurnTime", burnTime);
         output.putInt("BurnTimeTotal", burnTimeTotal);
-        output.putInt("Energy", energy);
         output.store("Fuel", ItemStack.OPTIONAL_CODEC, fuelStack);
     }
 
     @Override
     protected void loadAdditional(ValueInput input) {
         super.loadAdditional(input);
+        energyHandler.deserialize(input);
         burnTime = input.getIntOr("BurnTime", 0);
         burnTimeTotal = input.getIntOr("BurnTimeTotal", 0);
-        energy = input.getIntOr("Energy", 0);
         fuelStack = input.read("Fuel", ItemStack.OPTIONAL_CODEC).orElse(ItemStack.EMPTY);
     }
 
@@ -108,8 +115,8 @@ public class CoalGeneratorBlockEntity extends BlockEntity implements Container, 
                 return switch (index) {
                     case 0 -> burnTime;
                     case 1 -> burnTimeTotal;
-                    case 2 -> energy;
-                    case 3 -> ENERGY_CAPACITY;
+                    case 2 -> (int)energyHandler.getAmountAsLong();
+                    case 3 -> (int)energyHandler.getCapacityAsLong();
                     default -> 0;
                 };
             }
@@ -118,7 +125,7 @@ public class CoalGeneratorBlockEntity extends BlockEntity implements Container, 
                 switch (index) {
                     case 0 -> burnTime = value;
                     case 1 -> burnTimeTotal = value;
-                    case 2 -> energy = value;
+                    case 2 -> energyHandler.set(value);
                     default -> {}
                 }
             }
@@ -165,17 +172,19 @@ public class CoalGeneratorBlockEntity extends BlockEntity implements Container, 
     public void clearContent() { fuelStack = ItemStack.EMPTY; }
 
     @Override
-    public int getEnergyStored() { return energy; }
+    public int getEnergyStored() { return (int)energyHandler.getAmountAsLong(); }
     @Override
-    public int getEnergyCapacity() { return ENERGY_CAPACITY; }
+    public int getEnergyCapacity() { return (int)energyHandler.getCapacityAsLong(); }
     @Override
-    public int receiveEnergy(int amount, boolean simulate) { return 0; }
+    public int receiveEnergy(int amount, boolean simulate) {
+        // Generator does not accept energy from outside
+        return 0;
+    }
     @Override
     public int extractEnergy(int amount, boolean simulate) {
-        int extracted = Math.min(amount, energy);
-        if (!simulate) {
-            energy -= extracted;
-            setChanged();
+        int extracted = Math.min(amount, (int)energyHandler.getAmountAsLong());
+        if (!simulate && extracted > 0) {
+            energyHandler.set((int)(energyHandler.getAmountAsLong() - extracted));
         }
         return extracted;
     }
@@ -184,7 +193,7 @@ public class CoalGeneratorBlockEntity extends BlockEntity implements Container, 
 
     public int getBurnTime() { return burnTime; }
     public int getBurnTimeTotal() { return burnTimeTotal; }
-    public int getEnergy() { return energy; }
+    public int getEnergy() { return (int)energyHandler.getAmountAsLong(); }
     public boolean isFuel(ItemStack stack) { return getFuelTicks(stack.getItem()) > 0; }
 }
 

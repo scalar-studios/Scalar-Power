@@ -20,6 +20,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import net.neoforged.neoforge.transfer.energy.SimpleEnergyHandler;
+import net.neoforged.neoforge.transfer.transaction.Transaction;
 
 public class GrinderBlockEntity extends BlockEntity implements Container, PowerNode, MenuProvider {
     private static final int ENERGY_CAPACITY = 12000;
@@ -29,8 +31,14 @@ public class GrinderBlockEntity extends BlockEntity implements Container, PowerN
 
     private ItemStack inputStack = ItemStack.EMPTY;
     private ItemStack outputStack = ItemStack.EMPTY;
-    private int energy;
+    // private int energy;
     private int progress;
+    private final SimpleEnergyHandler energyHandler = new SimpleEnergyHandler(ENERGY_CAPACITY, ENERGY_CAPACITY, ENERGY_CAPACITY, 0) {
+        @Override
+        protected void onEnergyChanged(int previousAmount) {
+            setChanged();
+        }
+    };
 
     public GrinderBlockEntity(BlockPos pos, BlockState blockState) {
         super(ScalarPowerBlockEntities.GRINDER.get(), pos, blockState);
@@ -44,14 +52,14 @@ public class GrinderBlockEntity extends BlockEntity implements Container, PowerN
         boolean changed = false;
         boolean isWorking = false;
 
-        if (blockEntity.energy < ENERGY_CAPACITY) {
+        if (blockEntity.energyHandler.getAmountAsLong() < ENERGY_CAPACITY) {
             int pulled = PowerUtil.pullEnergy(level, pos, blockEntity, PULL_PER_SIDE);
             changed |= pulled > 0;
         }
 
         ItemStack result = blockEntity.getGrindingOutput(blockEntity.inputStack);
-        if (!result.isEmpty() && blockEntity.canOutput(blockEntity.outputStack, result) && blockEntity.energy >= ENERGY_PER_TICK) {
-            blockEntity.energy -= ENERGY_PER_TICK;
+        if (!result.isEmpty() && blockEntity.canOutput(blockEntity.outputStack, result) && blockEntity.energyHandler.getAmountAsLong() >= ENERGY_PER_TICK) {
+            blockEntity.energyHandler.set((int)(blockEntity.energyHandler.getAmountAsLong() - ENERGY_PER_TICK));
             blockEntity.progress++;
             changed = true;
             isWorking = true;
@@ -95,7 +103,7 @@ public class GrinderBlockEntity extends BlockEntity implements Container, PowerN
     @Override
     protected void saveAdditional(ValueOutput output) {
         super.saveAdditional(output);
-        output.putInt("Energy", energy);
+        energyHandler.serialize(output);
         output.putInt("Progress", progress);
         output.store("Input", ItemStack.OPTIONAL_CODEC, inputStack);
         output.store("Output", ItemStack.OPTIONAL_CODEC, outputStack);
@@ -104,7 +112,7 @@ public class GrinderBlockEntity extends BlockEntity implements Container, PowerN
     @Override
     protected void loadAdditional(ValueInput input) {
         super.loadAdditional(input);
-        energy = input.getIntOr("Energy", 0);
+        energyHandler.deserialize(input);
         progress = input.getIntOr("Progress", 0);
         inputStack = input.read("Input", ItemStack.OPTIONAL_CODEC).orElse(ItemStack.EMPTY);
         outputStack = input.read("Output", ItemStack.OPTIONAL_CODEC).orElse(ItemStack.EMPTY);
@@ -120,8 +128,8 @@ public class GrinderBlockEntity extends BlockEntity implements Container, PowerN
                 return switch (index) {
                     case 0 -> progress;
                     case 1 -> RECIPE_TIME;
-                    case 2 -> energy;
-                    case 3 -> ENERGY_CAPACITY;
+                    case 2 -> (int)energyHandler.getAmountAsLong();
+                    case 3 -> (int)energyHandler.getCapacityAsLong();
                     default -> 0;
                 };
             }
@@ -130,7 +138,7 @@ public class GrinderBlockEntity extends BlockEntity implements Container, PowerN
             public void set(int index, int value) {
                 switch (index) {
                     case 0 -> progress = value;
-                    case 2 -> energy = value;
+                    case 2 -> energyHandler.set(value);
                     default -> {
                     }
                 }
@@ -184,17 +192,21 @@ public class GrinderBlockEntity extends BlockEntity implements Container, PowerN
     public void clearContent() { inputStack = ItemStack.EMPTY; outputStack = ItemStack.EMPTY; }
 
     @Override
-    public int getEnergyStored() { return energy; }
+    public int getEnergyStored() { return (int)energyHandler.getAmountAsLong(); }
     @Override
-    public int getEnergyCapacity() { return ENERGY_CAPACITY; }
+    public int getEnergyCapacity() { return (int)energyHandler.getCapacityAsLong(); }
     @Override
     public int receiveEnergy(int amount, boolean simulate) {
-        int accepted = Math.min(amount, ENERGY_CAPACITY - energy);
-        if (!simulate) {
-            energy += accepted;
-            setChanged();
+        // For internal logic, not NeoForge API
+        if (simulate) {
+            return Math.min(amount, (int)(energyHandler.getCapacityAsLong() - energyHandler.getAmountAsLong()));
         }
-        return accepted;
+        int inserted;
+        try (var tx = Transaction.openRoot()) {
+            inserted = energyHandler.insert(amount, tx);
+            // tx is committed on close
+        }
+        return inserted;
     }
     @Override
     public int extractEnergy(int amount, boolean simulate) { return 0; }
@@ -203,8 +215,5 @@ public class GrinderBlockEntity extends BlockEntity implements Container, PowerN
 
     public int getProgress() { return progress; }
     public int getMaxProgress() { return RECIPE_TIME; }
-    public int getEnergy() { return energy; }
+    public int getEnergy() { return (int)energyHandler.getAmountAsLong(); }
 }
-
-
-
