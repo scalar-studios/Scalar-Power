@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "minecraft:item/diamond"
+    "layer0": "scalarpower:item/diamond_upgrade"
   }
 }
 

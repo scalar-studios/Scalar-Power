@@ -30,7 +30,7 @@ public class ScalarPowerCreativeTabs {
             event.accept(ScalarPowerItems.GOLD_DUST.get());
             event.accept(ScalarPowerItems.COPPER_DUST.get());
             event.accept(ScalarPowerItems.GOLD_UPGRADE.get());
-            event.accept(ScalarPowerItems.REDIUM.get());
+            event.accept(ScalarPowerItems.REDIUM_INGOT.get());
             event.accept(ScalarPowerItems.REDIUM_UPGRADE.get());
             event.accept(ScalarPowerItems.DIAMOND_UPGRADE.get());
             event.accept(ScalarPowerItems.CLASTUS_UPGRADE.get());

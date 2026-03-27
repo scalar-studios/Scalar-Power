@@ -1,0 +1,67 @@
+package site.scalarstudios.scalarpower.content.grinder;
+
+import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.renderer.RenderPipelines;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.entity.player.Inventory;
+
+public class GrinderScreen extends AbstractContainerScreen<GrinderMenu> {
+    private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath("scalarpower", "textures/gui/grinder.png");
+
+    private static final int TEXTURE_WIDTH = 256;
+    private static final int TEXTURE_HEIGHT = 256;
+
+    private static final int ENERGY_X = 10;
+    private static final int ENERGY_Y = 20;
+    private static final int ENERGY_WIDTH = 8;
+    private static final int ENERGY_HEIGHT = 50;
+
+    private static final int PROGRESS_X = 80;
+    private static final int PROGRESS_Y = 32;
+    private static final int PROGRESS_WIDTH = 24;
+    private static final int PROGRESS_HEIGHT = 16;
+    private static final int PROGRESS_U = 176;
+    private static final int PROGRESS_V = 0;
+
+    public GrinderScreen(GrinderMenu menu, Inventory inventory, Component title) {
+        super(menu, inventory, title, 176, 166);
+    }
+
+    @Override
+    public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
+        super.extractBackground(graphics, mouseX, mouseY, a);
+        int x = this.leftPos;
+        int y = this.topPos;
+
+        graphics.blit(RenderPipelines.GUI_TEXTURED, TEXTURE, x, y, 0.0F, 0.0F, this.imageWidth, this.imageHeight, TEXTURE_WIDTH, TEXTURE_HEIGHT);
+
+        int progressPixels = menu.getMaxProgress() > 0 ? (int) ((float) PROGRESS_WIDTH * menu.getProgress() / menu.getMaxProgress()) : 0;
+        if (progressPixels > 0) {
+            graphics.blit(
+                    RenderPipelines.GUI_TEXTURED,
+                    TEXTURE,
+                    x + PROGRESS_X,
+                    y + PROGRESS_Y,
+                    (float) PROGRESS_U / TEXTURE_WIDTH,
+                    (float) PROGRESS_V / TEXTURE_HEIGHT,
+                    progressPixels,
+                    PROGRESS_HEIGHT,
+                    TEXTURE_WIDTH,
+                    TEXTURE_HEIGHT);
+        }
+
+        graphics.fill(x + ENERGY_X, y + ENERGY_Y, x + ENERGY_X + ENERGY_WIDTH, y + ENERGY_Y + ENERGY_HEIGHT, 0x66000000);
+        int energyBar = menu.getEnergyCapacity() > 0 ? (int) ((float) ENERGY_HEIGHT * menu.getEnergy() / menu.getEnergyCapacity()) : 0;
+        if (energyBar > 0) {
+            graphics.fill(
+                    x + ENERGY_X,
+                    y + ENERGY_Y + (ENERGY_HEIGHT - energyBar),
+                    x + ENERGY_X + ENERGY_WIDTH,
+                    y + ENERGY_Y + ENERGY_HEIGHT,
+                    0xFF44CC44);
+        }
+    }
+}
+

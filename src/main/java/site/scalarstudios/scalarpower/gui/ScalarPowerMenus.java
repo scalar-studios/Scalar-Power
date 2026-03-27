@@ -11,11 +11,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import site.scalarstudios.scalarpower.ScalarPower;
 
-<<<<<<<< HEAD:src/main/java/com/scalarpower/scalarpower/registry/ScalarPowerMenus.java
 public final class ScalarPowerMenus {
-========
-public class ScalarPowerMenus {
->>>>>>>> fc9adea (26.1 Update):src/main/java/site/scalarstudios/scalarpower/gui/ScalarPowerMenus.java
     public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, ScalarPower.MODID);
 
     public static final DeferredHolder<MenuType<?>, MenuType<CoalGeneratorMenu>> COAL_GENERATOR_MENU = MENUS
@@ -27,12 +23,6 @@ public class ScalarPowerMenus {
     public static final DeferredHolder<MenuType<?>, MenuType<PoweredFurnaceMenu>> POWERED_FURNACE_MENU = MENUS
             .register("powered_furnace", () -> IMenuTypeExtension.create(PoweredFurnaceMenu::new));
 
-<<<<<<<< HEAD:src/main/java/com/scalarpower/scalarpower/registry/ScalarPowerMenus.java
-    private ScalarPowerMenus() {
-    }
-
-========
->>>>>>>> fc9adea (26.1 Update):src/main/java/site/scalarstudios/scalarpower/gui/ScalarPowerMenus.java
     public static void register(IEventBus eventBus) {
         MENUS.register(eventBus);
     }

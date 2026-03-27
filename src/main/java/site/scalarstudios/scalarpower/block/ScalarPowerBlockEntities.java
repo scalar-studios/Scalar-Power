@@ -10,11 +10,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-<<<<<<<< HEAD:src/main/java/com/scalarpower/scalarpower/registry/ScalarPowerEntities.java
-public final class ScalarPowerEntities {
-========
 public final class ScalarPowerBlockEntities {
->>>>>>>> fc9adea (26.1 Update):src/main/java/site/scalarstudios/scalarpower/block/ScalarPowerBlockEntities.java
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister
             .create(net.minecraft.core.registries.Registries.BLOCK_ENTITY_TYPE, ScalarPower.MODID);
 
@@ -32,12 +28,8 @@ public final class ScalarPowerBlockEntities {
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CopperWireBlockEntity>> COPPER_WIRE = BLOCK_ENTITY_TYPES
             .register("copper_wire", () -> new BlockEntityType<>(CopperWireBlockEntity::new, ScalarPowerBlocks.COPPER_WIRE.get()));
-<<<<<<<< HEAD:src/main/java/com/scalarpower/scalarpower/registry/ScalarPowerEntities.java
-
-    private ScalarPowerEntities() {
+    private ScalarPowerBlockEntities() {
     }
-========
->>>>>>>> fc9adea (26.1 Update):src/main/java/site/scalarstudios/scalarpower/block/ScalarPowerBlockEntities.java
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITY_TYPES.register(eventBus);

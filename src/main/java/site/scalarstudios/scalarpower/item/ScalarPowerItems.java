@@ -14,7 +14,7 @@ public class ScalarPowerItems {
     public static final DeferredItem<Item> COPPER_DUST = ITEMS.registerSimpleItem("copper_dust");
 
     public static final DeferredItem<Item> GOLD_UPGRADE = ITEMS.registerSimpleItem("gold_upgrade");
-    public static final DeferredItem<Item> REDIUM = ITEMS.registerSimpleItem("redium");
+    public static final DeferredItem<Item> REDIUM_INGOT = ITEMS.registerSimpleItem("redium_ingot");
     public static final DeferredItem<Item> REDIUM_UPGRADE = ITEMS.registerSimpleItem("redium_upgrade");
     public static final DeferredItem<Item> DIAMOND_UPGRADE = ITEMS.registerSimpleItem("diamond_upgrade");
     public static final DeferredItem<Item> CLASTUS_UPGRADE = ITEMS.registerSimpleItem("clastus_upgrade");
