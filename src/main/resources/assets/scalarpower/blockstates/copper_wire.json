@@ -5,19 +5,19 @@
       "apply": { "model": "scalarpower:block/copper_wire_side" }
     },
     {   "when": { "south": "true" },
-      "apply": { "model": "scalarpower:block/copper_wire_side", "y": 180 }
+      "apply": { "model": "scalarpower:block/copper_wire_side", "y": 180, "uvlock": true }
     },
     {   "when": { "east": "true" },
-      "apply": { "model": "scalarpower:block/copper_wire_side", "y": 90 }
+      "apply": { "model": "scalarpower:block/copper_wire_side", "y": 90, "uvlock": true }
     },
     {   "when": { "west": "true" },
-      "apply": { "model": "scalarpower:block/copper_wire_side", "y": 270 }
+      "apply": { "model": "scalarpower:block/copper_wire_side", "y": 270, "uvlock": true }
     },
     {   "when": { "up": "true" },
-      "apply": { "model": "scalarpower:block/copper_wire_side", "x": 270 }
+      "apply": { "model": "scalarpower:block/copper_wire_side", "x": 270, "uvlock": true }
     },
     {   "when": { "down": "true" },
-      "apply": { "model": "scalarpower:block/copper_wire_side", "x": 90 }
+      "apply": { "model": "scalarpower:block/copper_wire_side", "x": 90, "uvlock": true }
     }
   ]
 }
