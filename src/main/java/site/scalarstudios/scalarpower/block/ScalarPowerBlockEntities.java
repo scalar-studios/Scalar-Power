@@ -10,6 +10,8 @@ import site.scalarstudios.scalarpower.content.extractor.ExtractorBlockEntity;
 import site.scalarstudios.scalarpower.content.poweredfurnace.PoweredFurnaceBlockEntity;
 import site.scalarstudios.scalarpower.content.wire.copper.CopperWireBlockEntity;
 import site.scalarstudios.scalarpower.content.wire.copper.InsulatedCopperWireBlockEntity;
+import site.scalarstudios.scalarpower.content.wire.gold.GoldWireBlockEntity;
+import site.scalarstudios.scalarpower.content.wire.gold.InsulatedGoldWireBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -51,6 +53,13 @@ public final class ScalarPowerBlockEntities {
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<InsulatedCopperWireBlockEntity>> INSULATED_COPPER_WIRE = BLOCK_ENTITY_TYPES
             .register("insulated_copper_wire", () -> new BlockEntityType<>(InsulatedCopperWireBlockEntity::new, ScalarPowerBlocks.INSULATED_COPPER_WIRE.get()));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GoldWireBlockEntity>> GOLD_WIRE = BLOCK_ENTITY_TYPES
+            .register("gold_wire", () -> new BlockEntityType<>(GoldWireBlockEntity::new, ScalarPowerBlocks.GOLD_WIRE.get()));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<InsulatedGoldWireBlockEntity>> INSULATED_GOLD_WIRE = BLOCK_ENTITY_TYPES
+            .register("insulated_gold_wire", () -> new BlockEntityType<>(InsulatedGoldWireBlockEntity::new, ScalarPowerBlocks.INSULATED_GOLD_WIRE.get()));
+
     private ScalarPowerBlockEntities() {
     }
 

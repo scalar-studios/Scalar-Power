@@ -17,6 +17,8 @@ import site.scalarstudios.scalarpower.content.extractor.ExtractorBlock;
 import site.scalarstudios.scalarpower.content.poweredfurnace.PoweredFurnaceBlock;
 import site.scalarstudios.scalarpower.content.wire.copper.CopperWireBlock;
 import site.scalarstudios.scalarpower.content.wire.copper.InsulatedCopperWireBlock;
+import site.scalarstudios.scalarpower.content.wire.gold.GoldWireBlock;
+import site.scalarstudios.scalarpower.content.wire.gold.InsulatedGoldWireBlock;
 import site.scalarstudios.scalarpower.item.ScalarPowerItems;
 import site.scalarstudios.scalarpower.item.custom.TooltipBlockItem;
 
@@ -61,6 +63,14 @@ public class ScalarPowerBlocks {
     public static final DeferredBlock<InsulatedCopperWireBlock> INSULATED_COPPER_WIRE = registerTooltipBlockItem("insulated_copper_wire",
             InsulatedCopperWireBlock::new,
             properties -> properties.strength(0.5F, 0.5F).noOcclusion().sound(SoundType.COPPER).mapColor(MapColor.COLOR_ORANGE));
+
+    public static final DeferredBlock<GoldWireBlock> GOLD_WIRE = registerTooltipBlockItem("gold_wire",
+            GoldWireBlock::new,
+            properties -> properties.strength(0.5F, 0.5F).noOcclusion().sound(SoundType.COPPER).mapColor(MapColor.GOLD));
+
+    public static final DeferredBlock<InsulatedGoldWireBlock> INSULATED_GOLD_WIRE = registerTooltipBlockItem("insulated_gold_wire",
+            InsulatedGoldWireBlock::new,
+            properties -> properties.strength(0.5F, 0.5F).noOcclusion().sound(SoundType.COPPER).mapColor(MapColor.GOLD));
 
     // Registry Shortcuts
     private static <T extends Block> DeferredBlock<T> registerTooltipBlockItem(String name, Function<BlockBehaviour.Properties, ? extends T> blockFactory, UnaryOperator<BlockBehaviour.Properties> properties) {

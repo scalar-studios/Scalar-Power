@@ -53,5 +53,15 @@ public final class ScalarPowerCapabilities {
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.INSULATED_COPPER_WIRE.get(),
                 (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+
+        event.registerBlockEntity(
+                Capabilities.Energy.BLOCK,
+                ScalarPowerBlockEntities.GOLD_WIRE.get(),
+                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+
+        event.registerBlockEntity(
+                Capabilities.Energy.BLOCK,
+                ScalarPowerBlockEntities.INSULATED_GOLD_WIRE.get(),
+                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
     }
 }

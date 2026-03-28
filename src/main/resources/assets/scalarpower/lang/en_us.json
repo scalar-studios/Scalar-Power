@@ -3,11 +3,13 @@
   "block.scalarpower.battery": "Battery",
   "block.scalarpower.coal_generator": "Coal Generator",
   "block.scalarpower.copper_wire": "Copper Wire",
+  "block.scalarpower.gold_wire": "Gold Wire",
   "block.scalarpower.culinary_generator": "Culinary Generator",
   "block.scalarpower.extractor": "Extractor",
   "block.scalarpower.grinder": "Grinder",
   "block.scalarpower.powered_furnace": "Powered Furnace",
   "block.scalarpower.insulated_copper_wire": "Insulated Copper Wire",
+  "block.scalarpower.insulated_gold_wire": "Insulated Gold Wire",
 
   "container.scalarpower.alloy_smelter": "Alloy Smelter",
   "container.scalarpower.battery": "Battery",
@@ -19,6 +21,8 @@
 
   "tooltip.scalarpower.copper_wire": "Transfers 40 SPU/t",
   "tooltip.scalarpower.insulated_copper_wire": "Transfers 40 SPU/t (Insulated)",
+  "tooltip.scalarpower.gold_wire": "Transfers 80 SPU/t",
+  "tooltip.scalarpower.insulated_gold_wire": "Transfers 80 SPU/t (Insulated)",
 
   "itemGroup.scalarpower.scalar_power": "Scalar Power",
 
@@ -39,6 +43,8 @@
 
   "item.scalarpower.copper_wire": "Copper Wire",
   "item.scalarpower.insulated_copper_wire": "Insulated Copper Wire",
+  "item.scalarpower.gold_wire": "Gold Wire",
+  "item.scalarpower.insulated_gold_wire": "Insulated Gold Wire",
 
   "item.scalarpower.gold_upgrade": "Gold Upgrade",
   "item.scalarpower.redium_upgrade": "Redium Upgrade",

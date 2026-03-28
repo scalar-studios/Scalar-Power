@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "scalarpower:gold_wire",
+    "scalarpower:rubber"
+  ],
+  "result": {
+    "id": "scalarpower:insulated_gold_wire",
+    "count": 1
+  }
+}
+
