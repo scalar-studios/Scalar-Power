@@ -1,4 +1,4 @@
-package site.scalarstudios.scalarpower.client;
+package site.scalarstudios.scalarpower.gui;
 
 import site.scalarstudios.scalarpower.content.alloysmelter.AlloySmelterScreen;
 import site.scalarstudios.scalarpower.content.battery.BatteryScreen;
@@ -6,7 +6,6 @@ import site.scalarstudios.scalarpower.content.generator.coal.CoalGeneratorScreen
 import site.scalarstudios.scalarpower.content.generator.culinary.CulinaryGeneratorScreen;
 import site.scalarstudios.scalarpower.content.grinder.GrinderScreen;
 import site.scalarstudios.scalarpower.content.poweredfurnace.PoweredFurnaceScreen;
-import site.scalarstudios.scalarpower.gui.ScalarPowerMenus;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
