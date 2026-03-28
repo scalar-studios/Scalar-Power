@@ -10,6 +10,7 @@ import site.scalarstudios.scalarpower.content.extractor.ExtractorBlockEntity;
 import site.scalarstudios.scalarpower.content.poweredfurnace.PoweredFurnaceBlockEntity;
 import site.scalarstudios.scalarpower.content.wire.copper.CopperWireBlockEntity;
 import site.scalarstudios.scalarpower.content.wire.copper.InsulatedCopperWireBlockEntity;
+import site.scalarstudios.scalarpower.content.wire.glassfiber.GlassFiberWireBlockEntity;
 import site.scalarstudios.scalarpower.content.wire.gold.GoldWireBlockEntity;
 import site.scalarstudios.scalarpower.content.wire.gold.InsulatedGoldWireBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -59,6 +60,9 @@ public final class ScalarPowerBlockEntities {
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<InsulatedGoldWireBlockEntity>> INSULATED_GOLD_WIRE = BLOCK_ENTITY_TYPES
             .register("insulated_gold_wire", () -> new BlockEntityType<>(InsulatedGoldWireBlockEntity::new, ScalarPowerBlocks.INSULATED_GOLD_WIRE.get()));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GlassFiberWireBlockEntity>> GLASS_FIBER_WIRE = BLOCK_ENTITY_TYPES
+            .register("glass_fiber_wire", () -> new BlockEntityType<>(GlassFiberWireBlockEntity::new, ScalarPowerBlocks.GLASS_FIBER_WIRE.get()));
 
     private ScalarPowerBlockEntities() {
     }
