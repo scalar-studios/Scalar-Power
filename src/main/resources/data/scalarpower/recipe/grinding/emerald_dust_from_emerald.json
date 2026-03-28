@@ -1,0 +1,11 @@
+{
+  "type": "scalarpower:grinding",
+  "ingredient": "minecraft:emerald",
+  "result": {
+    "id": "scalarpower:emerald_dust",
+    "count": 1
+  },
+  "bonus_chance": 0.0,
+  "bonus_count": 1
+}
+

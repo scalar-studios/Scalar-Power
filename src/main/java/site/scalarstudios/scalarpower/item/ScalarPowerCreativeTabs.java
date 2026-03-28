@@ -22,18 +22,35 @@ public class ScalarPowerCreativeTabs {
 
     public static void registerTabs(BuildCreativeModeTabContentsEvent event) {
         if (event.getTab() == SCALAR_POWER_TAB.get()) {
+            // Blocks
+            /* Generators */
             event.accept(ScalarPowerBlocks.COAL_GENERATOR.get());
             event.accept(ScalarPowerBlocks.CULINARY_GENERATOR.get());
+
+            /* Machines */
+            event.accept(ScalarPowerBlocks.ALLOY_SMELTER.get());
             event.accept(ScalarPowerBlocks.GRINDER.get());
             event.accept(ScalarPowerBlocks.POWERED_FURNACE.get());
-            event.accept(ScalarPowerBlocks.ALLOY_SMELTER.get());
+
+            /* Energy Storage & Transfer */
             event.accept(ScalarPowerBlocks.BATTERY.get());
             event.accept(ScalarPowerBlocks.COPPER_WIRE.get());
-            event.accept(ScalarPowerItems.IRON_DUST.get());
-            event.accept(ScalarPowerItems.GOLD_DUST.get());
+
+            // Items
+            /* Dusts */
+            event.accept(ScalarPowerItems.COAL_DUST.get());
             event.accept(ScalarPowerItems.COPPER_DUST.get());
-            event.accept(ScalarPowerItems.GOLD_UPGRADE.get());
+            event.accept(ScalarPowerItems.DIAMOND_DUST.get());
+            event.accept(ScalarPowerItems.EMERALD_DUST.get());
+            event.accept(ScalarPowerItems.GOLD_DUST.get());
+            event.accept(ScalarPowerItems.IRON_DUST.get());
+            event.accept(ScalarPowerItems.OBSIDIAN_DUST.get());
+
+            /* Ingots */
             event.accept(ScalarPowerItems.REDIUM_INGOT.get());
+
+            /* Upgrades */
+            event.accept(ScalarPowerItems.GOLD_UPGRADE.get());
             event.accept(ScalarPowerItems.REDIUM_UPGRADE.get());
             event.accept(ScalarPowerItems.DIAMOND_UPGRADE.get());
             event.accept(ScalarPowerItems.CLASTUS_UPGRADE.get());

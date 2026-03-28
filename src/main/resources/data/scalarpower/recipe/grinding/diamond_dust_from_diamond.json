@@ -1,0 +1,11 @@
+{
+  "type": "scalarpower:grinding",
+  "ingredient": "minecraft:diamond",
+  "result": {
+    "id": "scalarpower:diamond_dust",
+    "count": 1
+  },
+  "bonus_chance": 0.0,
+  "bonus_count": 1
+}
+

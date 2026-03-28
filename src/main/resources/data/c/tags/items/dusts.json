@@ -1,8 +1,12 @@
 {
   "replace": false,
   "values": [
+    "#c:dusts/coal",
     "#c:dusts/copper",
+    "#c:dusts/diamond",
+    "#c:dusts/emerald",
     "#c:dusts/iron",
-    "#c:dusts/gold"
+    "#c:dusts/gold",
+    "#c:dusts/obsidian"
   ]
 }

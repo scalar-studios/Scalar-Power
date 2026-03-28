@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "minecraft:raw_iron",
-    "minecraft:iron_ingot",
-    { "id": "c:raw_ores/iron", "required": false },
-    { "id": "c:raw_materials/iron", "required": false }
-  ]
-}

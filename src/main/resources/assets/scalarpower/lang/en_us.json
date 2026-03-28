@@ -1,11 +1,11 @@
 {
+  "block.scalarpower.alloy_smelter": "Alloy Smelter",
+  "block.scalarpower.battery": "Battery",
   "block.scalarpower.coal_generator": "Coal Generator",
+  "block.scalarpower.copper_wire": "Copper Wire",
   "block.scalarpower.culinary_generator": "Culinary Generator",
   "block.scalarpower.grinder": "Grinder",
   "block.scalarpower.powered_furnace": "Powered Furnace",
-  "block.scalarpower.alloy_smelter": "Alloy Smelter",
-  "block.scalarpower.battery": "Battery",
-  "block.scalarpower.copper_wire": "Copper Wire",
 
   "container.scalarpower.alloy_smelter": "Alloy Smelter",
   "container.scalarpower.battery": "Battery",
@@ -16,11 +16,17 @@
 
   "itemGroup.scalarpower.scalar_power": "Scalar Power",
 
-  "item.scalarpower.iron_dust": "Iron Dust",
-  "item.scalarpower.gold_dust": "Gold Dust",
+  "item.scalarpower.coal_dust": "Coal Dust",
   "item.scalarpower.copper_dust": "Copper Dust",
-  "item.scalarpower.gold_upgrade": "Gold Upgrade",
+  "item.scalarpower.diamond_dust": "Diamond Dust",
+  "item.scalarpower.emerald_dust": "Emerald Dust",
+  "item.scalarpower.gold_dust": "Gold Dust",
+  "item.scalarpower.iron_dust": "Iron Dust",
+  "item.scalarpower.obsidian_dust": "Obsidian Dust",
+
   "item.scalarpower.redium_ingot": "Redium Ingot",
+
+  "item.scalarpower.gold_upgrade": "Gold Upgrade",
   "item.scalarpower.redium_upgrade": "Redium Upgrade",
   "item.scalarpower.diamond_upgrade": "Diamond Upgrade",
   "item.scalarpower.clastus_upgrade": "Clastus Upgrade",

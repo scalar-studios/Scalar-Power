@@ -9,9 +9,13 @@ import site.scalarstudios.scalarpower.ScalarPower;
 public class ScalarPowerItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ScalarPower.MODID);
 
-    public static final DeferredItem<Item> IRON_DUST = ITEMS.registerSimpleItem("iron_dust");
-    public static final DeferredItem<Item> GOLD_DUST = ITEMS.registerSimpleItem("gold_dust");
+    public static final DeferredItem<Item> COAL_DUST = ITEMS.registerSimpleItem("coal_dust");
     public static final DeferredItem<Item> COPPER_DUST = ITEMS.registerSimpleItem("copper_dust");
+    public static final DeferredItem<Item> DIAMOND_DUST = ITEMS.registerSimpleItem("diamond_dust");
+    public static final DeferredItem<Item> EMERALD_DUST = ITEMS.registerSimpleItem("emerald_dust");
+    public static final DeferredItem<Item> GOLD_DUST = ITEMS.registerSimpleItem("gold_dust");
+    public static final DeferredItem<Item> IRON_DUST = ITEMS.registerSimpleItem("iron_dust");
+    public static final DeferredItem<Item> OBSIDIAN_DUST = ITEMS.registerSimpleItem("obsidian_dust");
 
     public static final DeferredItem<Item> GOLD_UPGRADE = ITEMS.registerSimpleItem("gold_upgrade");
     public static final DeferredItem<Item> REDIUM_INGOT = ITEMS.registerSimpleItem("redium_ingot");
