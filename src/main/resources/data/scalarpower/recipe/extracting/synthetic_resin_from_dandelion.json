@@ -1,0 +1,8 @@
+{
+  "type": "scalarpower:extracting",
+  "ingredient": "minecraft:dandelion",
+  "result": {
+    "id": "scalarpower:synthetic_resin",
+    "count": 1
+  }
+}
