@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/block",
   "textures": {
-    "wire": "scalarpower:block/insulated_copper_wire_center",
-    "particle": "scalarpower:block/insulated_copper_wire_center"
+    "wire": "scalarpower:block/insulated_copper_wire",
+    "particle": "scalarpower:block/insulated_copper_wire"
   },
   "elements": [
     {
@@ -19,3 +19,5 @@
     }
   ]
 }
+
+
