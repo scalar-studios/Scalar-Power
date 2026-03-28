@@ -16,6 +16,7 @@ import site.scalarstudios.scalarpower.content.grinder.GrinderBlock;
 import site.scalarstudios.scalarpower.content.poweredfurnace.PoweredFurnaceBlock;
 import site.scalarstudios.scalarpower.content.wire.copper.CopperWireBlock;
 import site.scalarstudios.scalarpower.item.ScalarPowerItems;
+import site.scalarstudios.scalarpower.item.custom.TooltipBlockItem;
 
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
@@ -47,19 +48,18 @@ public class ScalarPowerBlocks {
             BatteryBlock::new,
             properties -> properties.strength(3.5F, 3.5F).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.STONE));
 
-    public static final DeferredBlock<CopperWireBlock> COPPER_WIRE = registerBlock("copper_wire",
+    public static final DeferredBlock<CopperWireBlock> COPPER_WIRE = registerTooltipBlockItem("copper_wire",
             CopperWireBlock::new,
             properties -> properties.strength(0.5F, 0.5F).noOcclusion().sound(SoundType.COPPER).mapColor(MapColor.COLOR_ORANGE));
 
     // Registry Shortcuts
-    private static DeferredBlock<Block> registerBlock(String name, UnaryOperator<BlockBehaviour.Properties> properties) {
-        return registerBlock(name, Block::new, properties);
+    private static <T extends Block> DeferredBlock<T> registerTooltipBlockItem(String name, Function<BlockBehaviour.Properties, ? extends T> blockFactory, UnaryOperator<BlockBehaviour.Properties> properties) {
+        DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, blockFactory, properties);
+        String tooltipKey = "tooltip.scalarpower." + name;
+        ScalarPowerItems.ITEMS.registerItem(name, itemProperties -> new TooltipBlockItem(toReturn.get(), itemProperties, tooltipKey));
+        return toReturn;
     }
-
-    private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, ? extends T> blockFactory, BlockBehaviour.Properties properties) {
-        return registerBlock(name, blockFactory, ignored -> properties);
-    }
-
+    
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, ? extends T> blockFactory, UnaryOperator<BlockBehaviour.Properties> properties) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, blockFactory, properties);
         registerBlockItem(toReturn);

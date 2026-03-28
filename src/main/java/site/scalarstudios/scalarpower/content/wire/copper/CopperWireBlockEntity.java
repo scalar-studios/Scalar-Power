@@ -12,8 +12,8 @@ import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.transfer.energy.EnergyHandler;
 
 public class CopperWireBlockEntity extends BlockEntity {
-    private static final int ENERGY_CAPACITY = 2000;
-    private static final int PUSH_PER_SIDE = 90;
+    private static final int ENERGY_CAPACITY = 1024;
+    private static final int PUSH_PER_SIDE = 40;
 
     private final net.neoforged.neoforge.transfer.energy.SimpleEnergyHandler energyHandler = new net.neoforged.neoforge.transfer.energy.SimpleEnergyHandler(ENERGY_CAPACITY, ENERGY_CAPACITY, ENERGY_CAPACITY, 0) {
         @Override

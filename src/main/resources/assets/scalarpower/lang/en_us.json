@@ -14,6 +14,8 @@
   "container.scalarpower.grinder": "Grinder",
   "container.scalarpower.powered_furnace": "Powered Furnace",
 
+  "tooltip.scalarpower.copper_wire": "Transfers 40 SPU/t",
+
   "itemGroup.scalarpower.scalar_power": "Scalar Power",
 
   "item.scalarpower.coal_dust": "Coal Dust",
@@ -27,6 +29,8 @@
 
   "item.scalarpower.redium_ingot": "Redium Ingot",
   "item.scalarpower.steel_ingot": "Steel Ingot",
+
+  "item.scalarpower.copper_wire": "Copper Wire",
 
   "item.scalarpower.gold_upgrade": "Gold Upgrade",
   "item.scalarpower.redium_upgrade": "Redium Upgrade",
