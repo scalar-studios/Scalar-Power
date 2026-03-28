@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "minecraft:raw_gold",
+    "minecraft:gold_ingot",
     { "id": "c:raw_ores/gold", "required": false },
     { "id": "c:raw_materials/gold", "required": false }
   ]

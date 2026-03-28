@@ -54,7 +54,14 @@ public class CoalGeneratorMenu extends AbstractContainerMenu {
             if (index == 0) {
                 if (!moveItemStackTo(stack, 1, 37, true)) return ItemStack.EMPTY;
             } else if (blockEntity.isFuel(stack)) {
-                if (!moveItemStackTo(stack, 0, 1, false)) return ItemStack.EMPTY;
+                if (!moveItemStackTo(stack, 0, 1, false)) {
+                    // Fuel slot is full; fall back to moving between inventory and hotbar
+                    if (index < 28) {
+                        if (!moveItemStackTo(stack, 28, 37, false)) return ItemStack.EMPTY;
+                    } else {
+                        if (!moveItemStackTo(stack, 1, 28, false)) return ItemStack.EMPTY;
+                    }
+                }
             } else if (index < 28) {
                 if (!moveItemStackTo(stack, 28, 37, false)) return ItemStack.EMPTY;
             } else {

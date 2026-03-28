@@ -12,6 +12,7 @@ import site.scalarstudios.scalarpower.gui.ScalarPowerMenus;
 import site.scalarstudios.scalarpower.item.ScalarPowerCreativeTabs;
 import site.scalarstudios.scalarpower.item.ScalarPowerItems;
 import site.scalarstudios.scalarpower.power.ScalarPowerCapabilities;
+import site.scalarstudios.scalarpower.recipe.ScalarPowerRecipes;
 
 @Mod(ScalarPower.MODID)
 public class ScalarPower {
@@ -27,6 +28,7 @@ public class ScalarPower {
         // Register Block Entities and Menus
         ScalarPowerBlockEntities.register(modEventBus);
         ScalarPowerMenus.register(modEventBus);
+        ScalarPowerRecipes.register(modEventBus);
         modEventBus.addListener(ScalarPowerCapabilities::register);
 
         // Register Creative Tabs

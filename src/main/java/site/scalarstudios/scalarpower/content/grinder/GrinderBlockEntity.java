@@ -2,8 +2,9 @@ package site.scalarstudios.scalarpower.content.grinder;
 
 import site.scalarstudios.scalarpower.power.NeoEnergyTransferUtil;
 import site.scalarstudios.scalarpower.block.ScalarPowerBlockEntities;
-import site.scalarstudios.scalarpower.item.ScalarPowerItems;
+import site.scalarstudios.scalarpower.content.grinder.recipe.GrindingRecipe;
 import site.scalarstudios.scalarpower.item.ScalarPowerTags;
+import site.scalarstudios.scalarpower.recipe.ScalarPowerRecipes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -14,6 +15,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -21,6 +26,8 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.transfer.energy.EnergyHandler;
 import net.neoforged.neoforge.transfer.energy.SimpleEnergyHandler;
+
+import java.util.Optional;
 
 public class GrinderBlockEntity extends BlockEntity implements Container, MenuProvider {
     private static final int ENERGY_CAPACITY = 12000;
@@ -56,7 +63,11 @@ public class GrinderBlockEntity extends BlockEntity implements Container, MenuPr
             changed |= pulled > 0;
         }
 
-        ItemStack result = blockEntity.getGrindingOutput(blockEntity.inputStack);
+        Optional<RecipeHolder<GrindingRecipe>> recipeHolder = blockEntity.findRecipe(blockEntity.inputStack);
+        ItemStack result = recipeHolder
+                .map(holder -> holder.value().assemble(new SingleRecipeInput(blockEntity.inputStack)))
+                .orElse(ItemStack.EMPTY);
+
         if (!result.isEmpty() && blockEntity.canOutput(blockEntity.outputStack, result) && blockEntity.energyHandler.getAmountAsLong() >= ENERGY_PER_TICK) {
             blockEntity.energyHandler.set((int)(blockEntity.energyHandler.getAmountAsLong() - ENERGY_PER_TICK));
             blockEntity.progress++;
@@ -65,10 +76,17 @@ public class GrinderBlockEntity extends BlockEntity implements Container, MenuPr
 
             if (blockEntity.progress >= RECIPE_TIME) {
                 blockEntity.inputStack.shrink(1);
+                int produced = result.getCount();
+                GrindingRecipe recipe = recipeHolder.get().value();
+                if (level.getRandom().nextFloat() < recipe.bonusChance()) {
+                    produced += recipe.bonusCount();
+                }
+                produced = Math.min(produced, blockEntity.getMaxAddable(blockEntity.outputStack, result));
+
                 if (blockEntity.outputStack.isEmpty()) {
-                    blockEntity.outputStack = result.copy();
+                    blockEntity.outputStack = result.copyWithCount(produced);
                 } else {
-                    blockEntity.outputStack.grow(result.getCount());
+                    blockEntity.outputStack.grow(produced);
                 }
                 blockEntity.progress = 0;
             }
@@ -92,11 +110,63 @@ public class GrinderBlockEntity extends BlockEntity implements Container, MenuPr
         return current.getCount() + recipe.getCount() <= current.getMaxStackSize();
     }
 
+    private int getMaxAddable(ItemStack current, ItemStack recipe) {
+        if (current.isEmpty()) {
+            return recipe.getMaxStackSize();
+        }
+        if (!ItemStack.isSameItemSameComponents(current, recipe)) {
+            return 0;
+        }
+        return current.getMaxStackSize() - current.getCount();
+    }
+
     public ItemStack getGrindingOutput(ItemStack stack) {
-        if (stack.is(ScalarPowerTags.RAW_IRON_GRINDABLE)) return new ItemStack(ScalarPowerItems.IRON_DUST.get(), 2);
-        if (stack.is(ScalarPowerTags.RAW_GOLD_GRINDABLE)) return new ItemStack(ScalarPowerItems.GOLD_DUST.get(), 2);
-        if (stack.is(ScalarPowerTags.RAW_COPPER_GRINDABLE)) return new ItemStack(ScalarPowerItems.COPPER_DUST.get(), 2);
-        return ItemStack.EMPTY;
+        return findRecipe(stack)
+                .map(holder -> holder.value().assemble(new SingleRecipeInput(stack)))
+                .orElse(ItemStack.EMPTY);
+    }
+
+    public boolean canGrind(ItemStack stack) {
+        if (stack.isEmpty() || !isAllowedGrindingInput(stack)) {
+            return false;
+        }
+
+        if (level == null) {
+            return true;
+        }
+
+        // Client recipeAccess is not a RecipeManager in 1.21+, so allow insertion UX there.
+        if (!(level instanceof ServerLevel)) {
+            return true;
+        }
+
+        return findRecipe(stack).isPresent();
+    }
+
+    private static boolean isAllowedGrindingInput(ItemStack stack) {
+        return stack.is(ScalarPowerTags.C_RAW_MATERIALS) || stack.is(ScalarPowerTags.C_INGOTS);
+    }
+
+    private Optional<RecipeHolder<GrindingRecipe>> findRecipe(ItemStack stack) {
+        if (stack.isEmpty() || !(level instanceof ServerLevel serverLevel)) {
+            return Optional.empty();
+        }
+
+        SingleRecipeInput input = new SingleRecipeInput(stack);
+        Optional<RecipeHolder<GrindingRecipe>> byType = serverLevel.recipeAccess().getRecipeFor(
+                ScalarPowerRecipes.GRINDING_RECIPE_TYPE,
+                input,
+                serverLevel);
+        if (byType.isPresent()) {
+            return byType;
+        }
+
+        // Fallback scan: handles cases where typed map lookup misses custom recipes.
+        RecipeManager recipeManager = serverLevel.recipeAccess();
+        return recipeManager.getRecipes().stream()
+                .filter(holder -> holder.value() instanceof GrindingRecipe recipe && recipe.matches(input, serverLevel))
+                .findFirst()
+                .map(holder -> (RecipeHolder<GrindingRecipe>) holder);
     }
 
     @Override

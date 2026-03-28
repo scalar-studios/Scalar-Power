@@ -69,7 +69,12 @@ public class PoweredFurnaceMenu extends AbstractContainerMenu {
                 }
             } else if (blockEntity.canSmelt(stack)) {
                 if (!moveItemStackTo(stack, 0, 1, false)) {
-                    return ItemStack.EMPTY;
+                    // Input slot is full; fall back to moving between inventory and hotbar
+                    if (index < 29) {
+                        if (!moveItemStackTo(stack, 29, 38, false)) return ItemStack.EMPTY;
+                    } else {
+                        if (!moveItemStackTo(stack, 2, 29, false)) return ItemStack.EMPTY;
+                    }
                 }
             } else if (index < 29) {
                 if (!moveItemStackTo(stack, 29, 38, false)) {

@@ -25,7 +25,12 @@ public class GrinderMenu extends AbstractContainerMenu {
         checkContainerDataCount(data, 4);
         addDataSlots(data);
 
-        addSlot(new Slot(blockEntity, 0, 56, 35));
+        addSlot(new Slot(blockEntity, 0, 56, 35) {
+            @Override
+            public boolean mayPlace(ItemStack stack) {
+                return blockEntity.canGrind(stack);
+            }
+        });
         addSlot(new Slot(blockEntity, 1, 116, 35) {
             @Override
             public boolean mayPlace(ItemStack stack) { return false; }
@@ -50,8 +55,14 @@ public class GrinderMenu extends AbstractContainerMenu {
                 if (!moveItemStackTo(stack, 2, 38, true)) return ItemStack.EMPTY;
             } else if (index == 0) {
                 if (!moveItemStackTo(stack, 2, 38, false)) return ItemStack.EMPTY;
-            } else if (!blockEntity.getGrindingOutput(stack).isEmpty()) {
-                if (!moveItemStackTo(stack, 0, 1, false)) return ItemStack.EMPTY;
+            } else if (blockEntity.canGrind(stack)) {
+                if (!moveItemStackTo(stack, 0, 1, false)) {
+                    if (index < 29) {
+                        if (!moveItemStackTo(stack, 29, 38, false)) return ItemStack.EMPTY;
+                    } else {
+                        if (!moveItemStackTo(stack, 2, 29, false)) return ItemStack.EMPTY;
+                    }
+                }
             } else if (index < 29) {
                 if (!moveItemStackTo(stack, 29, 38, false)) return ItemStack.EMPTY;
             } else {
@@ -71,4 +82,3 @@ public class GrinderMenu extends AbstractContainerMenu {
     public int getEnergy() { return data.get(2); }
     public int getEnergyCapacity() { return data.get(3); }
 }
-

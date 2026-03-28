@@ -1,0 +1,10 @@
+{
+  "type": "scalarpower:grinding",
+  "ingredient": "minecraft:raw_copper",
+  "result": {
+    "id": "scalarpower:copper_dust",
+    "count": 1
+  },
+  "bonus_chance": 0.33,
+  "bonus_count": 1
+}
