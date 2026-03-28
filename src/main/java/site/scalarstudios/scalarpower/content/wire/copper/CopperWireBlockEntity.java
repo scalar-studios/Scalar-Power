@@ -49,5 +49,9 @@ public class CopperWireBlockEntity extends BlockEntity {
         energyHandler.deserialize(input);
     }
 
+    public boolean hasCharge() {
+        return energyHandler.getAmountAsLong() > 0;
+    }
+
     public EnergyHandler getEnergyHandler(Direction side) { return energyHandler; }
 }

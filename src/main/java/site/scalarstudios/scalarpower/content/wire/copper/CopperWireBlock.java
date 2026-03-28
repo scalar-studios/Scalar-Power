@@ -5,6 +5,10 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.InsideBlockEffectApplier;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -85,6 +89,27 @@ public class CopperWireBlock extends BaseEntityBlock {
         if (state.getValue(UP)) shape = Shapes.or(shape, UP_ARM);
         if (state.getValue(DOWN)) shape = Shapes.or(shape, DOWN_ARM);
         return shape;
+    }
+
+    @Override
+    public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
+        super.stepOn(level, pos, state, entity);
+        shockEntity(level, pos, entity);
+    }
+
+    @Override
+    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity,
+            InsideBlockEffectApplier insideBlockEffectApplier, boolean moved) {
+        shockEntity(level, pos, entity);
+    }
+
+    private static void shockEntity(Level level, BlockPos pos, Entity entity) {
+        if (!(level.getBlockEntity(pos) instanceof CopperWireBlockEntity wireBlockEntity) || !wireBlockEntity.hasCharge()) {
+            return;
+        }
+        if (entity instanceof LivingEntity livingEntity && level instanceof ServerLevel serverLevel) {
+            livingEntity.hurtServer(serverLevel, level.damageSources().magic(), 1.0F);
+        }
     }
 
     private static BlockState updateConnections(BlockState state, LevelReader level, BlockPos pos) {
