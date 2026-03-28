@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#c:dusts/copper",
+    "#c:dusts/iron",
+    "#c:dusts/gold"
+  ]
+}
