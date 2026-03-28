@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "facing=north,lit=false": { "model": "scalarpower:block/alloy_smelter" },
+    "facing=east,lit=false": { "model": "scalarpower:block/alloy_smelter", "y": 90, "uvlock": true },
+    "facing=south,lit=false": { "model": "scalarpower:block/alloy_smelter", "y": 180, "uvlock": true },
+    "facing=west,lit=false": { "model": "scalarpower:block/alloy_smelter", "y": 270, "uvlock": true },
+
+    "facing=north,lit=true": { "model": "scalarpower:block/alloy_smelter_on" },
+    "facing=east,lit=true": { "model": "scalarpower:block/alloy_smelter_on", "y": 90, "uvlock": true },
+    "facing=south,lit=true": { "model": "scalarpower:block/alloy_smelter_on", "y": 180, "uvlock": true },
+    "facing=west,lit=true": { "model": "scalarpower:block/alloy_smelter_on", "y": 270, "uvlock": true }
+  }
+}
+

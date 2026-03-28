@@ -26,6 +26,11 @@ public final class ScalarPowerCapabilities {
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
+                ScalarPowerBlockEntities.ALLOY_SMELTER.get(),
+                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+
+        event.registerBlockEntity(
+                Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.COPPER_WIRE.get(),
                 (blockEntity, side) -> blockEntity.getEnergyHandler(side));
     }

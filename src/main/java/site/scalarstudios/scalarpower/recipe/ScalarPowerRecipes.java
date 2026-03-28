@@ -8,12 +8,15 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import site.scalarstudios.scalarpower.ScalarPower;
-import site.scalarstudios.scalarpower.content.grinder.recipe.GrindingRecipe;
 
 public final class ScalarPowerRecipes {
     public static final Identifier GRINDING_ID = Identifier.fromNamespaceAndPath(ScalarPower.MODID, "grinding");
     public static final RecipeType<GrindingRecipe> GRINDING_RECIPE_TYPE = RecipeType.simple(GRINDING_ID);
     public static final RecipeSerializer<GrindingRecipe> GRINDING_RECIPE_SERIALIZER = GrindingRecipe.SERIALIZER;
+
+    public static final Identifier ALLOY_SMELTING_ID = Identifier.fromNamespaceAndPath(ScalarPower.MODID, "alloy_smelting");
+    public static final RecipeType<AlloySmeltingRecipe> ALLOY_SMELTING_RECIPE_TYPE = RecipeType.simple(ALLOY_SMELTING_ID);
+    public static final RecipeSerializer<AlloySmeltingRecipe> ALLOY_SMELTING_RECIPE_SERIALIZER = AlloySmeltingRecipe.SERIALIZER;
 
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, ScalarPower.MODID);
     public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(Registries.RECIPE_SERIALIZER, ScalarPower.MODID);
@@ -25,6 +28,14 @@ public final class ScalarPowerRecipes {
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<GrindingRecipe>> GRINDING_SERIALIZER = RECIPE_SERIALIZERS.register(
             "grinding",
             () -> GRINDING_RECIPE_SERIALIZER);
+
+    public static final DeferredHolder<RecipeType<?>, RecipeType<AlloySmeltingRecipe>> ALLOY_SMELTING_TYPE = RECIPE_TYPES.register(
+            "alloy_smelting",
+            () -> ALLOY_SMELTING_RECIPE_TYPE);
+
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<AlloySmeltingRecipe>> ALLOY_SMELTING_SERIALIZER = RECIPE_SERIALIZERS.register(
+            "alloy_smelting",
+            () -> ALLOY_SMELTING_RECIPE_SERIALIZER);
 
     private ScalarPowerRecipes() {
     }

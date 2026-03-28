@@ -1,4 +1,4 @@
-package site.scalarstudios.scalarpower.content.grinder.recipe;
+package site.scalarstudios.scalarpower.recipe;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
@@ -14,7 +14,6 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SingleItemRecipe;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import site.scalarstudios.scalarpower.recipe.ScalarPowerRecipes;
 
 public class GrindingRecipe extends SingleItemRecipe {
     public static final MapCodec<GrindingRecipe> MAP_CODEC = RecordCodecBuilder.mapCodec(

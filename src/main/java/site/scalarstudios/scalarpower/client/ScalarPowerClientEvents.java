@@ -1,5 +1,6 @@
 package site.scalarstudios.scalarpower.client;
 
+import site.scalarstudios.scalarpower.content.alloysmelter.AlloySmelterScreen;
 import site.scalarstudios.scalarpower.content.generator.CoalGeneratorScreen;
 import site.scalarstudios.scalarpower.content.grinder.GrinderScreen;
 import site.scalarstudios.scalarpower.content.poweredfurnace.PoweredFurnaceScreen;
@@ -17,5 +18,6 @@ public class ScalarPowerClientEvents {
         event.register(ScalarPowerMenus.COAL_GENERATOR_MENU.get(), CoalGeneratorScreen::new);
         event.register(ScalarPowerMenus.GRINDER_MENU.get(), GrinderScreen::new);
         event.register(ScalarPowerMenus.POWERED_FURNACE_MENU.get(), PoweredFurnaceScreen::new);
+        event.register(ScalarPowerMenus.ALLOY_SMELTER_MENU.get(), AlloySmelterScreen::new);
     }
 }

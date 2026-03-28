@@ -1,0 +1,11 @@
+{
+  "type": "scalarpower:alloy_smelting",
+  "ingredient1": "minecraft:gold_ingot",
+  "ingredient2": "minecraft:iron_ingot",
+  "ingredient3": "minecraft:copper_ingot",
+  "result": {
+    "id": "minecraft:emerald",
+    "count": 1
+  }
+}
+

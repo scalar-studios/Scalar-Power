@@ -2,7 +2,7 @@ package site.scalarstudios.scalarpower.content.grinder;
 
 import site.scalarstudios.scalarpower.power.NeoEnergyTransferUtil;
 import site.scalarstudios.scalarpower.block.ScalarPowerBlockEntities;
-import site.scalarstudios.scalarpower.content.grinder.recipe.GrindingRecipe;
+import site.scalarstudios.scalarpower.recipe.GrindingRecipe;
 import site.scalarstudios.scalarpower.item.ScalarPowerTags;
 import site.scalarstudios.scalarpower.recipe.ScalarPowerRecipes;
 import net.minecraft.core.BlockPos;
