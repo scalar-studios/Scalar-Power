@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SRS",
+    "SFS",
+    "SRS"
+  ],
+  "key": {
+    "S": "scalarpower:steel_ingot",
+    "R": "scalarpower:redium_ingot",
+    "F": "scalarpower:powered_furnace"
+  },
+  "result": {
+    "id": "scalarpower:double_powered_furnace",
+    "count": 1
+  }
+}
+

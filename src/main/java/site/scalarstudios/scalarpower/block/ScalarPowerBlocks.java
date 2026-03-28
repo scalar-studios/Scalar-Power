@@ -12,8 +12,10 @@ import site.scalarstudios.scalarpower.content.alloysmelter.AlloySmelterBlock;
 import site.scalarstudios.scalarpower.content.battery.BatteryBlock;
 import site.scalarstudios.scalarpower.content.generator.coal.CoalGeneratorBlock;
 import site.scalarstudios.scalarpower.content.generator.culinary.CulinaryGeneratorBlock;
+import site.scalarstudios.scalarpower.content.grinder.DoubleGrinderBlock;
 import site.scalarstudios.scalarpower.content.grinder.GrinderBlock;
 import site.scalarstudios.scalarpower.content.extractor.ExtractorBlock;
+import site.scalarstudios.scalarpower.content.poweredfurnace.DoublePoweredFurnaceBlock;
 import site.scalarstudios.scalarpower.content.poweredfurnace.PoweredFurnaceBlock;
 import site.scalarstudios.scalarpower.content.wire.copper.CopperWireBlock;
 import site.scalarstudios.scalarpower.content.wire.copper.InsulatedCopperWireBlock;
@@ -41,12 +43,20 @@ public class ScalarPowerBlocks {
             GrinderBlock::new,
             properties -> properties.strength(3.5F, 3.5F).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.STONE));
 
+    public static final DeferredBlock<DoubleGrinderBlock> DOUBLE_GRINDER = registerBlock("double_grinder",
+            DoubleGrinderBlock::new,
+            properties -> properties.strength(3.5F, 3.5F).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.STONE));
+
     public static final DeferredBlock<ExtractorBlock> EXTRACTOR = registerBlock("extractor",
             ExtractorBlock::new,
             properties -> properties.strength(3.5F, 3.5F).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.STONE));
 
     public static final DeferredBlock<PoweredFurnaceBlock> POWERED_FURNACE = registerBlock("powered_furnace",
             PoweredFurnaceBlock::new,
+            properties -> properties.strength(3.5F, 3.5F).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.STONE));
+
+    public static final DeferredBlock<DoublePoweredFurnaceBlock> DOUBLE_POWERED_FURNACE = registerBlock("double_powered_furnace",
+            DoublePoweredFurnaceBlock::new,
             properties -> properties.strength(3.5F, 3.5F).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.STONE));
 
     public static final DeferredBlock<AlloySmelterBlock> ALLOY_SMELTER = registerBlock("alloy_smelter",

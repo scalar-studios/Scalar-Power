@@ -9,8 +9,8 @@ import net.minecraft.world.entity.player.Inventory;
 
 import java.util.Locale;
 
-public class PoweredFurnaceScreen extends AbstractContainerScreen<PoweredFurnaceMenu> {
-    private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath("scalarpower", "textures/gui/generic_1to1.png");
+public class DoublePoweredFurnaceScreen extends AbstractContainerScreen<DoublePoweredFurnaceMenu> {
+    private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath("scalarpower", "textures/gui/generic_2to2.png");
 
     private static final int TEXTURE_WIDTH = 256;
     private static final int TEXTURE_HEIGHT = 256;
@@ -25,14 +25,17 @@ public class PoweredFurnaceScreen extends AbstractContainerScreen<PoweredFurnace
     private static final int ENERGY_TEXT_X_OFFSET = -2;
 
     private static final int PROGRESS_X = 80;
-    private static final int PROGRESS_Y = 32;
+    private static final int PROGRESS_A_Y = 17;
+    private static final int PROGRESS_B_Y = 44;
     private static final int PROGRESS_WIDTH = 24;
     private static final int PROGRESS_HEIGHT = 18;
     private static final int PROGRESS_U = 176;
     private static final int PROGRESS_V = 0;
+    private static final int INVENTORY_LABEL_Y = 72;
 
-    public PoweredFurnaceScreen(PoweredFurnaceMenu menu, Inventory inventory, Component title) {
+    public DoublePoweredFurnaceScreen(DoublePoweredFurnaceMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title, 176, 166);
+        this.inventoryLabelY = INVENTORY_LABEL_Y;
     }
 
     @Override
@@ -43,16 +46,31 @@ public class PoweredFurnaceScreen extends AbstractContainerScreen<PoweredFurnace
 
         graphics.blit(RenderPipelines.GUI_TEXTURED, TEXTURE, x, y, 0.0F, 0.0F, this.imageWidth, this.imageHeight, TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
-        int progressPixels = menu.getMaxProgress() > 0 ? (int) ((float) PROGRESS_WIDTH * menu.getProgress() / menu.getMaxProgress()) : 0;
-        if (progressPixels > 0) {
+        int progressAPixels = menu.getMaxProgressA() > 0 ? (int) ((float) PROGRESS_WIDTH * menu.getProgressA() / menu.getMaxProgressA()) : 0;
+        if (progressAPixels > 0) {
             graphics.blit(
                     RenderPipelines.GUI_TEXTURED,
                     TEXTURE,
                     x + PROGRESS_X,
-                    y + PROGRESS_Y,
+                    y + PROGRESS_A_Y,
                     PROGRESS_U,
                     PROGRESS_V,
-                    progressPixels,
+                    progressAPixels,
+                    PROGRESS_HEIGHT,
+                    TEXTURE_WIDTH,
+                    TEXTURE_HEIGHT);
+        }
+
+        int progressBPixels = menu.getMaxProgressB() > 0 ? (int) ((float) PROGRESS_WIDTH * menu.getProgressB() / menu.getMaxProgressB()) : 0;
+        if (progressBPixels > 0) {
+            graphics.blit(
+                    RenderPipelines.GUI_TEXTURED,
+                    TEXTURE,
+                    x + PROGRESS_X,
+                    y + PROGRESS_B_Y,
+                    PROGRESS_U,
+                    PROGRESS_V,
+                    progressBPixels,
                     PROGRESS_HEIGHT,
                     TEXTURE_WIDTH,
                     TEXTURE_HEIGHT);

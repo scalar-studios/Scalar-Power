@@ -26,12 +26,22 @@ public final class ScalarPowerCapabilities {
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
+                ScalarPowerBlockEntities.DOUBLE_GRINDER.get(),
+                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+
+        event.registerBlockEntity(
+                Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.EXTRACTOR.get(),
                 (blockEntity, side) -> blockEntity.getEnergyHandler(side));
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.POWERED_FURNACE.get(),
+                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+
+        event.registerBlockEntity(
+                Capabilities.Energy.BLOCK,
+                ScalarPowerBlockEntities.DOUBLE_POWERED_FURNACE.get(),
                 (blockEntity, side) -> blockEntity.getEnergyHandler(side));
 
         event.registerBlockEntity(

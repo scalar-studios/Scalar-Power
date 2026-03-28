@@ -29,7 +29,7 @@ import net.neoforged.neoforge.transfer.energy.SimpleEnergyHandler;
 import java.util.Optional;
 
 public class ExtractorBlockEntity extends BlockEntity implements Container, MenuProvider {
-    private static final int ENERGY_CAPACITY = 12000;
+    private static final int ENERGY_CAPACITY = 20000;
     private static final int ENERGY_PER_TICK = 20;
     private static final int RECIPE_TIME = 100;
     private static final int PULL_PER_SIDE = 60;

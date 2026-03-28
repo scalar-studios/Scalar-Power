@@ -10,7 +10,7 @@ import net.minecraft.world.entity.player.Inventory;
 import java.util.Locale;
 
 public class GrinderScreen extends AbstractContainerScreen<GrinderMenu> {
-    private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath("scalarpower", "textures/gui/grinder.png");
+    private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath("scalarpower", "textures/gui/generic_1to1.png");
 
     private static final int TEXTURE_WIDTH = 256;
     private static final int TEXTURE_HEIGHT = 256;

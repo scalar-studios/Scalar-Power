@@ -5,8 +5,10 @@ import site.scalarstudios.scalarpower.content.alloysmelter.AlloySmelterBlockEnti
 import site.scalarstudios.scalarpower.content.battery.BatteryBlockEntity;
 import site.scalarstudios.scalarpower.content.generator.coal.CoalGeneratorBlockEntity;
 import site.scalarstudios.scalarpower.content.generator.culinary.CulinaryGeneratorBlockEntity;
+import site.scalarstudios.scalarpower.content.grinder.DoubleGrinderBlockEntity;
 import site.scalarstudios.scalarpower.content.grinder.GrinderBlockEntity;
 import site.scalarstudios.scalarpower.content.extractor.ExtractorBlockEntity;
+import site.scalarstudios.scalarpower.content.poweredfurnace.DoublePoweredFurnaceBlockEntity;
 import site.scalarstudios.scalarpower.content.poweredfurnace.PoweredFurnaceBlockEntity;
 import site.scalarstudios.scalarpower.content.wire.copper.CopperWireBlockEntity;
 import site.scalarstudios.scalarpower.content.wire.copper.InsulatedCopperWireBlockEntity;
@@ -34,6 +36,10 @@ public final class ScalarPowerBlockEntities {
             .register("grinder",
                     () -> new BlockEntityType<>(GrinderBlockEntity::new, ScalarPowerBlocks.GRINDER.get()));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DoubleGrinderBlockEntity>> DOUBLE_GRINDER = BLOCK_ENTITY_TYPES
+            .register("double_grinder",
+                    () -> new BlockEntityType<>(DoubleGrinderBlockEntity::new, ScalarPowerBlocks.DOUBLE_GRINDER.get()));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ExtractorBlockEntity>> EXTRACTOR = BLOCK_ENTITY_TYPES
             .register("extractor",
                     () -> new BlockEntityType<>(ExtractorBlockEntity::new, ScalarPowerBlocks.EXTRACTOR.get()));
@@ -41,6 +47,10 @@ public final class ScalarPowerBlockEntities {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PoweredFurnaceBlockEntity>> POWERED_FURNACE = BLOCK_ENTITY_TYPES
             .register("powered_furnace",
                     () -> new BlockEntityType<>(PoweredFurnaceBlockEntity::new, ScalarPowerBlocks.POWERED_FURNACE.get()));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DoublePoweredFurnaceBlockEntity>> DOUBLE_POWERED_FURNACE = BLOCK_ENTITY_TYPES
+            .register("double_powered_furnace",
+                    () -> new BlockEntityType<>(DoublePoweredFurnaceBlockEntity::new, ScalarPowerBlocks.DOUBLE_POWERED_FURNACE.get()));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AlloySmelterBlockEntity>> ALLOY_SMELTER = BLOCK_ENTITY_TYPES
             .register("alloy_smelter",

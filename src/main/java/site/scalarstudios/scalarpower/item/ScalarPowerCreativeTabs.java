@@ -30,8 +30,10 @@ public class ScalarPowerCreativeTabs {
             /* Machines */
             event.accept(ScalarPowerBlocks.ALLOY_SMELTER.get());
             event.accept(ScalarPowerBlocks.GRINDER.get());
+            event.accept(ScalarPowerBlocks.DOUBLE_GRINDER.get());
             event.accept(ScalarPowerBlocks.EXTRACTOR.get());
             event.accept(ScalarPowerBlocks.POWERED_FURNACE.get());
+            event.accept(ScalarPowerBlocks.DOUBLE_POWERED_FURNACE.get());
 
             /* Energy Storage & Transfer */
             event.accept(ScalarPowerBlocks.BATTERY.get());

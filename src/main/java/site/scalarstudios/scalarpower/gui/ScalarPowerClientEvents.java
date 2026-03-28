@@ -4,8 +4,10 @@ import site.scalarstudios.scalarpower.content.alloysmelter.AlloySmelterScreen;
 import site.scalarstudios.scalarpower.content.battery.BatteryScreen;
 import site.scalarstudios.scalarpower.content.generator.coal.CoalGeneratorScreen;
 import site.scalarstudios.scalarpower.content.generator.culinary.CulinaryGeneratorScreen;
+import site.scalarstudios.scalarpower.content.grinder.DoubleGrinderScreen;
 import site.scalarstudios.scalarpower.content.grinder.GrinderScreen;
 import site.scalarstudios.scalarpower.content.extractor.ExtractorScreen;
+import site.scalarstudios.scalarpower.content.poweredfurnace.DoublePoweredFurnaceScreen;
 import site.scalarstudios.scalarpower.content.poweredfurnace.PoweredFurnaceScreen;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -20,8 +22,10 @@ public class ScalarPowerClientEvents {
         event.register(ScalarPowerMenus.COAL_GENERATOR_MENU.get(), CoalGeneratorScreen::new);
         event.register(ScalarPowerMenus.CULINARY_GENERATOR_MENU.get(), CulinaryGeneratorScreen::new);
         event.register(ScalarPowerMenus.GRINDER_MENU.get(), GrinderScreen::new);
+        event.register(ScalarPowerMenus.DOUBLE_GRINDER_MENU.get(), DoubleGrinderScreen::new);
         event.register(ScalarPowerMenus.EXTRACTOR_MENU.get(), ExtractorScreen::new);
         event.register(ScalarPowerMenus.POWERED_FURNACE_MENU.get(), PoweredFurnaceScreen::new);
+        event.register(ScalarPowerMenus.DOUBLE_POWERED_FURNACE_MENU.get(), DoublePoweredFurnaceScreen::new);
         event.register(ScalarPowerMenus.ALLOY_SMELTER_MENU.get(), AlloySmelterScreen::new);
         event.register(ScalarPowerMenus.BATTERY_MENU.get(), BatteryScreen::new);
     }
