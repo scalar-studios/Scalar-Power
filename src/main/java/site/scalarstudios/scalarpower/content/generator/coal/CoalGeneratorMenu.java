@@ -1,4 +1,4 @@
-package site.scalarstudios.scalarpower.content.generator;
+package site.scalarstudios.scalarpower.content.generator.coal;
 
 import site.scalarstudios.scalarpower.gui.ScalarPowerMenus;
 import net.minecraft.network.FriendlyByteBuf;

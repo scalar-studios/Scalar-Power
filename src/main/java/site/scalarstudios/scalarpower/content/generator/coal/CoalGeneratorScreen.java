@@ -1,4 +1,4 @@
-package site.scalarstudios.scalarpower.content.generator;
+package site.scalarstudios.scalarpower.content.generator.coal;
 
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -57,6 +57,16 @@ public class CoalGeneratorScreen extends AbstractContainerScreen<CoalGeneratorMe
                 ENERGY_TEXT_COLOR,
                 false);
         graphics.pose().popMatrix();
+
+        // Draw seconds remaining to the left of the fuel slot (slot is at x+82, y+39)
+        if (menu.getBurnTime() > 0) {
+            int seconds = Math.max(1, Math.round(menu.getBurnTime() / 20.0f));
+            String burnText = seconds + "s";
+            // Center the text horizontally in the left area (0–82) at the vertical centre of the fuel slot
+            int burnTextX = x + (82 - this.font.width(burnText)) / 2;
+            int burnTextY = y + 44;
+            graphics.text(this.font, burnText, burnTextX, burnTextY, ENERGY_TEXT_COLOR, false);
+        }
     }
 
     private static String formatEnergy(int value) {

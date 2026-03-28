@@ -1,7 +1,7 @@
 package site.scalarstudios.scalarpower.client;
 
 import site.scalarstudios.scalarpower.content.alloysmelter.AlloySmelterScreen;
-import site.scalarstudios.scalarpower.content.generator.CoalGeneratorScreen;
+import site.scalarstudios.scalarpower.content.generator.coal.CoalGeneratorScreen;
 import site.scalarstudios.scalarpower.content.grinder.GrinderScreen;
 import site.scalarstudios.scalarpower.content.poweredfurnace.PoweredFurnaceScreen;
 import site.scalarstudios.scalarpower.gui.ScalarPowerMenus;

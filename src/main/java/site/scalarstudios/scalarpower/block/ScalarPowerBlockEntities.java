@@ -2,7 +2,7 @@ package site.scalarstudios.scalarpower.block;
 
 import site.scalarstudios.scalarpower.ScalarPower;
 import site.scalarstudios.scalarpower.content.alloysmelter.AlloySmelterBlockEntity;
-import site.scalarstudios.scalarpower.content.generator.CoalGeneratorBlockEntity;
+import site.scalarstudios.scalarpower.content.generator.coal.CoalGeneratorBlockEntity;
 import site.scalarstudios.scalarpower.content.grinder.GrinderBlockEntity;
 import site.scalarstudios.scalarpower.content.poweredfurnace.PoweredFurnaceBlockEntity;
 import site.scalarstudios.scalarpower.content.wire.CopperWireBlockEntity;

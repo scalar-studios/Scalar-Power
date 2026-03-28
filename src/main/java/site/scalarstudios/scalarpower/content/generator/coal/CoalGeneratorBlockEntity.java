@@ -1,4 +1,4 @@
-package site.scalarstudios.scalarpower.content.generator;
+package site.scalarstudios.scalarpower.content.generator.coal;
 
 import site.scalarstudios.scalarpower.power.NeoEnergyTransferUtil;
 import site.scalarstudios.scalarpower.block.ScalarPowerBlockEntities;
@@ -46,16 +46,22 @@ public class CoalGeneratorBlockEntity extends BlockEntity implements Container, 
 
         boolean changed = false;
 
-        if (blockEntity.burnTime > 0) {
+        long energy = blockEntity.energyHandler.getAmountAsLong();
+        long capacity = blockEntity.energyHandler.getCapacityAsLong();
+        boolean hasEnergyRoom = energy < capacity;
+
+        // Only consume burn time while we can actually store generated energy.
+        if (blockEntity.burnTime > 0 && hasEnergyRoom) {
             blockEntity.burnTime--;
-            int generated = Math.min(ENERGY_PER_TICK, (int)(blockEntity.energyHandler.getCapacityAsLong() - blockEntity.energyHandler.getAmountAsLong()));
+            int generated = Math.min(ENERGY_PER_TICK, (int) (capacity - energy));
             if (generated > 0) {
-                blockEntity.energyHandler.set((int)(blockEntity.energyHandler.getAmountAsLong() + generated));
+                blockEntity.energyHandler.set((int) (energy + generated));
                 changed = true;
             }
         }
 
-        if (blockEntity.burnTime <= 0) {
+        // Don't consume new fuel while storage is full; wait until there is room again.
+        if (blockEntity.burnTime <= 0 && hasEnergyRoom) {
             int newBurnTime = getFuelTicks(blockEntity.fuelStack.getItem());
             if (!blockEntity.fuelStack.isEmpty() && newBurnTime > 0) {
                 blockEntity.fuelStack.shrink(1);
@@ -74,7 +80,7 @@ public class CoalGeneratorBlockEntity extends BlockEntity implements Container, 
             blockEntity.setChanged();
         }
 
-        boolean isWorking = blockEntity.burnTime > 0;
+        boolean isWorking = blockEntity.burnTime > 0 && hasEnergyRoom;
         if (state.hasProperty(CoalGeneratorBlock.LIT) && state.getValue(CoalGeneratorBlock.LIT) != isWorking) {
             level.setBlock(pos, state.setValue(CoalGeneratorBlock.LIT, isWorking), 3);
         }
@@ -178,6 +184,4 @@ public class CoalGeneratorBlockEntity extends BlockEntity implements Container, 
     public int getEnergy() { return (int)energyHandler.getAmountAsLong(); }
     public boolean isFuel(ItemStack stack) { return getFuelTicks(stack.getItem()) > 0; }
 }
-
-
 

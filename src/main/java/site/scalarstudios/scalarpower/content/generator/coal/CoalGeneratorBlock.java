@@ -1,4 +1,4 @@
-package site.scalarstudios.scalarpower.content.generator;
+package site.scalarstudios.scalarpower.content.generator.coal;
 
 import site.scalarstudios.scalarpower.block.ScalarPowerBlockEntities;
 import com.mojang.serialization.MapCodec;

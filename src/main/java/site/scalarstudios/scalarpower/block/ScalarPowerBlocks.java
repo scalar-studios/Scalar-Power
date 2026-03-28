@@ -9,7 +9,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import site.scalarstudios.scalarpower.ScalarPower;
 import site.scalarstudios.scalarpower.content.alloysmelter.AlloySmelterBlock;
-import site.scalarstudios.scalarpower.content.generator.CoalGeneratorBlock;
+import site.scalarstudios.scalarpower.content.generator.coal.CoalGeneratorBlock;
 import site.scalarstudios.scalarpower.content.grinder.GrinderBlock;
 import site.scalarstudios.scalarpower.content.poweredfurnace.PoweredFurnaceBlock;
 import site.scalarstudios.scalarpower.content.wire.CopperWireBlock;

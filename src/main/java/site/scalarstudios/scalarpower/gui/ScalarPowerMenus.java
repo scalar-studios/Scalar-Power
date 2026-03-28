@@ -1,7 +1,7 @@
 package site.scalarstudios.scalarpower.gui;
 
 import site.scalarstudios.scalarpower.content.alloysmelter.AlloySmelterMenu;
-import site.scalarstudios.scalarpower.content.generator.CoalGeneratorMenu;
+import site.scalarstudios.scalarpower.content.generator.coal.CoalGeneratorMenu;
 import site.scalarstudios.scalarpower.content.grinder.GrinderMenu;
 import site.scalarstudios.scalarpower.content.poweredfurnace.PoweredFurnaceMenu;
 import net.minecraft.core.registries.Registries;
