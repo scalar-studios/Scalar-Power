@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IRI",
+    "WCW",
+    "IRI"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "R": "minecraft:redstone",
+    "W": "scalarpower:copper_wire",
+    "C": "minecraft:copper_block"
+  },
+  "result": {
+    "id": "scalarpower:battery",
+    "count": 1
+  }
+}
+

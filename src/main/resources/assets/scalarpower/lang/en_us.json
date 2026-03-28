@@ -3,12 +3,14 @@
   "block.scalarpower.grinder": "Grinder",
   "block.scalarpower.powered_furnace": "Powered Furnace",
   "block.scalarpower.alloy_smelter": "Alloy Smelter",
+  "block.scalarpower.battery": "Battery",
   "block.scalarpower.copper_wire": "Copper Wire",
 
+  "container.scalarpower.alloy_smelter": "Alloy Smelter",
+  "container.scalarpower.battery": "Battery",
   "container.scalarpower.coal_generator": "Coal Generator",
   "container.scalarpower.grinder": "Grinder",
   "container.scalarpower.powered_furnace": "Powered Furnace",
-  "container.scalarpower.alloy_smelter": "Alloy Smelter",
 
   "itemGroup.scalarpower.scalar_power": "Scalar Power",
 

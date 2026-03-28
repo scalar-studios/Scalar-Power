@@ -26,6 +26,7 @@ public class ScalarPowerCreativeTabs {
             event.accept(ScalarPowerBlocks.GRINDER.get());
             event.accept(ScalarPowerBlocks.POWERED_FURNACE.get());
             event.accept(ScalarPowerBlocks.ALLOY_SMELTER.get());
+            event.accept(ScalarPowerBlocks.BATTERY.get());
             event.accept(ScalarPowerBlocks.COPPER_WIRE.get());
             event.accept(ScalarPowerItems.IRON_DUST.get());
             event.accept(ScalarPowerItems.GOLD_DUST.get());

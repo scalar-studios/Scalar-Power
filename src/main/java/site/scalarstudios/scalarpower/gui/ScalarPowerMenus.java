@@ -1,6 +1,7 @@
 package site.scalarstudios.scalarpower.gui;
 
 import site.scalarstudios.scalarpower.content.alloysmelter.AlloySmelterMenu;
+import site.scalarstudios.scalarpower.content.battery.BatteryMenu;
 import site.scalarstudios.scalarpower.content.generator.coal.CoalGeneratorMenu;
 import site.scalarstudios.scalarpower.content.grinder.GrinderMenu;
 import site.scalarstudios.scalarpower.content.poweredfurnace.PoweredFurnaceMenu;
@@ -26,6 +27,9 @@ public final class ScalarPowerMenus {
 
     public static final DeferredHolder<MenuType<?>, MenuType<AlloySmelterMenu>> ALLOY_SMELTER_MENU = MENUS
             .register("alloy_smelter", () -> IMenuTypeExtension.create(AlloySmelterMenu::new));
+
+    public static final DeferredHolder<MenuType<?>, MenuType<BatteryMenu>> BATTERY_MENU = MENUS
+            .register("battery", () -> IMenuTypeExtension.create(BatteryMenu::new));
 
     public static void register(IEventBus eventBus) {
         MENUS.register(eventBus);
