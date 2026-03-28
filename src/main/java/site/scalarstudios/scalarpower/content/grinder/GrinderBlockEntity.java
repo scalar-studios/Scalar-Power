@@ -3,7 +3,6 @@ package site.scalarstudios.scalarpower.content.grinder;
 import site.scalarstudios.scalarpower.power.NeoEnergyTransferUtil;
 import site.scalarstudios.scalarpower.block.ScalarPowerBlockEntities;
 import site.scalarstudios.scalarpower.recipe.GrindingRecipe;
-import site.scalarstudios.scalarpower.item.ScalarPowerTags;
 import site.scalarstudios.scalarpower.recipe.ScalarPowerRecipes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -127,24 +126,7 @@ public class GrinderBlockEntity extends BlockEntity implements Container, MenuPr
     }
 
     public boolean canGrind(ItemStack stack) {
-        if (stack.isEmpty() || !isAllowedGrindingInput(stack)) {
-            return false;
-        }
-
-        if (level == null) {
-            return true;
-        }
-
-        // Client recipeAccess is not a RecipeManager in 1.21+, so allow insertion UX there.
-        if (!(level instanceof ServerLevel)) {
-            return true;
-        }
-
-        return findRecipe(stack).isPresent();
-    }
-
-    private static boolean isAllowedGrindingInput(ItemStack stack) {
-        return stack.is(ScalarPowerTags.C_RAW_MATERIALS) || stack.is(ScalarPowerTags.C_INGOTS);
+        return !stack.isEmpty();
     }
 
     private Optional<RecipeHolder<GrindingRecipe>> findRecipe(ItemStack stack) {

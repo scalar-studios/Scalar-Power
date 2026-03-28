@@ -23,7 +23,7 @@ import net.neoforged.neoforge.transfer.energy.EnergyHandler;
 import net.neoforged.neoforge.transfer.energy.SimpleEnergyHandler;
 import site.scalarstudios.scalarpower.block.ScalarPowerBlockEntities;
 import site.scalarstudios.scalarpower.recipe.AlloySmeltingRecipe;
-import site.scalarstudios.scalarpower.item.ScalarPowerTags;
+import site.scalarstudios.scalarpower.item.ScalarPowerItems;
 import site.scalarstudios.scalarpower.power.NeoEnergyTransferUtil;
 import site.scalarstudios.scalarpower.recipe.ScalarPowerRecipes;
 
@@ -120,23 +120,7 @@ public class AlloySmelterBlockEntity extends BlockEntity implements Container, M
     }
 
     public boolean canAlloy(ItemStack stack) {
-        if (stack.isEmpty()) {
-            return false;
-        }
-
-        if (stack.is(ScalarPowerTags.C_INGOTS)) {
-            return true;
-        }
-
-        if (!(level instanceof ServerLevel serverLevel)) {
-            return true;
-        }
-
-        return serverLevel.recipeAccess().getRecipes().stream()
-                .map(RecipeHolder::value)
-                .filter(recipe -> recipe instanceof AlloySmeltingRecipe)
-                .map(recipe -> (AlloySmeltingRecipe) recipe)
-                .anyMatch(recipe -> recipe.usesIngredient(stack));
+        return !stack.isEmpty();
     }
 
     private Optional<RecipeHolder<AlloySmeltingRecipe>> findRecipe(AlloySmeltingInput input) {
@@ -171,8 +155,14 @@ public class AlloySmelterBlockEntity extends BlockEntity implements Container, M
             return Optional.of(new RecipeMatch(new ItemStack(Items.EMERALD), emeraldSlots.get()));
         }
 
+        Optional<int[]> rediumSlots = findMatchingSlots(input, Items.GOLD_INGOT, Items.COPPER_INGOT, Items.REDSTONE);
+        if (rediumSlots.isPresent()) {
+            return Optional.of(new RecipeMatch(new ItemStack(ScalarPowerItems.REDIUM_INGOT.get(), 2), rediumSlots.get()));
+        }
+
         return Optional.empty();
     }
+
 
     private static Optional<int[]> findMatchingSlots(AlloySmeltingInput input, net.minecraft.world.item.Item... requiredItems) {
         if (input.nonEmptyCount() != requiredItems.length) {

@@ -1,10 +1,11 @@
 {
   "type": "scalarpower:grinding",
-  "ingredient": "minecraft:iron_ingot",
+  "ingredient": "minecraft:gold_ingot",
   "result": {
-    "id": "scalarpower:iron_dust",
+    "id": "scalarpower:gold_dust",
     "count": 1
   },
   "bonus_chance": 0.0,
   "bonus_count": 1
 }
+

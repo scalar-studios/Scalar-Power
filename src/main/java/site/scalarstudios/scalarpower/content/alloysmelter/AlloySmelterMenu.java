@@ -9,7 +9,6 @@ import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import site.scalarstudios.scalarpower.gui.ScalarPowerMenus;
-import site.scalarstudios.scalarpower.item.ScalarPowerTags;
 
 public class AlloySmelterMenu extends AbstractContainerMenu {
     private final AlloySmelterBlockEntity blockEntity;
@@ -31,19 +30,19 @@ public class AlloySmelterMenu extends AbstractContainerMenu {
         addSlot(new Slot(blockEntity, 0, 26, 35) {
             @Override
             public boolean mayPlace(ItemStack stack) {
-                return canInsertIngredient(stack);
+                return blockEntity.canAlloy(stack);
             }
         });
         addSlot(new Slot(blockEntity, 1, 44, 35) {
             @Override
             public boolean mayPlace(ItemStack stack) {
-                return canInsertIngredient(stack);
+                return blockEntity.canAlloy(stack);
             }
         });
         addSlot(new Slot(blockEntity, 2, 62, 35) {
             @Override
             public boolean mayPlace(ItemStack stack) {
-                return canInsertIngredient(stack);
+                return blockEntity.canAlloy(stack);
             }
         });
         addSlot(new Slot(blockEntity, 3, 116, 35) {
@@ -80,7 +79,7 @@ public class AlloySmelterMenu extends AbstractContainerMenu {
                 if (!moveItemStackTo(stack, 4, 40, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (canInsertIngredient(stack)) {
+            } else if (blockEntity.canAlloy(stack)) {
                 if (!moveItemStackTo(stack, 0, 3, false)) {
                     if (index < 31) {
                         if (!moveItemStackTo(stack, 31, 40, false)) {
@@ -127,10 +126,6 @@ public class AlloySmelterMenu extends AbstractContainerMenu {
 
     public int getEnergyCapacity() {
         return data.get(3);
-    }
-
-    private static boolean canInsertIngredient(ItemStack stack) {
-        return stack.is(ScalarPowerTags.C_INGOTS);
     }
 }
 
