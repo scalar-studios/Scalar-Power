@@ -10,6 +10,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import site.scalarstudios.scalarpower.ScalarPower;
 import site.scalarstudios.scalarpower.content.alloysmelter.AlloySmelterBlock;
 import site.scalarstudios.scalarpower.content.battery.BatteryBlock;
+import site.scalarstudios.scalarpower.content.battery.SteelBatteryBlock;
 import site.scalarstudios.scalarpower.content.generator.coal.CoalGeneratorBlock;
 import site.scalarstudios.scalarpower.content.generator.culinary.CulinaryGeneratorBlock;
 import site.scalarstudios.scalarpower.content.grinder.DoubleGrinderBlock;
@@ -65,6 +66,10 @@ public class ScalarPowerBlocks {
 
     public static final DeferredBlock<BatteryBlock> BATTERY = registerBlock("battery",
             BatteryBlock::new,
+            properties -> properties.strength(3.5F, 3.5F).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.STONE));
+
+    public static final DeferredBlock<SteelBatteryBlock> STEEL_BATTERY = registerBlock("steel_battery",
+            SteelBatteryBlock::new,
             properties -> properties.strength(3.5F, 3.5F).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.STONE));
 
     public static final DeferredBlock<CopperWireBlock> COPPER_WIRE = registerTooltipBlockItem("copper_wire",

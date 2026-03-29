@@ -37,6 +37,7 @@ public class ScalarPowerCreativeTabs {
 
             /* Energy Storage & Transfer */
             event.accept(ScalarPowerBlocks.BATTERY.get());
+            event.accept(ScalarPowerBlocks.STEEL_BATTERY.get());
             event.accept(ScalarPowerBlocks.COPPER_WIRE.get());
             event.accept(ScalarPowerBlocks.INSULATED_COPPER_WIRE.get());
             event.accept(ScalarPowerBlocks.GOLD_WIRE.get());

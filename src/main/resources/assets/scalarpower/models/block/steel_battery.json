@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "scalarpower:block/steel_battery_top",
+    "bottom": "scalarpower:block/steel_battery_bottom",
+    "side": "scalarpower:block/steel_battery_side"
+  }
+}
+

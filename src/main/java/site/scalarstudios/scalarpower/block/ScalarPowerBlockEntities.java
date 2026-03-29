@@ -3,6 +3,7 @@ package site.scalarstudios.scalarpower.block;
 import site.scalarstudios.scalarpower.ScalarPower;
 import site.scalarstudios.scalarpower.content.alloysmelter.AlloySmelterBlockEntity;
 import site.scalarstudios.scalarpower.content.battery.BatteryBlockEntity;
+import site.scalarstudios.scalarpower.content.battery.SteelBatteryBlockEntity;
 import site.scalarstudios.scalarpower.content.generator.coal.CoalGeneratorBlockEntity;
 import site.scalarstudios.scalarpower.content.generator.culinary.CulinaryGeneratorBlockEntity;
 import site.scalarstudios.scalarpower.content.grinder.DoubleGrinderBlockEntity;
@@ -58,6 +59,9 @@ public final class ScalarPowerBlockEntities {
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BatteryBlockEntity>> BATTERY = BLOCK_ENTITY_TYPES
             .register("battery", () -> new BlockEntityType<>(BatteryBlockEntity::new, ScalarPowerBlocks.BATTERY.get()));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SteelBatteryBlockEntity>> STEEL_BATTERY = BLOCK_ENTITY_TYPES
+            .register("steel_battery", () -> new BlockEntityType<>(SteelBatteryBlockEntity::new, ScalarPowerBlocks.STEEL_BATTERY.get()));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CopperWireBlockEntity>> COPPER_WIRE = BLOCK_ENTITY_TYPES
             .register("copper_wire", () -> new BlockEntityType<>(CopperWireBlockEntity::new, ScalarPowerBlocks.COPPER_WIRE.get()));
