@@ -29,7 +29,9 @@ public final class MachineUtils {
 
     // Batteries
     public static final int BASIC_BATTERY_CAPACITY = 1_000_000;
+    public static final int BASIC_BATTERY_SPU_PER_SIDE = 100;
     public static final int STEEL_BATTERY_CAPACITY = 10_000_000;
+    public static final int STEEL_BATTERY_SPU_PER_SIDE = 800;
 
     // Wires
     public static final int WIRE_BASE_CAPACITY = 256;

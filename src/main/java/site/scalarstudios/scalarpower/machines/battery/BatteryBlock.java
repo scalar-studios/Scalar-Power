@@ -8,9 +8,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import site.scalarstudios.scalarpower.block.ScalarPowerBlockEntities;
 
 public class BatteryBlock extends BaseEntityBlock {
     public static final MapCodec<BatteryBlock> CODEC = simpleCodec(BatteryBlock::new);
@@ -41,6 +44,12 @@ public class BatteryBlock extends BaseEntityBlock {
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new BatteryBlockEntity(pos, state);
+    }
+
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state,
+            BlockEntityType<T> blockEntityType) {
+        return createTickerHelper(blockEntityType, ScalarPowerBlockEntities.BATTERY.get(), BatteryBlockEntity::tick);
     }
 }
 
