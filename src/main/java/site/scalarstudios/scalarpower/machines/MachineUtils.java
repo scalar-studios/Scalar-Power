@@ -32,8 +32,8 @@ public final class MachineUtils {
     public static final int STEEL_BATTERY_CAPACITY = 10_000_000;
 
     // Wires
-    public static final int WIRE_BASE_CAPACITY = 1_024;
-    public static final int WIRE_BASE_THROUGHPUT = 40;
+    public static final int WIRE_BASE_CAPACITY = 256;
+    public static final int WIRE_BASE_THROUGHPUT = 80;
     //public static final int WIRE_T1_MULTIPLIER = 1; // This is multiplying by 1, here for completeness. DO NOT USE.
     public static final int WIRE_T2_MULTIPLIER = 2;
     public static final int WIRE_T3_MULTIPLIER = WIRE_T2_MULTIPLIER * 2;
