@@ -22,6 +22,7 @@ public class TooltipBlockItem extends BlockItem {
         return tooltipKey;
     }
 
+    @SuppressWarnings("deprecated")
     @Override
     public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {
         super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
