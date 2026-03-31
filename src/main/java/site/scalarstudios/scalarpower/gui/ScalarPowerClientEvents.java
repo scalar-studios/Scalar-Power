@@ -1,15 +1,15 @@
 package site.scalarstudios.scalarpower.gui;
 
-import site.scalarstudios.scalarpower.content.alloysmelter.AlloySmelterScreen;
-import site.scalarstudios.scalarpower.content.battery.BatteryScreen;
-import site.scalarstudios.scalarpower.content.generator.coal.CoalGeneratorScreen;
-import site.scalarstudios.scalarpower.content.generator.culinary.CulinaryGeneratorScreen;
-import site.scalarstudios.scalarpower.content.generator.entropy.EntropyGeneratorScreen;
-import site.scalarstudios.scalarpower.content.grinder.DoubleGrinderScreen;
-import site.scalarstudios.scalarpower.content.grinder.GrinderScreen;
-import site.scalarstudios.scalarpower.content.extractor.ExtractorScreen;
-import site.scalarstudios.scalarpower.content.poweredfurnace.DoublePoweredFurnaceScreen;
-import site.scalarstudios.scalarpower.content.poweredfurnace.PoweredFurnaceScreen;
+import site.scalarstudios.scalarpower.machines.alloysmelter.AlloySmelterScreen;
+import site.scalarstudios.scalarpower.machines.battery.BatteryScreen;
+import site.scalarstudios.scalarpower.machines.generator.coal.CoalGeneratorScreen;
+import site.scalarstudios.scalarpower.machines.generator.culinary.CulinaryGeneratorScreen;
+import site.scalarstudios.scalarpower.machines.generator.entropy.EntropyGeneratorScreen;
+import site.scalarstudios.scalarpower.machines.grinder.DoubleGrinderScreen;
+import site.scalarstudios.scalarpower.machines.grinder.GrinderScreen;
+import site.scalarstudios.scalarpower.machines.extractor.ExtractorScreen;
+import site.scalarstudios.scalarpower.machines.poweredfurnace.DoublePoweredFurnaceScreen;
+import site.scalarstudios.scalarpower.machines.poweredfurnace.PoweredFurnaceScreen;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;

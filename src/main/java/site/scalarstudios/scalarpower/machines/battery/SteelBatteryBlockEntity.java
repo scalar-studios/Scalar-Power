@@ -1,0 +1,16 @@
+package site.scalarstudios.scalarpower.machines.battery;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.state.BlockState;
+import site.scalarstudios.scalarpower.block.ScalarPowerBlockEntities;
+import site.scalarstudios.scalarpower.machines.MachineUtils;
+
+public class SteelBatteryBlockEntity extends BatteryBlockEntity {
+    private static final int ENERGY_CAPACITY = MachineUtils.STEEL_BATTERY_CAPACITY;
+    private static final String CONTAINER_TRANSLATION_KEY = "container.scalarpower.steel_battery";
+
+    public SteelBatteryBlockEntity(BlockPos pos, BlockState blockState) {
+        super(ScalarPowerBlockEntities.STEEL_BATTERY.get(), pos, blockState, ENERGY_CAPACITY, CONTAINER_TRANSLATION_KEY);
+    }
+}
+

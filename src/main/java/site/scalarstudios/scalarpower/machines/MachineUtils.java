@@ -1,0 +1,40 @@
+package site.scalarstudios.scalarpower.machines;
+
+/**
+ * Utility class containing power capacity and input/output configuration values for all machines.
+ *
+ * @author Lemon_Juiced
+ */
+public final class MachineUtils {
+    // Generators
+    public static final int GENERAL_GENERATOR_CAPACITY = 20_000;
+    public static final int GENERAL_GENERATOR_SPU_PER_SIDE = 80;
+    public static final int COAL_GENERATOR_SPU_PER_TICK = 40;
+    public static final int ENTROPY_GENERATOR_SPU_PER_SIDE = 400; // Potential max of 390 SPU/t
+
+    // Machines
+    public static final int BASIC_MACHINE_CAPACITY = 20_000;
+    public static final int BASIC_MACHINE_SPU_PER_TICK = 20;
+    public static final int BASIC_MACHINE_SPU_PER_SIDE = 40;
+    public static final int BASIC_MACHINE_TIME_PER_CRAFT = 100;
+    public static final int STEEL_MACHINE_CAPACITY = 40_000;
+    public static final int STEEL_MACHINE_SPU_PER_TICK_PER_LANE = 30;
+    public static final int STEEL_MACHINE_SPU_PER_SIDE = 120; // Steel Machines have 2 lanes (double 60)
+    public static final int STEEL_MACHINE_TIME_PER_CRAFT = 50;
+    /* Alloy Smelter */
+    public static final int ALLOY_SMELTER_TIME_PER_CRAFT = 120; // Slightly longer than normal machines
+    /* Powered Furnace */
+    public static final int POWERED_FURNACE_TIME_PER_CRAFT = 200; // Matches vanilla furnace
+    public static final int STEEL_POWERED_FURNACE_TIME_PER_CRAFT = 100;
+
+    // Batteries
+    public static final int BASIC_BATTERY_CAPACITY = 1_000_000;
+    public static final int STEEL_BATTERY_CAPACITY = 10_000_000;
+
+    // Wires
+    public static final int WIRE_BASE_CAPACITY = 1_024;
+    public static final int WIRE_BASE_THROUGHPUT = 40;
+    //public static final int WIRE_T1_MULTIPLIER = 1; // This is multiplying by 1, here for completeness. DO NOT USE.
+    public static final int WIRE_T2_MULTIPLIER = 2;
+    public static final int WIRE_T3_MULTIPLIER = WIRE_T2_MULTIPLIER * 2;
+}

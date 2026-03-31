@@ -1,15 +1,15 @@
 package site.scalarstudios.scalarpower.gui;
 
-import site.scalarstudios.scalarpower.content.alloysmelter.AlloySmelterMenu;
-import site.scalarstudios.scalarpower.content.battery.BatteryMenu;
-import site.scalarstudios.scalarpower.content.generator.coal.CoalGeneratorMenu;
-import site.scalarstudios.scalarpower.content.generator.culinary.CulinaryGeneratorMenu;
-import site.scalarstudios.scalarpower.content.generator.entropy.EntropyGeneratorMenu;
-import site.scalarstudios.scalarpower.content.grinder.DoubleGrinderMenu;
-import site.scalarstudios.scalarpower.content.grinder.GrinderMenu;
-import site.scalarstudios.scalarpower.content.extractor.ExtractorMenu;
-import site.scalarstudios.scalarpower.content.poweredfurnace.DoublePoweredFurnaceMenu;
-import site.scalarstudios.scalarpower.content.poweredfurnace.PoweredFurnaceMenu;
+import site.scalarstudios.scalarpower.machines.alloysmelter.AlloySmelterMenu;
+import site.scalarstudios.scalarpower.machines.battery.BatteryMenu;
+import site.scalarstudios.scalarpower.machines.generator.coal.CoalGeneratorMenu;
+import site.scalarstudios.scalarpower.machines.generator.culinary.CulinaryGeneratorMenu;
+import site.scalarstudios.scalarpower.machines.generator.entropy.EntropyGeneratorMenu;
+import site.scalarstudios.scalarpower.machines.grinder.DoubleGrinderMenu;
+import site.scalarstudios.scalarpower.machines.grinder.GrinderMenu;
+import site.scalarstudios.scalarpower.machines.extractor.ExtractorMenu;
+import site.scalarstudios.scalarpower.machines.poweredfurnace.DoublePoweredFurnaceMenu;
+import site.scalarstudios.scalarpower.machines.poweredfurnace.PoweredFurnaceMenu;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.MenuType;
 import net.neoforged.bus.api.IEventBus;
