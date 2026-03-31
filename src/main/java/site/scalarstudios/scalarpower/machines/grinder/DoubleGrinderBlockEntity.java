@@ -170,6 +170,10 @@ public class DoubleGrinderBlockEntity extends BlockEntity implements Container, 
         return !stack.isEmpty();
     }
 
+    private boolean isOutputSlot(int slot) {
+        return slot == 2 || slot == 3;
+    }
+
     private Optional<RecipeHolder<GrindingRecipe>> findRecipe(ItemStack stack) {
         if (stack.isEmpty() || !(level instanceof ServerLevel serverLevel)) {
             return Optional.empty();
@@ -342,6 +346,16 @@ public class DoubleGrinderBlockEntity extends BlockEntity implements Container, 
         inputStackB = ItemStack.EMPTY;
         outputStackA = ItemStack.EMPTY;
         outputStackB = ItemStack.EMPTY;
+    }
+
+    @Override
+    public boolean canPlaceItem(int slot, ItemStack stack) {
+        return !isOutputSlot(slot) && canGrind(stack);
+    }
+
+    @Override
+    public boolean canTakeItem(Container target, int slot, ItemStack stack) {
+        return isOutputSlot(slot);
     }
 
     public EnergyHandler getEnergyHandler(Direction side) {

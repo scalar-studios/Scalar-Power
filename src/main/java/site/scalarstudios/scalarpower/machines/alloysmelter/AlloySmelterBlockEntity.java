@@ -122,6 +122,10 @@ public class AlloySmelterBlockEntity extends BlockEntity implements Container, M
         return !stack.isEmpty();
     }
 
+    private boolean isOutputSlot(int slot) {
+        return slot == 3;
+    }
+
     private Optional<RecipeHolder<AlloySmeltingRecipe>> findRecipe(AlloySmeltingInput input) {
         if (input.nonEmptyCount() < 2 || !(level instanceof ServerLevel serverLevel)) {
             return Optional.empty();
@@ -303,6 +307,16 @@ public class AlloySmelterBlockEntity extends BlockEntity implements Container, M
         inputStack1 = ItemStack.EMPTY;
         inputStack2 = ItemStack.EMPTY;
         outputStack = ItemStack.EMPTY;
+    }
+
+    @Override
+    public boolean canPlaceItem(int slot, ItemStack stack) {
+        return !isOutputSlot(slot) && canAlloy(stack);
+    }
+
+    @Override
+    public boolean canTakeItem(Container target, int slot, ItemStack stack) {
+        return isOutputSlot(slot);
     }
 
     public EnergyHandler getEnergyHandler(Direction side) {

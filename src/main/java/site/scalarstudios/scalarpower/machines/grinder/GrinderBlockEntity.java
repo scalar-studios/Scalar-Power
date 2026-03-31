@@ -130,6 +130,10 @@ public class GrinderBlockEntity extends BlockEntity implements Container, MenuPr
         return !stack.isEmpty();
     }
 
+    private boolean isOutputSlot(int slot) {
+        return slot == 1;
+    }
+
     private Optional<RecipeHolder<GrindingRecipe>> findRecipe(ItemStack stack) {
         if (stack.isEmpty() || !(level instanceof ServerLevel serverLevel)) {
             return Optional.empty();
@@ -255,6 +259,16 @@ public class GrinderBlockEntity extends BlockEntity implements Container, MenuPr
     public boolean stillValid(Player player) { return Container.stillValidBlockEntity(this, player); }
     @Override
     public void clearContent() { inputStack = ItemStack.EMPTY; outputStack = ItemStack.EMPTY; }
+
+    @Override
+    public boolean canPlaceItem(int slot, ItemStack stack) {
+        return !isOutputSlot(slot) && canGrind(stack);
+    }
+
+    @Override
+    public boolean canTakeItem(Container target, int slot, ItemStack stack) {
+        return isOutputSlot(slot);
+    }
 
     public EnergyHandler getEnergyHandler(Direction side) { return energyHandler; }
 

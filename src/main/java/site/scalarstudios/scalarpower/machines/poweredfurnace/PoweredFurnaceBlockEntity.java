@@ -173,6 +173,10 @@ public class PoweredFurnaceBlockEntity extends BlockEntity implements Container,
         return level.recipeAccess().propertySet(RecipePropertySet.FURNACE_INPUT).test(stack);
     }
 
+    private boolean isOutputSlot(int slot) {
+        return slot == 1;
+    }
+
     @Override
     protected void saveAdditional(ValueOutput output) {
         super.saveAdditional(output);
@@ -296,6 +300,16 @@ public class PoweredFurnaceBlockEntity extends BlockEntity implements Container,
     public void clearContent() {
         inputStack = ItemStack.EMPTY;
         outputStack = ItemStack.EMPTY;
+    }
+
+    @Override
+    public boolean canPlaceItem(int slot, ItemStack stack) {
+        return !isOutputSlot(slot) && canSmelt(stack);
+    }
+
+    @Override
+    public boolean canTakeItem(Container target, int slot, ItemStack stack) {
+        return isOutputSlot(slot);
     }
 
     public EnergyHandler getEnergyHandler(Direction side) {

@@ -125,6 +125,10 @@ public class ExtractorBlockEntity extends BlockEntity implements Container, Menu
         return !stack.isEmpty();
     }
 
+    private boolean isOutputSlot(int slot) {
+        return slot == 1;
+    }
+
     private Optional<RecipeHolder<ExtractionRecipe>> findRecipe(ItemStack stack) {
         if (stack.isEmpty() || !(level instanceof ServerLevel serverLevel)) {
             return Optional.empty();
@@ -237,6 +241,16 @@ public class ExtractorBlockEntity extends BlockEntity implements Container, Menu
     public boolean stillValid(Player player) { return Container.stillValidBlockEntity(this, player); }
     @Override
     public void clearContent() { inputStack = ItemStack.EMPTY; outputStack = ItemStack.EMPTY; }
+
+    @Override
+    public boolean canPlaceItem(int slot, ItemStack stack) {
+        return !isOutputSlot(slot) && canExtract(stack);
+    }
+
+    @Override
+    public boolean canTakeItem(Container target, int slot, ItemStack stack) {
+        return isOutputSlot(slot);
+    }
 
     public EnergyHandler getEnergyHandler(Direction side) { return energyHandler; }
 

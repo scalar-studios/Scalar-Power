@@ -220,6 +220,10 @@ public class DoublePoweredFurnaceBlockEntity extends BlockEntity implements Cont
         return level.recipeAccess().propertySet(RecipePropertySet.FURNACE_INPUT).test(stack);
     }
 
+    private boolean isOutputSlot(int slot) {
+        return slot == 2 || slot == 3;
+    }
+
     @Override
     protected void saveAdditional(ValueOutput output) {
         super.saveAdditional(output);
@@ -373,6 +377,16 @@ public class DoublePoweredFurnaceBlockEntity extends BlockEntity implements Cont
         inputStackB = ItemStack.EMPTY;
         outputStackA = ItemStack.EMPTY;
         outputStackB = ItemStack.EMPTY;
+    }
+
+    @Override
+    public boolean canPlaceItem(int slot, ItemStack stack) {
+        return !isOutputSlot(slot) && canSmelt(stack);
+    }
+
+    @Override
+    public boolean canTakeItem(Container target, int slot, ItemStack stack) {
+        return isOutputSlot(slot);
     }
 
     public EnergyHandler getEnergyHandler(Direction side) {
