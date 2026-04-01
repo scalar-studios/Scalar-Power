@@ -6,6 +6,7 @@
     "scalarpower:coal_generator",
     "scalarpower:culinary_generator",
     "scalarpower:entropy_generator",
+    "scalarpower:extactor",
     "scalarpower:grinder",
     "scalarpower:double_grinder",
     "scalarpower:powered_furnace",
@@ -13,6 +14,7 @@
     "scalarpower:copper_wire",
     "scalarpower:insulated_copper_wire",
     "scalarpower:gold_wire",
-    "scalarpower:insulated_gold_wire"
+    "scalarpower:insulated_gold_wire",
+    "scalarpower:glass_fiber_wire"
   ]
 }

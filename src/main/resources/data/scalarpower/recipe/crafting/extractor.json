@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SBS",
+    "IPI",
+    "SBS"
+  ],
+  "key": {
+    "S": "minecraft:stone",
+    "B": "minecraft:bucket",
+    "I": "minecraft:iron_ingot",
+    "P": "minecraft:piston"
+  },
+  "result": {
+    "id": "scalarpower:extractor",
+    "count": 1
+  }
+}

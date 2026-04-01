@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IRI",
+    "SFS",
+    "IWI"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "S": "scalarpower:steel_ingot",
+    "R": "scalarpower:redium_ingot",
+    "F": "scalarpower:powered_furnace",
+    "W": "scalarpower:copper_wire"
+  },
+  "result": {
+    "id": "scalarpower:alloy_smelter",
+    "count": 1
+  }
+}

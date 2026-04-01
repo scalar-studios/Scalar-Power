@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "scalarpower:copper_dust",
+    "scalarpower:gold_dust",
+    "minecraft:redstone"
+  ],
+  "result": {
+    "id": "scalarpower:redium_dust",
+    "count": 2
+  }
+}
+
