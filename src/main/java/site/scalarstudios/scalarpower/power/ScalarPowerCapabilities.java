@@ -4,6 +4,21 @@ import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.transfer.item.VanillaContainerWrapper;
 import site.scalarstudios.scalarpower.block.ScalarPowerBlockEntities;
+import site.scalarstudios.scalarpower.machines.alloysmelter.AlloySmelterBlockEntity;
+import site.scalarstudios.scalarpower.machines.battery.BatteryBlockEntity;
+import site.scalarstudios.scalarpower.machines.extractor.ExtractorBlockEntity;
+import site.scalarstudios.scalarpower.machines.generator.coal.CoalGeneratorBlockEntity;
+import site.scalarstudios.scalarpower.machines.generator.culinary.CulinaryGeneratorBlockEntity;
+import site.scalarstudios.scalarpower.machines.generator.entropy.EntropyGeneratorBlockEntity;
+import site.scalarstudios.scalarpower.machines.grinder.DoubleGrinderBlockEntity;
+import site.scalarstudios.scalarpower.machines.grinder.GrinderBlockEntity;
+import site.scalarstudios.scalarpower.machines.poweredfurnace.DoublePoweredFurnaceBlockEntity;
+import site.scalarstudios.scalarpower.machines.poweredfurnace.PoweredFurnaceBlockEntity;
+import site.scalarstudios.scalarpower.machines.wire.copper.CopperWireBlockEntity;
+import site.scalarstudios.scalarpower.machines.wire.copper.InsulatedCopperWireBlockEntity;
+import site.scalarstudios.scalarpower.machines.wire.glassfiber.GlassFiberWireBlockEntity;
+import site.scalarstudios.scalarpower.machines.wire.gold.GoldWireBlockEntity;
+import site.scalarstudios.scalarpower.machines.wire.gold.InsulatedGoldWireBlockEntity;
 
 public final class ScalarPowerCapabilities {
     private ScalarPowerCapabilities() {
@@ -13,82 +28,82 @@ public final class ScalarPowerCapabilities {
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.COAL_GENERATOR.get(),
-                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+                CoalGeneratorBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.CULINARY_GENERATOR.get(),
-                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+                CulinaryGeneratorBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.ENTROPY_GENERATOR.get(),
-                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+                EntropyGeneratorBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.GRINDER.get(),
-                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+                GrinderBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.DOUBLE_GRINDER.get(),
-                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+                DoubleGrinderBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.EXTRACTOR.get(),
-                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+                ExtractorBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.POWERED_FURNACE.get(),
-                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+                PoweredFurnaceBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.DOUBLE_POWERED_FURNACE.get(),
-                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+                DoublePoweredFurnaceBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.ALLOY_SMELTER.get(),
-                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+                AlloySmelterBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.BATTERY.get(),
-                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+                BatteryBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.STEEL_BATTERY.get(),
-                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+                BatteryBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.COPPER_WIRE.get(),
-                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+                CopperWireBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.INSULATED_COPPER_WIRE.get(),
-                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+                InsulatedCopperWireBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.GOLD_WIRE.get(),
-                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+                GoldWireBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.INSULATED_GOLD_WIRE.get(),
-                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+                InsulatedGoldWireBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.GLASS_FIBER_WIRE.get(),
-                (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+                GlassFiberWireBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Item.BLOCK,
