@@ -2,6 +2,7 @@ package site.scalarstudios.scalarpower.power;
 
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
+import net.neoforged.neoforge.transfer.item.VanillaContainerWrapper;
 import site.scalarstudios.scalarpower.block.ScalarPowerBlockEntities;
 
 public final class ScalarPowerCapabilities {
@@ -88,5 +89,45 @@ public final class ScalarPowerCapabilities {
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.GLASS_FIBER_WIRE.get(),
                 (blockEntity, side) -> blockEntity.getEnergyHandler(side));
+
+        event.registerBlockEntity(
+                Capabilities.Item.BLOCK,
+                ScalarPowerBlockEntities.COAL_GENERATOR.get(),
+                (blockEntity, side) -> VanillaContainerWrapper.of(blockEntity));
+
+        event.registerBlockEntity(
+                Capabilities.Item.BLOCK,
+                ScalarPowerBlockEntities.CULINARY_GENERATOR.get(),
+                (blockEntity, side) -> VanillaContainerWrapper.of(blockEntity));
+
+        event.registerBlockEntity(
+                Capabilities.Item.BLOCK,
+                ScalarPowerBlockEntities.GRINDER.get(),
+                (blockEntity, side) -> VanillaContainerWrapper.of(blockEntity));
+
+        event.registerBlockEntity(
+                Capabilities.Item.BLOCK,
+                ScalarPowerBlockEntities.DOUBLE_GRINDER.get(),
+                (blockEntity, side) -> VanillaContainerWrapper.of(blockEntity));
+
+        event.registerBlockEntity(
+                Capabilities.Item.BLOCK,
+                ScalarPowerBlockEntities.EXTRACTOR.get(),
+                (blockEntity, side) -> VanillaContainerWrapper.of(blockEntity));
+
+        event.registerBlockEntity(
+                Capabilities.Item.BLOCK,
+                ScalarPowerBlockEntities.POWERED_FURNACE.get(),
+                (blockEntity, side) -> VanillaContainerWrapper.of(blockEntity));
+
+        event.registerBlockEntity(
+                Capabilities.Item.BLOCK,
+                ScalarPowerBlockEntities.DOUBLE_POWERED_FURNACE.get(),
+                (blockEntity, side) -> VanillaContainerWrapper.of(blockEntity));
+
+        event.registerBlockEntity(
+                Capabilities.Item.BLOCK,
+                ScalarPowerBlockEntities.ALLOY_SMELTER.get(),
+                (blockEntity, side) -> VanillaContainerWrapper.of(blockEntity));
     }
 }
