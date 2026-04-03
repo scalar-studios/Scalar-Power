@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "SRS",
-    "SBS",
-    "SRS"
+    "IRI",
+    "ISI",
+    "IRI"
   ],
   "key": {
-    "S": "scalarpower:steel_ingot",
+    "S": "scalarpower:machine_frame",
     "R": "scalarpower:redium_ingot",
-    "B": "scalarpower:battery"
+    "I": "scalarpower:steel_ingot"
   },
   "result": {
-    "id": "scalarpower:steel_battery",
+    "id": "scalarpower:steel_machine_frame",
     "count": 1
   }
 }

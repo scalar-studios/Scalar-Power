@@ -27,11 +27,8 @@ public class ScalarPowerItems {
     public static final DeferredItem<Item> RUBBER = ITEMS.registerSimpleItem("rubber");
     public static final DeferredItem<Item> SYNTHETIC_RESIN = ITEMS.registerSimpleItem("synthetic_resin");
 
-    public static final DeferredItem<Item> GOLD_UPGRADE = ITEMS.registerSimpleItem("gold_upgrade");
-    public static final DeferredItem<Item> REDIUM_UPGRADE = ITEMS.registerSimpleItem("redium_upgrade");
-    public static final DeferredItem<Item> DIAMOND_UPGRADE = ITEMS.registerSimpleItem("diamond_upgrade");
-    public static final DeferredItem<Item> CLASTUS_UPGRADE = ITEMS.registerSimpleItem("clastus_upgrade");
-    public static final DeferredItem<Item> CRYSTUS_UPGRADE = ITEMS.registerSimpleItem("crystus_upgrade");
+    public static final DeferredItem<Item> MACHINE_FRAME = ITEMS.registerSimpleItem("machine_frame");
+    public static final DeferredItem<Item> STEEL_MACHINE_FRAME = ITEMS.registerSimpleItem("steel_machine_frame");
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

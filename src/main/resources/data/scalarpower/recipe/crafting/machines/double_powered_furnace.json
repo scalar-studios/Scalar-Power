@@ -2,16 +2,17 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "SRS",
-    "SGS",
-    "SRS"
+    "SFS",
+    "SMS"
   ],
   "key": {
     "S": "scalarpower:steel_ingot",
     "R": "scalarpower:redium_ingot",
-    "G": "scalarpower:grinder"
+    "F": "scalarpower:powered_furnace",
+    "M": "scalarpower:steel_machine_frame"
   },
   "result": {
-    "id": "scalarpower:double_grinder",
+    "id": "scalarpower:double_powered_furnace",
     "count": 1
   }
 }

@@ -3,13 +3,14 @@
   "pattern": [
     "SRS",
     "BGB",
-    "SRS"
+    "SMS"
   ],
   "key": {
     "S": "scalarpower:steel_ingot",
     "R": "scalarpower:redium_ingot",
     "B": "scalarpower:steel_battery",
-    "G": "scalarpower:coal_generator"
+    "G": "scalarpower:coal_generator",
+    "M": "scalarpower:machine_frame"
   },
   "result": {
     "id": "scalarpower:entropy_generator",

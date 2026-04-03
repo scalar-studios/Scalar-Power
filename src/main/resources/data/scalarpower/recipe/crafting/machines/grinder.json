@@ -2,14 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "SFS",
-    "ICI",
+    "IMI",
     "SPS"
   ],
   "key": {
     "S": "minecraft:stone",
     "F": "minecraft:flint",
     "I": "minecraft:iron_ingot",
-    "C": "minecraft:crafting_table",
+    "M": "scalarpower:machine_frame",
     "P": "minecraft:piston"
   },
   "result": {

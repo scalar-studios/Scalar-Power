@@ -67,12 +67,9 @@ public class ScalarPowerCreativeTabs {
             event.accept(ScalarPowerItems.RUBBER.get());
             event.accept(ScalarPowerItems.SYNTHETIC_RESIN.get());
 
-            /* Upgrades */
-            event.accept(ScalarPowerItems.GOLD_UPGRADE.get());
-            event.accept(ScalarPowerItems.REDIUM_UPGRADE.get());
-            event.accept(ScalarPowerItems.DIAMOND_UPGRADE.get());
-            event.accept(ScalarPowerItems.CLASTUS_UPGRADE.get());
-            event.accept(ScalarPowerItems.CRYSTUS_UPGRADE.get());
+            /* Machine Frames */
+            event.accept(ScalarPowerItems.MACHINE_FRAME.get());
+            event.accept(ScalarPowerItems.STEEL_MACHINE_FRAME.get());
         }
     }
 

@@ -1,18 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "SRS",
+    "IRI",
     "SFS",
-    "SRS"
+    "IMI"
   ],
   "key": {
+    "I": "minecraft:iron_ingot",
     "S": "scalarpower:steel_ingot",
     "R": "scalarpower:redium_ingot",
-    "F": "scalarpower:powered_furnace"
+    "F": "scalarpower:powered_furnace",
+    "M": "scalarpower:machine_frame"
   },
   "result": {
-    "id": "scalarpower:double_powered_furnace",
+    "id": "scalarpower:alloy_smelter",
     "count": 1
   }
 }
-

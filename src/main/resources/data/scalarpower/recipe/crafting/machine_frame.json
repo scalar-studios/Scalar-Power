@@ -2,17 +2,16 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "IRI",
-    "WCW",
+    "ISI",
     "IRI"
   ],
   "key": {
-    "I": "minecraft:iron_ingot",
+    "S": "minecraft:stone",
     "R": "minecraft:redstone",
-    "W": "scalarpower:copper_wire",
-    "C": "minecraft:copper_block"
+    "I": "minecraft:iron_ingot"
   },
   "result": {
-    "id": "scalarpower:battery",
+    "id": "scalarpower:machine_frame",
     "count": 1
   }
 }

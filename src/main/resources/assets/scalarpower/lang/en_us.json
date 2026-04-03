@@ -55,17 +55,14 @@
   "item.scalarpower.synthetic_resin": "Synthetic Resin",
   "item.scalarpower.rubber": "Rubber",
 
+  "item.scalarpower.machine_frame": "Machine Frame",
+  "item.scalarpower.steel_machine_frame": "Steel Machine Frame",
+
   "item.scalarpower.copper_wire": "Copper Wire",
   "item.scalarpower.insulated_copper_wire": "Insulated Copper Wire",
   "item.scalarpower.gold_wire": "Gold Wire",
   "item.scalarpower.insulated_gold_wire": "Insulated Gold Wire",
   "item.scalarpower.glass_fiber_wire": "Glass Fiber Wire",
-
-  "item.scalarpower.gold_upgrade": "Gold Upgrade",
-  "item.scalarpower.redium_upgrade": "Redium Upgrade",
-  "item.scalarpower.diamond_upgrade": "Diamond Upgrade",
-  "item.scalarpower.clastus_upgrade": "Clastus Upgrade",
-  "item.scalarpower.crystus_upgrade": "Crystus Upgrade",
 
   "jei.scalarpower.grinding": "Grinding",
   "jei.scalarpower.grinding.bonus_output": "%s%% Chance for +%s Extra",

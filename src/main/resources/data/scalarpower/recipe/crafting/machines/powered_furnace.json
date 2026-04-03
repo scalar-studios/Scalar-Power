@@ -2,16 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "IRI",
-    "IFI",
-    "IRI"
+    "CMC",
+    "IWI"
   ],
   "key": {
     "I": "minecraft:iron_ingot",
     "R": "minecraft:redstone",
-    "F": "minecraft:furnace"
+    "C": "scalarpower:coal_generator",
+    "M": "scalarpower:machine_frame",
+    "W": "scalarpower:copper_wire"
   },
   "result": {
-    "id": "scalarpower:coal_generator",
+    "id": "scalarpower:powered_furnace",
     "count": 1
   }
 }

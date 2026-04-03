@@ -2,14 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "IAI",
-    "WCW",
-    "IAI"
+    "WMW",
+    "ICI"
   ],
   "key": {
     "I": "minecraft:iron_ingot",
     "A": "minecraft:iron_axe",
     "W": "minecraft:oak_planks",
-    "C": "minecraft:crafting_table"
+    "C": "minecraft:crafting_table",
+    "M": "scalarpower:machine_frame"
   },
   "result": {
     "id": "scalarpower:sawmill",

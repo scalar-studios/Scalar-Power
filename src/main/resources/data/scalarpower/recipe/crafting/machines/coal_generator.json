@@ -2,18 +2,17 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "IRI",
-    "FBF",
+    "FMF",
     "IRI"
   ],
   "key": {
     "I": "minecraft:iron_ingot",
     "R": "minecraft:redstone",
     "F": "minecraft:furnace",
-    "B": "minecraft:baked_potato"
+    "M": "scalarpower:machine_frame"
   },
   "result": {
-    "id": "scalarpower:culinary_generator",
+    "id": "scalarpower:coal_generator",
     "count": 1
   }
 }
-
