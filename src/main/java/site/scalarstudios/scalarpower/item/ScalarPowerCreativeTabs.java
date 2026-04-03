@@ -32,6 +32,7 @@ public class ScalarPowerCreativeTabs {
             event.accept(ScalarPowerBlocks.ALLOY_SMELTER.get());
             event.accept(ScalarPowerBlocks.GRINDER.get());
             event.accept(ScalarPowerBlocks.DOUBLE_GRINDER.get());
+            event.accept(ScalarPowerBlocks.SAWMILL.get());
             event.accept(ScalarPowerBlocks.EXTRACTOR.get());
             event.accept(ScalarPowerBlocks.POWERED_FURNACE.get());
             event.accept(ScalarPowerBlocks.DOUBLE_POWERED_FURNACE.get());
@@ -56,6 +57,7 @@ public class ScalarPowerCreativeTabs {
             event.accept(ScalarPowerItems.OBSIDIAN_DUST.get());
             event.accept(ScalarPowerItems.REDIUM_DUST.get());
             event.accept(ScalarPowerItems.STEEL_DUST.get());
+            event.accept(ScalarPowerItems.SAWDUST.get());
 
             /* Ingots */
             event.accept(ScalarPowerItems.REDIUM_INGOT.get());

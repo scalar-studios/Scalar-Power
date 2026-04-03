@@ -17,6 +17,7 @@ import site.scalarstudios.scalarpower.machines.generator.entropy.EntropyGenerato
 import site.scalarstudios.scalarpower.machines.grinder.DoubleGrinderBlock;
 import site.scalarstudios.scalarpower.machines.grinder.GrinderBlock;
 import site.scalarstudios.scalarpower.machines.extractor.ExtractorBlock;
+import site.scalarstudios.scalarpower.machines.sawmill.SawmillBlock;
 import site.scalarstudios.scalarpower.machines.poweredfurnace.DoublePoweredFurnaceBlock;
 import site.scalarstudios.scalarpower.machines.poweredfurnace.PoweredFurnaceBlock;
 import site.scalarstudios.scalarpower.machines.wire.copper.CopperWireBlock;
@@ -51,6 +52,10 @@ public class ScalarPowerBlocks {
 
     public static final DeferredBlock<DoubleGrinderBlock> DOUBLE_GRINDER = registerBlock("double_grinder",
             DoubleGrinderBlock::new,
+            properties -> properties.strength(3.5F, 3.5F).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.STONE));
+
+    public static final DeferredBlock<SawmillBlock> SAWMILL = registerBlock("sawmill",
+            SawmillBlock::new,
             properties -> properties.strength(3.5F, 3.5F).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.STONE));
 
     public static final DeferredBlock<ExtractorBlock> EXTRACTOR = registerBlock("extractor",

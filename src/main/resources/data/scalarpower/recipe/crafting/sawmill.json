@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IAI",
+    "WCW",
+    "IAI"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "A": "minecraft:iron_axe",
+    "W": "minecraft:oak_planks",
+    "C": "minecraft:crafting_table"
+  },
+  "result": {
+    "id": "scalarpower:sawmill",
+    "count": 1
+  }
+}
+

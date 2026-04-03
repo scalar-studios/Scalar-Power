@@ -14,6 +14,7 @@ import site.scalarstudios.scalarpower.machines.grinder.DoubleGrinderBlockEntity;
 import site.scalarstudios.scalarpower.machines.grinder.GrinderBlockEntity;
 import site.scalarstudios.scalarpower.machines.poweredfurnace.DoublePoweredFurnaceBlockEntity;
 import site.scalarstudios.scalarpower.machines.poweredfurnace.PoweredFurnaceBlockEntity;
+import site.scalarstudios.scalarpower.machines.sawmill.SawmillBlockEntity;
 import site.scalarstudios.scalarpower.machines.wire.copper.CopperWireBlockEntity;
 import site.scalarstudios.scalarpower.machines.wire.copper.InsulatedCopperWireBlockEntity;
 import site.scalarstudios.scalarpower.machines.wire.glassfiber.GlassFiberWireBlockEntity;
@@ -49,6 +50,11 @@ public final class ScalarPowerCapabilities {
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.DOUBLE_GRINDER.get(),
                 DoubleGrinderBlockEntity::getEnergyHandler);
+
+        event.registerBlockEntity(
+                Capabilities.Energy.BLOCK,
+                ScalarPowerBlockEntities.SAWMILL.get(),
+                SawmillBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
@@ -123,6 +129,11 @@ public final class ScalarPowerCapabilities {
         event.registerBlockEntity(
                 Capabilities.Item.BLOCK,
                 ScalarPowerBlockEntities.DOUBLE_GRINDER.get(),
+                (blockEntity, side) -> VanillaContainerWrapper.of(blockEntity));
+
+        event.registerBlockEntity(
+                Capabilities.Item.BLOCK,
+                ScalarPowerBlockEntities.SAWMILL.get(),
                 (blockEntity, side) -> VanillaContainerWrapper.of(blockEntity));
 
         event.registerBlockEntity(

@@ -1,0 +1,13 @@
+﻿{
+  "type": "scalarpower:sawmilling",
+  "ingredient": "#minecraft:warped_stems",
+  "result": {
+    "id": "minecraft:warped_planks",
+    "count": 6
+  },
+  "byproduct": {
+    "id": "scalarpower:sawdust",
+    "count": 1
+  },
+  "byproduct_chance": 0.5
+}

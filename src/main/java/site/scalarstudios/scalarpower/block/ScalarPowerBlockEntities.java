@@ -10,6 +10,7 @@ import site.scalarstudios.scalarpower.machines.generator.entropy.EntropyGenerato
 import site.scalarstudios.scalarpower.machines.grinder.DoubleGrinderBlockEntity;
 import site.scalarstudios.scalarpower.machines.grinder.GrinderBlockEntity;
 import site.scalarstudios.scalarpower.machines.extractor.ExtractorBlockEntity;
+import site.scalarstudios.scalarpower.machines.sawmill.SawmillBlockEntity;
 import site.scalarstudios.scalarpower.machines.poweredfurnace.DoublePoweredFurnaceBlockEntity;
 import site.scalarstudios.scalarpower.machines.poweredfurnace.PoweredFurnaceBlockEntity;
 import site.scalarstudios.scalarpower.machines.wire.copper.CopperWireBlockEntity;
@@ -45,6 +46,10 @@ public final class ScalarPowerBlockEntities {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DoubleGrinderBlockEntity>> DOUBLE_GRINDER = BLOCK_ENTITY_TYPES
             .register("double_grinder",
                     () -> new BlockEntityType<>(DoubleGrinderBlockEntity::new, ScalarPowerBlocks.DOUBLE_GRINDER.get()));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SawmillBlockEntity>> SAWMILL = BLOCK_ENTITY_TYPES
+            .register("sawmill",
+                    () -> new BlockEntityType<>(SawmillBlockEntity::new, ScalarPowerBlocks.SAWMILL.get()));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ExtractorBlockEntity>> EXTRACTOR = BLOCK_ENTITY_TYPES
             .register("extractor",

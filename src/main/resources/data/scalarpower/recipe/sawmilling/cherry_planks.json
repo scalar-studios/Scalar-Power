@@ -1,0 +1,13 @@
+﻿{
+  "type": "scalarpower:sawmilling",
+  "ingredient": "#minecraft:cherry_logs",
+  "result": {
+    "id": "minecraft:cherry_planks",
+    "count": 6
+  },
+  "byproduct": {
+    "id": "scalarpower:sawdust",
+    "count": 1
+  },
+  "byproduct_chance": 0.5
+}

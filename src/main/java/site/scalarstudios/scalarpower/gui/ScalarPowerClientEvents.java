@@ -8,6 +8,7 @@ import site.scalarstudios.scalarpower.machines.generator.entropy.EntropyGenerato
 import site.scalarstudios.scalarpower.machines.grinder.DoubleGrinderScreen;
 import site.scalarstudios.scalarpower.machines.grinder.GrinderScreen;
 import site.scalarstudios.scalarpower.machines.extractor.ExtractorScreen;
+import site.scalarstudios.scalarpower.machines.sawmill.SawmillScreen;
 import site.scalarstudios.scalarpower.machines.poweredfurnace.DoublePoweredFurnaceScreen;
 import site.scalarstudios.scalarpower.machines.poweredfurnace.PoweredFurnaceScreen;
 import net.neoforged.api.distmarker.Dist;
@@ -25,6 +26,7 @@ public class ScalarPowerClientEvents {
         event.register(ScalarPowerMenus.ENTROPY_GENERATOR_MENU.get(), EntropyGeneratorScreen::new);
         event.register(ScalarPowerMenus.GRINDER_MENU.get(), GrinderScreen::new);
         event.register(ScalarPowerMenus.DOUBLE_GRINDER_MENU.get(), DoubleGrinderScreen::new);
+        event.register(ScalarPowerMenus.SAWMILL_MENU.get(), SawmillScreen::new);
         event.register(ScalarPowerMenus.EXTRACTOR_MENU.get(), ExtractorScreen::new);
         event.register(ScalarPowerMenus.POWERED_FURNACE_MENU.get(), PoweredFurnaceScreen::new);
         event.register(ScalarPowerMenus.DOUBLE_POWERED_FURNACE_MENU.get(), DoublePoweredFurnaceScreen::new);

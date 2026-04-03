@@ -20,13 +20,16 @@ import site.scalarstudios.scalarpower.block.ScalarPowerBlocks;
 import site.scalarstudios.scalarpower.integration.jei.category.AlloySmeltingRecipeCategory;
 import site.scalarstudios.scalarpower.integration.jei.category.ExtractionRecipeCategory;
 import site.scalarstudios.scalarpower.integration.jei.category.GrindingRecipeCategory;
+import site.scalarstudios.scalarpower.integration.jei.category.SawmillingRecipeCategory;
 import site.scalarstudios.scalarpower.machines.alloysmelter.AlloySmelterScreen;
 import site.scalarstudios.scalarpower.machines.extractor.ExtractorScreen;
 import site.scalarstudios.scalarpower.machines.grinder.DoubleGrinderScreen;
 import site.scalarstudios.scalarpower.machines.grinder.GrinderScreen;
+import site.scalarstudios.scalarpower.machines.sawmill.SawmillScreen;
 import site.scalarstudios.scalarpower.recipe.AlloySmeltingRecipe;
 import site.scalarstudios.scalarpower.recipe.ExtractionRecipe;
 import site.scalarstudios.scalarpower.recipe.GrindingRecipe;
+import site.scalarstudios.scalarpower.recipe.SawmillRecipe;
 import java.util.List;
 
 @JeiPlugin
@@ -46,7 +49,8 @@ public class ScalarPowerJeiPlugin implements IModPlugin {
         registration.addRecipeCategories(
                 new GrindingRecipeCategory(registration.getJeiHelpers().getGuiHelper()),
                 new ExtractionRecipeCategory(registration.getJeiHelpers().getGuiHelper()),
-                new AlloySmeltingRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+                new AlloySmeltingRecipeCategory(registration.getJeiHelpers().getGuiHelper()),
+                new SawmillingRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
@@ -59,6 +63,7 @@ public class ScalarPowerJeiPlugin implements IModPlugin {
         registration.addRecipes(GrindingRecipeCategory.TYPE, recipes.grinding());
         registration.addRecipes(ExtractionRecipeCategory.TYPE, recipes.extraction());
         registration.addRecipes(AlloySmeltingRecipeCategory.TYPE, recipes.alloy());
+        registration.addRecipes(SawmillingRecipeCategory.TYPE, recipes.sawmilling());
     }
 
     @Override
@@ -79,6 +84,7 @@ public class ScalarPowerJeiPlugin implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(ScalarPowerBlocks.DOUBLE_GRINDER.asItem()), GrindingRecipeCategory.TYPE);
         registration.addRecipeCatalyst(new ItemStack(ScalarPowerBlocks.EXTRACTOR.asItem()), ExtractionRecipeCategory.TYPE);
         registration.addRecipeCatalyst(new ItemStack(ScalarPowerBlocks.ALLOY_SMELTER.asItem()), AlloySmeltingRecipeCategory.TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ScalarPowerBlocks.SAWMILL.asItem()), SawmillingRecipeCategory.TYPE);
     }
 
     @Override
@@ -88,6 +94,7 @@ public class ScalarPowerJeiPlugin implements IModPlugin {
         registration.addRecipeClickArea(DoubleGrinderScreen.class, 80, 44, 24, 18, GrindingRecipeCategory.TYPE);
         registration.addRecipeClickArea(ExtractorScreen.class, 80, 32, 24, 18, ExtractionRecipeCategory.TYPE);
         registration.addRecipeClickArea(AlloySmelterScreen.class, 80, 32, 24, 18, AlloySmeltingRecipeCategory.TYPE);
+        registration.addRecipeClickArea(SawmillScreen.class, 80, 32, 24, 18, SawmillingRecipeCategory.TYPE);
     }
 
     private static List<RecipeHolder<?>> findAllRecipes() {
@@ -131,15 +138,21 @@ public class ScalarPowerJeiPlugin implements IModPlugin {
                 .map(holder -> (RecipeHolder<AlloySmeltingRecipe>) holder)
                 .toList();
 
-        return new CustomRecipes(grindingRecipes, extractionRecipes, alloyRecipes);
+        List<RecipeHolder<SawmillRecipe>> sawmillingRecipes = allRecipes.stream()
+                .filter(holder -> holder.value() instanceof SawmillRecipe)
+                .map(holder -> (RecipeHolder<SawmillRecipe>) holder)
+                .toList();
+
+        return new CustomRecipes(grindingRecipes, extractionRecipes, alloyRecipes, sawmillingRecipes);
     }
 
     private record CustomRecipes(
             List<RecipeHolder<GrindingRecipe>> grinding,
             List<RecipeHolder<ExtractionRecipe>> extraction,
-            List<RecipeHolder<AlloySmeltingRecipe>> alloy) {
+            List<RecipeHolder<AlloySmeltingRecipe>> alloy,
+            List<RecipeHolder<SawmillRecipe>> sawmilling) {
         private boolean isEmpty() {
-            return grinding.isEmpty() && extraction.isEmpty() && alloy.isEmpty();
+            return grinding.isEmpty() && extraction.isEmpty() && alloy.isEmpty() && sawmilling.isEmpty();
         }
     }
 
@@ -156,6 +169,7 @@ public class ScalarPowerJeiPlugin implements IModPlugin {
         jeiRuntime.getRecipeManager().addRecipes(GrindingRecipeCategory.TYPE, recipes.grinding());
         jeiRuntime.getRecipeManager().addRecipes(ExtractionRecipeCategory.TYPE, recipes.extraction());
         jeiRuntime.getRecipeManager().addRecipes(AlloySmeltingRecipeCategory.TYPE, recipes.alloy());
+        jeiRuntime.getRecipeManager().addRecipes(SawmillingRecipeCategory.TYPE, recipes.sawmilling());
         runtimeRecipesInjected = true;
     }
 }

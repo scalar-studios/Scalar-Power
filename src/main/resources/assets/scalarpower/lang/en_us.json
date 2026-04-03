@@ -10,6 +10,7 @@
   "block.scalarpower.extractor": "Extractor",
   "block.scalarpower.grinder": "Grinder",
   "block.scalarpower.double_grinder": "Double Grinder",
+  "block.scalarpower.sawmill": "Sawmill",
   "block.scalarpower.powered_furnace": "Powered Furnace",
   "block.scalarpower.double_powered_furnace": "Double Powered Furnace",
   "block.scalarpower.insulated_copper_wire": "Insulated Copper Wire",
@@ -25,6 +26,7 @@
   "container.scalarpower.extractor": "Extractor",
   "container.scalarpower.grinder": "Grinder",
   "container.scalarpower.double_grinder": "Double Grinder",
+  "container.scalarpower.sawmill": "Sawmill",
   "container.scalarpower.powered_furnace": "Powered Furnace",
   "container.scalarpower.double_powered_furnace": "Double Powered Furnace",
 
@@ -45,6 +47,7 @@
   "item.scalarpower.obsidian_dust": "Obsidian Dust",
   "item.scalarpower.redium_dust": "Redium Dust",
   "item.scalarpower.steel_dust": "Steel Dust",
+  "item.scalarpower.sawdust": "Sawdust",
 
   "item.scalarpower.redium_ingot": "Redium Ingot",
   "item.scalarpower.steel_ingot": "Steel Ingot",
@@ -66,5 +69,6 @@
 
   "jei.scalarpower.grinding": "Grinding",
   "jei.scalarpower.extracting": "Extracting",
-  "jei.scalarpower.alloy_smelting": "Alloy Smelting"
+  "jei.scalarpower.alloy_smelting": "Alloy Smelting",
+  "jei.scalarpower.sawmilling": "Sawmilling"
 }

@@ -22,6 +22,10 @@ public final class ScalarPowerRecipes {
     public static final RecipeType<ExtractionRecipe> EXTRACTION_RECIPE_TYPE = RecipeType.simple(EXTRACTION_ID);
     public static final RecipeSerializer<ExtractionRecipe> EXTRACTION_RECIPE_SERIALIZER = ExtractionRecipe.SERIALIZER;
 
+    public static final Identifier SAWMILLING_ID = Identifier.fromNamespaceAndPath(ScalarPower.MODID, "sawmilling");
+    public static final RecipeType<SawmillRecipe> SAWMILLING_RECIPE_TYPE = RecipeType.simple(SAWMILLING_ID);
+    public static final RecipeSerializer<SawmillRecipe> SAWMILLING_RECIPE_SERIALIZER = SawmillRecipe.SERIALIZER;
+
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, ScalarPower.MODID);
     public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(Registries.RECIPE_SERIALIZER, ScalarPower.MODID);
 
@@ -49,8 +53,13 @@ public final class ScalarPowerRecipes {
             "extracting",
             () -> EXTRACTION_RECIPE_SERIALIZER);
 
-    private ScalarPowerRecipes() {
-    }
+    public static final DeferredHolder<RecipeType<?>, RecipeType<SawmillRecipe>> SAWMILLING_TYPE = RECIPE_TYPES.register(
+            "sawmilling",
+            () -> SAWMILLING_RECIPE_TYPE);
+
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<SawmillRecipe>> SAWMILLING_SERIALIZER = RECIPE_SERIALIZERS.register(
+            "sawmilling",
+            () -> SAWMILLING_RECIPE_SERIALIZER);
 
     public static void register(IEventBus eventBus) {
         RECIPE_TYPES.register(eventBus);

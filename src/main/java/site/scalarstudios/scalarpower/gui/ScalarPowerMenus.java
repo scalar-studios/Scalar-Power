@@ -8,6 +8,7 @@ import site.scalarstudios.scalarpower.machines.generator.entropy.EntropyGenerato
 import site.scalarstudios.scalarpower.machines.grinder.DoubleGrinderMenu;
 import site.scalarstudios.scalarpower.machines.grinder.GrinderMenu;
 import site.scalarstudios.scalarpower.machines.extractor.ExtractorMenu;
+import site.scalarstudios.scalarpower.machines.sawmill.SawmillMenu;
 import site.scalarstudios.scalarpower.machines.poweredfurnace.DoublePoweredFurnaceMenu;
 import site.scalarstudios.scalarpower.machines.poweredfurnace.PoweredFurnaceMenu;
 import net.minecraft.core.registries.Registries;
@@ -35,6 +36,9 @@ public final class ScalarPowerMenus {
 
     public static final DeferredHolder<MenuType<?>, MenuType<DoubleGrinderMenu>> DOUBLE_GRINDER_MENU = MENUS
             .register("double_grinder", () -> IMenuTypeExtension.create(DoubleGrinderMenu::new));
+
+    public static final DeferredHolder<MenuType<?>, MenuType<SawmillMenu>> SAWMILL_MENU = MENUS
+            .register("sawmill", () -> IMenuTypeExtension.create(SawmillMenu::new));
 
     public static final DeferredHolder<MenuType<?>, MenuType<ExtractorMenu>> EXTRACTOR_MENU = MENUS
             .register("extractor", () -> IMenuTypeExtension.create(ExtractorMenu::new));

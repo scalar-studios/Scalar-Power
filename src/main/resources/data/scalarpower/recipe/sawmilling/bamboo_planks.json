@@ -1,0 +1,13 @@
+﻿{
+  "type": "scalarpower:sawmilling",
+  "ingredient": "#minecraft:bamboo_blocks",
+  "result": {
+    "id": "minecraft:bamboo_planks",
+    "count": 6
+  },
+  "byproduct": {
+    "id": "scalarpower:sawdust",
+    "count": 1
+  },
+  "byproduct_chance": 0.5
+}

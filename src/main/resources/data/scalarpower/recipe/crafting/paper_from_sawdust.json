@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "scalarpower:sawdust",
+    "scalarpower:sawdust",
+    "scalarpower:sawdust"
+  ],
+  "result": {
+    "id": "minecraft:paper",
+    "count": 6
+  }
+}
+
