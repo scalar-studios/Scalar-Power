@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.capabilities.Capabilities;
@@ -33,10 +34,13 @@ public final class NeoEnergyTransferUtil {
             return 0;
         }
 
-        List<EnergyHandler> targets = new ArrayList<>();
+        boolean sourceIsTransferBlock = isTransferBlock(level.getBlockEntity(sourcePos));
+        List<EnergyHandler> nonTransferTargets = new ArrayList<>();
+        List<EnergyHandler> transferTargets = new ArrayList<>();
         for (Direction direction : Direction.values()) {
             BlockPos targetPos = sourcePos.relative(direction);
-            if (transferBlocksOnly && !isTransferBlock(level.getBlockEntity(targetPos))) {
+            boolean targetIsTransferBlock = isTransferBlock(level.getBlockEntity(targetPos));
+            if (transferBlocksOnly && !targetIsTransferBlock) {
                 continue;
             }
 
@@ -45,16 +49,34 @@ public final class NeoEnergyTransferUtil {
                     targetPos,
                     direction.getOpposite());
             if (target != null && canInsert(target)) {
-                targets.add(target);
+                if (targetIsTransferBlock) {
+                    transferTargets.add(target);
+                } else {
+                    nonTransferTargets.add(target);
+                }
             }
         }
 
-        if (targets.isEmpty()) {
+        if (nonTransferTargets.isEmpty() && transferTargets.isEmpty()) {
             return 0;
         }
 
+        int moved = 0;
+
+        if (!nonTransferTargets.isEmpty()) {
+            moved += distributeEvenly(source, nonTransferTargets, maxTransferPerSide);
+        }
+
+        if (!transferTargets.isEmpty() && (!sourceIsTransferBlock || nonTransferTargets.isEmpty())) {
+            moved += distributeEvenly(source, transferTargets, maxTransferPerSide);
+        }
+
+        return moved;
+    }
+
+    private static int distributeEvenly(EnergyHandler source, List<EnergyHandler> targets, int maxTransferPerSide) {
         int available = clampToInt(source.getAmountAsLong());
-        if (available <= 0) {
+        if (available <= 0 || targets.isEmpty() || maxTransferPerSide <= 0) {
             return 0;
         }
 
@@ -137,11 +159,20 @@ public final class NeoEnergyTransferUtil {
     }
 
     private static boolean isTransferBlock(BlockEntity blockEntity) {
-        return blockEntity instanceof CopperWireBlockEntity
+        if (blockEntity == null) {
+            return false;
+        }
+
+        if (blockEntity instanceof CopperWireBlockEntity
                 || blockEntity instanceof InsulatedCopperWireBlockEntity
                 || blockEntity instanceof GoldWireBlockEntity
                 || blockEntity instanceof InsulatedGoldWireBlockEntity
-                || blockEntity instanceof GlassFiberWireBlockEntity;
+                || blockEntity instanceof GlassFiberWireBlockEntity) {
+            return true;
+        }
+
+        // Allow energy handoff into Pipez networks when generators are set to transfer-block-only output.
+        return "pipez".equals(BuiltInRegistries.BLOCK_ENTITY_TYPE.getKey(blockEntity.getType()).getNamespace());
     }
 
     private static int move(EnergyHandler from, EnergyHandler to, int amount) {

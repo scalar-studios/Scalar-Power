@@ -28,12 +28,13 @@ public class InsulatedGoldWireBlockEntity extends BlockEntity {
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, InsulatedGoldWireBlockEntity blockEntity) {
-        if (level == null || level.isClientSide() || blockEntity.energyHandler.getAmountAsLong() <= 0) {
+        if (level == null || level.isClientSide()) {
             return;
         }
 
-        int moved = NeoEnergyTransferUtil.pushEnergy(level, pos, blockEntity.energyHandler, PUSH_PER_SIDE);
-        if (moved > 0) {
+        int pulled = NeoEnergyTransferUtil.pullEnergy(level, pos, blockEntity.energyHandler, PUSH_PER_SIDE);
+        int pushed = NeoEnergyTransferUtil.pushEnergy(level, pos, blockEntity.energyHandler, PUSH_PER_SIDE);
+        if (pulled > 0 || pushed > 0) {
             blockEntity.setChanged();
         }
     }
