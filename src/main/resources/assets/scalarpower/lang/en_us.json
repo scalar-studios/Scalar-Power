@@ -68,6 +68,7 @@
   "item.scalarpower.crystus_upgrade": "Crystus Upgrade",
 
   "jei.scalarpower.grinding": "Grinding",
+  "jei.scalarpower.grinding.bonus_output": "%s%% Chance for +%s Extra",
   "jei.scalarpower.extracting": "Extracting",
   "jei.scalarpower.alloy_smelting": "Alloy Smelting",
   "jei.scalarpower.sawmilling": "Sawmilling"
