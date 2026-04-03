@@ -15,6 +15,7 @@ Scalar Power adds specialized machines for turning everyday resources into usefu
 - **Extractor**: pull resin-style resources from valid wood sources.  
 - **Powered Furnace**: speed up and automate smelting workflows.  
 - **Alloy Smelter**: combine materials into higher-tier outputs.
+- **Sawmill**: turn logs into planks and sawdust.
 
 ## Work in Progress
 Scalar Power is actively evolving. Features, balance, and content can change between updates.
