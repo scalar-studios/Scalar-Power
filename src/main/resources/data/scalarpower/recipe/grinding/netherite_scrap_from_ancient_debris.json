@@ -1,0 +1,10 @@
+{
+  "type": "scalarpower:grinding",
+  "ingredient": "minecraft:ancient_debris",
+  "result": {
+    "id": "minecraft:netherite_scrap",
+    "count": 1
+  },
+  "bonus_chance": 0.5,
+  "bonus_count": 1
+}
