@@ -10,4 +10,5 @@
 
 ## 26.1.1-1.0.2_beta (Unreleased - Features Pending)
 - Added Barometric Generator
+- Cleaned up JEI Integration GUIs
 - Started this Changelog.md file
