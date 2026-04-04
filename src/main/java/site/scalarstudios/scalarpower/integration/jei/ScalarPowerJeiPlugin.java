@@ -2,6 +2,7 @@ package site.scalarstudios.scalarpower.integration.jei;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.registration.IGuiHandlerRegistration;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
@@ -26,6 +27,8 @@ import site.scalarstudios.scalarpower.machines.extractor.ExtractorScreen;
 import site.scalarstudios.scalarpower.machines.grinder.DoubleGrinderScreen;
 import site.scalarstudios.scalarpower.machines.grinder.GrinderScreen;
 import site.scalarstudios.scalarpower.machines.sawmill.SawmillScreen;
+import site.scalarstudios.scalarpower.machines.poweredfurnace.DoublePoweredFurnaceScreen;
+import site.scalarstudios.scalarpower.machines.poweredfurnace.PoweredFurnaceScreen;
 import site.scalarstudios.scalarpower.recipe.AlloySmeltingRecipe;
 import site.scalarstudios.scalarpower.recipe.ExtractionRecipe;
 import site.scalarstudios.scalarpower.recipe.GrindingRecipe;
@@ -85,6 +88,8 @@ public class ScalarPowerJeiPlugin implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(ScalarPowerBlocks.EXTRACTOR.asItem()), ExtractionRecipeCategory.TYPE);
         registration.addRecipeCatalyst(new ItemStack(ScalarPowerBlocks.ALLOY_SMELTER.asItem()), AlloySmeltingRecipeCategory.TYPE);
         registration.addRecipeCatalyst(new ItemStack(ScalarPowerBlocks.SAWMILL.asItem()), SawmillingRecipeCategory.TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ScalarPowerBlocks.POWERED_FURNACE.asItem()), RecipeTypes.SMELTING);
+        registration.addRecipeCatalyst(new ItemStack(ScalarPowerBlocks.DOUBLE_POWERED_FURNACE.asItem()), RecipeTypes.SMELTING);
     }
 
     @Override
@@ -95,6 +100,9 @@ public class ScalarPowerJeiPlugin implements IModPlugin {
         registration.addRecipeClickArea(ExtractorScreen.class, 80, 32, 24, 18, ExtractionRecipeCategory.TYPE);
         registration.addRecipeClickArea(AlloySmelterScreen.class, 80, 32, 24, 18, AlloySmeltingRecipeCategory.TYPE);
         registration.addRecipeClickArea(SawmillScreen.class, 80, 32, 24, 18, SawmillingRecipeCategory.TYPE);
+        registration.addRecipeClickArea(PoweredFurnaceScreen.class, 80, 32, 24, 18, RecipeTypes.SMELTING);
+        registration.addRecipeClickArea(DoublePoweredFurnaceScreen.class, 80, 17, 24, 18, RecipeTypes.SMELTING);
+        registration.addRecipeClickArea(DoublePoweredFurnaceScreen.class, 80, 44, 24, 18, RecipeTypes.SMELTING);
     }
 
     private static List<RecipeHolder<?>> findAllRecipes() {

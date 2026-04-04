@@ -23,8 +23,8 @@ import site.scalarstudios.scalarpower.recipe.ScalarPowerRecipes;
 
 public class ExtractionRecipeCategory implements IRecipeCategory<RecipeHolder<ExtractionRecipe>> {
     private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(ScalarPower.MODID, "textures/gui/jei_extractor.png");
-    private static final int BACKGROUND_WIDTH = 176;
-    private static final int BACKGROUND_HEIGHT = 82;
+    private static final int BACKGROUND_WIDTH = 122;
+    private static final int BACKGROUND_HEIGHT = 39;
 
     public static final IRecipeHolderType<ExtractionRecipe> TYPE = IRecipeHolderType.create(ScalarPowerRecipes.EXTRACTION_RECIPE_TYPE);
 
@@ -64,10 +64,10 @@ public class ExtractionRecipeCategory implements IRecipeCategory<RecipeHolder<Ex
     @SuppressWarnings("removal") // This will need to be addressed at some point
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, RecipeHolder<ExtractionRecipe> recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 56, 35)
+        builder.addSlot(RecipeIngredientRole.INPUT, 21, 10)
                 .addIngredients(recipe.value().input());
 
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 116, 35)
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 81, 10)
                 .addItemStack(recipe.value().assemble(new SingleRecipeInput(ItemStack.EMPTY)));
     }
 

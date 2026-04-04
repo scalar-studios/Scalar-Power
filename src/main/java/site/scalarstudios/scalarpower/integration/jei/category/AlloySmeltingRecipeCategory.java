@@ -23,8 +23,8 @@ import site.scalarstudios.scalarpower.recipe.ScalarPowerRecipes;
 
 public class AlloySmeltingRecipeCategory implements IRecipeCategory<RecipeHolder<AlloySmeltingRecipe>> {
     private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(ScalarPower.MODID, "textures/gui/jei_alloy_smelter.png");
-    private static final int BACKGROUND_WIDTH = 176;
-    private static final int BACKGROUND_HEIGHT = 82;
+    private static final int BACKGROUND_WIDTH = 122;
+    private static final int BACKGROUND_HEIGHT = 39;
 
     public static final IRecipeHolderType<AlloySmeltingRecipe> TYPE = IRecipeHolderType.create(ScalarPowerRecipes.ALLOY_SMELTING_RECIPE_TYPE);
 
@@ -64,14 +64,14 @@ public class AlloySmeltingRecipeCategory implements IRecipeCategory<RecipeHolder
     @SuppressWarnings("removal") // This will need to be addressed at some point
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, RecipeHolder<AlloySmeltingRecipe> recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 26, 35)
+        builder.addSlot(RecipeIngredientRole.INPUT, 2, 10)
                 .addIngredients(recipe.value().ingredient1());
-        builder.addSlot(RecipeIngredientRole.INPUT, 44, 35)
+        builder.addSlot(RecipeIngredientRole.INPUT, 20, 10)
                 .addIngredients(recipe.value().ingredient2());
-        recipe.value().ingredient3().ifPresent(ingredient -> builder.addSlot(RecipeIngredientRole.INPUT, 62, 35)
+        recipe.value().ingredient3().ifPresent(ingredient -> builder.addSlot(RecipeIngredientRole.INPUT, 38, 10)
                 .addIngredients(ingredient));
 
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 116, 35)
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 101, 10)
                 .addItemStack(recipe.value().assemble(new AlloySmeltingInput(ItemStack.EMPTY, ItemStack.EMPTY, ItemStack.EMPTY)));
     }
 
