@@ -1,36 +1,43 @@
 {
-  "block.scalarpower.alloy_smelter": "Alloy Smelter",
-  "block.scalarpower.battery": "Battery",
-  "block.scalarpower.steel_battery": "Steel Battery",
+  "block.scalarpower.barometric_generator": "Barometric Generator",
   "block.scalarpower.coal_generator": "Coal Generator",
   "block.scalarpower.culinary_generator": "Culinary Generator",
-  "block.scalarpower.barometric_generator": "Barometric Generator",
   "block.scalarpower.entropy_generator": "Entropy Generator",
-  "block.scalarpower.copper_wire": "Copper Wire",
-  "block.scalarpower.gold_wire": "Gold Wire",
+
+  "block.scalarpower.alloy_smelter": "Alloy Smelter",
   "block.scalarpower.extractor": "Extractor",
   "block.scalarpower.grinder": "Grinder",
   "block.scalarpower.double_grinder": "Double Grinder",
-  "block.scalarpower.sawmill": "Sawmill",
+  "block.scalarpower.macerator": "Macerator",
+  "block.scalarpower.double_macerator": "Double Macerator",
   "block.scalarpower.powered_furnace": "Powered Furnace",
   "block.scalarpower.double_powered_furnace": "Double Powered Furnace",
+  "block.scalarpower.sawmill": "Sawmill",
+
+  "block.scalarpower.battery": "Battery",
+  "block.scalarpower.steel_battery": "Steel Battery",
+  "block.scalarpower.copper_wire": "Copper Wire",
   "block.scalarpower.insulated_copper_wire": "Insulated Copper Wire",
+  "block.scalarpower.gold_wire": "Gold Wire",
   "block.scalarpower.insulated_gold_wire": "Insulated Gold Wire",
   "block.scalarpower.glass_fiber_wire": "Glass Fiber Wire",
 
-  "container.scalarpower.alloy_smelter": "Alloy Smelter",
-  "container.scalarpower.battery": "Battery",
-  "container.scalarpower.steel_battery": "Steel Battery",
+  "container.scalarpower.barometric_generator": "Barometric Generator",
   "container.scalarpower.coal_generator": "Coal Generator",
   "container.scalarpower.culinary_generator": "Culinary Generator",
-  "container.scalarpower.barometric_generator": "Barometric Generator",
   "container.scalarpower.entropy_generator": "Entropy Generator",
+
+  "container.scalarpower.alloy_smelter": "Alloy Smelter",
   "container.scalarpower.extractor": "Extractor",
   "container.scalarpower.grinder": "Grinder",
   "container.scalarpower.double_grinder": "Double Grinder",
-  "container.scalarpower.sawmill": "Sawmill",
+  "container.scalarpower.double_macerator": "Double Macerator",
   "container.scalarpower.powered_furnace": "Powered Furnace",
   "container.scalarpower.double_powered_furnace": "Double Powered Furnace",
+  "container.scalarpower.sawmill": "Sawmill",
+
+  "container.scalarpower.battery": "Battery",
+  "container.scalarpower.steel_battery": "Steel Battery",
 
   "tooltip.scalarpower.copper_wire": "Transfers 40 SPU/t",
   "tooltip.scalarpower.insulated_copper_wire": "Transfers 40 SPU/t (Insulated)",
@@ -51,6 +58,10 @@
   "item.scalarpower.steel_dust": "Steel Dust",
   "item.scalarpower.sawdust": "Sawdust",
 
+  "item.scalarpower.copper_chunk": "Copper Chunk",
+  "item.scalarpower.iron_chunk": "Iron Chunk",
+  "item.scalarpower.gold_chunk": "Gold Chunk",
+
   "item.scalarpower.redium_ingot": "Redium Ingot",
   "item.scalarpower.steel_ingot": "Steel Ingot",
 
@@ -66,8 +77,9 @@
   "item.scalarpower.insulated_gold_wire": "Insulated Gold Wire",
   "item.scalarpower.glass_fiber_wire": "Glass Fiber Wire",
 
-  "jei.scalarpower.grinding": "Grinding",
-  "jei.scalarpower.extracting": "Extracting",
   "jei.scalarpower.alloy_smelting": "Alloy Smelting",
+  "jei.scalarpower.extracting": "Extracting",
+  "jei.scalarpower.grinding": "Grinding",
+  "jei.scalarpower.macerating": "Macerating",
   "jei.scalarpower.sawmilling": "Sawmilling"
 }

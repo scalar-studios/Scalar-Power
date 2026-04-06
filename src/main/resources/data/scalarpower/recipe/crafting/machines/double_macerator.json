@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SRS",
+    "DMD",
+    "SFS"
+  ],
+  "key": {
+    "S": "scalarpower:steel_ingot",
+    "R": "scalarpower:redium_ingot",
+    "D": "scalarpower:double_grinder",
+    "M": "scalarpower:macerator",
+    "F": "scalarpower:steel_machine_frame"
+  },
+  "result": {
+    "id": "scalarpower:double_macerator",
+    "count": 1
+  }
+}
+

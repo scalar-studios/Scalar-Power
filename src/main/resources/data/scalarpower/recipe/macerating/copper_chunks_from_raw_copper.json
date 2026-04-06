@@ -1,0 +1,14 @@
+{
+  "type": "scalarpower:macerating",
+  "ingredient": "minecraft:raw_copper",
+  "result": {
+    "id": "scalarpower:copper_chunk",
+    "count": 2
+  },
+  "byproduct": {
+    "id": "scalarpower:gold_chunk",
+    "count": 1
+  },
+  "byproduct_chance": 0.15
+}
+

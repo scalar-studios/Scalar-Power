@@ -9,6 +9,7 @@ import site.scalarstudios.scalarpower.ScalarPower;
 public class ScalarPowerItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ScalarPower.MODID);
 
+    // Dusts
     public static final DeferredItem<Item> COAL_DUST = ITEMS.registerSimpleItem("coal_dust");
     public static final DeferredItem<Item> COPPER_DUST = ITEMS.registerSimpleItem("copper_dust");
     public static final DeferredItem<Item> DIAMOND_DUST = ITEMS.registerSimpleItem("diamond_dust");
@@ -21,12 +22,20 @@ public class ScalarPowerItems {
 
     public static final DeferredItem<Item> SAWDUST = ITEMS.registerSimpleItem("sawdust");
 
+    // Chunks
+    public static final DeferredItem<Item> COPPER_CHUNK = ITEMS.registerSimpleItem("copper_chunk");
+    public static final DeferredItem<Item> IRON_CHUNK = ITEMS.registerSimpleItem("iron_chunk");
+    public static final DeferredItem<Item> GOLD_CHUNK = ITEMS.registerSimpleItem("gold_chunk");
+
+    // Ingots
     public static final DeferredItem<Item> REDIUM_INGOT = ITEMS.registerSimpleItem("redium_ingot");
     public static final DeferredItem<Item> STEEL_INGOT = ITEMS.registerSimpleItem("steel_ingot");
 
+    // Rubber
     public static final DeferredItem<Item> RUBBER = ITEMS.registerSimpleItem("rubber");
     public static final DeferredItem<Item> SYNTHETIC_RESIN = ITEMS.registerSimpleItem("synthetic_resin");
 
+    // Machine Frames
     public static final DeferredItem<Item> MACHINE_FRAME = ITEMS.registerSimpleItem("machine_frame");
     public static final DeferredItem<Item> STEEL_MACHINE_FRAME = ITEMS.registerSimpleItem("steel_machine_frame");
 

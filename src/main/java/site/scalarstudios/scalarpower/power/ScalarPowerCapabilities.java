@@ -13,6 +13,8 @@ import site.scalarstudios.scalarpower.machines.generator.culinary.CulinaryGenera
 import site.scalarstudios.scalarpower.machines.generator.entropy.EntropyGeneratorBlockEntity;
 import site.scalarstudios.scalarpower.machines.grinder.DoubleGrinderBlockEntity;
 import site.scalarstudios.scalarpower.machines.grinder.GrinderBlockEntity;
+import site.scalarstudios.scalarpower.machines.macerator.DoubleMaceratorBlockEntity;
+import site.scalarstudios.scalarpower.machines.macerator.MaceratorBlockEntity;
 import site.scalarstudios.scalarpower.machines.poweredfurnace.DoublePoweredFurnaceBlockEntity;
 import site.scalarstudios.scalarpower.machines.poweredfurnace.PoweredFurnaceBlockEntity;
 import site.scalarstudios.scalarpower.machines.sawmill.SawmillBlockEntity;
@@ -23,10 +25,16 @@ import site.scalarstudios.scalarpower.machines.wire.gold.GoldWireBlockEntity;
 import site.scalarstudios.scalarpower.machines.wire.gold.InsulatedGoldWireBlockEntity;
 
 public final class ScalarPowerCapabilities {
-    private ScalarPowerCapabilities() {
-    }
 
     public static void register(RegisterCapabilitiesEvent event) {
+
+        // Energy Handlers
+        /* Generators */
+        event.registerBlockEntity(
+                Capabilities.Energy.BLOCK,
+                ScalarPowerBlockEntities.BAROMETRIC_GENERATOR.get(),
+                BarometricGeneratorBlockEntity::getEnergyHandler);
+
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.COAL_GENERATOR.get(),
@@ -42,10 +50,16 @@ public final class ScalarPowerCapabilities {
                 ScalarPowerBlockEntities.ENTROPY_GENERATOR.get(),
                 EntropyGeneratorBlockEntity::getEnergyHandler);
 
+        /* Machines */
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
-                ScalarPowerBlockEntities.BAROMETRIC_GENERATOR.get(),
-                BarometricGeneratorBlockEntity::getEnergyHandler);
+                ScalarPowerBlockEntities.ALLOY_SMELTER.get(),
+                AlloySmelterBlockEntity::getEnergyHandler);
+
+        event.registerBlockEntity(
+                Capabilities.Energy.BLOCK,
+                ScalarPowerBlockEntities.EXTRACTOR.get(),
+                ExtractorBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
@@ -59,13 +73,13 @@ public final class ScalarPowerCapabilities {
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
-                ScalarPowerBlockEntities.SAWMILL.get(),
-                SawmillBlockEntity::getEnergyHandler);
+                ScalarPowerBlockEntities.MACERATOR.get(),
+                MaceratorBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
-                ScalarPowerBlockEntities.EXTRACTOR.get(),
-                ExtractorBlockEntity::getEnergyHandler);
+                ScalarPowerBlockEntities.DOUBLE_MACERATOR.get(),
+                DoubleMaceratorBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
@@ -79,9 +93,10 @@ public final class ScalarPowerCapabilities {
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
-                ScalarPowerBlockEntities.ALLOY_SMELTER.get(),
-                AlloySmelterBlockEntity::getEnergyHandler);
+                ScalarPowerBlockEntities.SAWMILL.get(),
+                SawmillBlockEntity::getEnergyHandler);
 
+        /* Energy Storage & Transfer */
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.BATTERY.get(),
@@ -117,6 +132,8 @@ public final class ScalarPowerCapabilities {
                 ScalarPowerBlockEntities.GLASS_FIBER_WIRE.get(),
                 GlassFiberWireBlockEntity::getEnergyHandler);
 
+        // VanillaContainerWrappers
+        /* Generators */
         event.registerBlockEntity(
                 Capabilities.Item.BLOCK,
                 ScalarPowerBlockEntities.COAL_GENERATOR.get(),
@@ -125,6 +142,17 @@ public final class ScalarPowerCapabilities {
         event.registerBlockEntity(
                 Capabilities.Item.BLOCK,
                 ScalarPowerBlockEntities.CULINARY_GENERATOR.get(),
+                (blockEntity, side) -> VanillaContainerWrapper.of(blockEntity));
+
+        /* Machines */
+        event.registerBlockEntity(
+                Capabilities.Item.BLOCK,
+                ScalarPowerBlockEntities.ALLOY_SMELTER.get(),
+                (blockEntity, side) -> VanillaContainerWrapper.of(blockEntity));
+
+        event.registerBlockEntity(
+                Capabilities.Item.BLOCK,
+                ScalarPowerBlockEntities.EXTRACTOR.get(),
                 (blockEntity, side) -> VanillaContainerWrapper.of(blockEntity));
 
         event.registerBlockEntity(
@@ -139,12 +167,12 @@ public final class ScalarPowerCapabilities {
 
         event.registerBlockEntity(
                 Capabilities.Item.BLOCK,
-                ScalarPowerBlockEntities.SAWMILL.get(),
+                ScalarPowerBlockEntities.MACERATOR.get(),
                 (blockEntity, side) -> VanillaContainerWrapper.of(blockEntity));
 
         event.registerBlockEntity(
                 Capabilities.Item.BLOCK,
-                ScalarPowerBlockEntities.EXTRACTOR.get(),
+                ScalarPowerBlockEntities.DOUBLE_MACERATOR.get(),
                 (blockEntity, side) -> VanillaContainerWrapper.of(blockEntity));
 
         event.registerBlockEntity(
@@ -159,7 +187,7 @@ public final class ScalarPowerCapabilities {
 
         event.registerBlockEntity(
                 Capabilities.Item.BLOCK,
-                ScalarPowerBlockEntities.ALLOY_SMELTER.get(),
+                ScalarPowerBlockEntities.SAWMILL.get(),
                 (blockEntity, side) -> VanillaContainerWrapper.of(blockEntity));
     }
 }

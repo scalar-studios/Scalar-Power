@@ -10,6 +10,8 @@ import site.scalarstudios.scalarpower.machines.generator.culinary.CulinaryGenera
 import site.scalarstudios.scalarpower.machines.generator.entropy.EntropyGeneratorBlockEntity;
 import site.scalarstudios.scalarpower.machines.grinder.DoubleGrinderBlockEntity;
 import site.scalarstudios.scalarpower.machines.grinder.GrinderBlockEntity;
+import site.scalarstudios.scalarpower.machines.macerator.DoubleMaceratorBlockEntity;
+import site.scalarstudios.scalarpower.machines.macerator.MaceratorBlockEntity;
 import site.scalarstudios.scalarpower.machines.extractor.ExtractorBlockEntity;
 import site.scalarstudios.scalarpower.machines.sawmill.SawmillBlockEntity;
 import site.scalarstudios.scalarpower.machines.poweredfurnace.DoublePoweredFurnaceBlockEntity;
@@ -28,6 +30,11 @@ public final class ScalarPowerBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister
             .create(net.minecraft.core.registries.Registries.BLOCK_ENTITY_TYPE, ScalarPower.MODID);
 
+    /* Generators */
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BarometricGeneratorBlockEntity>> BAROMETRIC_GENERATOR = BLOCK_ENTITY_TYPES
+            .register("barometric_generator",
+                    () -> new BlockEntityType<>(BarometricGeneratorBlockEntity::new, ScalarPowerBlocks.BAROMETRIC_GENERATOR.get()));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CoalGeneratorBlockEntity>> COAL_GENERATOR = BLOCK_ENTITY_TYPES
             .register("coal_generator",
                     () -> new BlockEntityType<>(CoalGeneratorBlockEntity::new, ScalarPowerBlocks.COAL_GENERATOR.get()));
@@ -36,13 +43,18 @@ public final class ScalarPowerBlockEntities {
             .register("culinary_generator",
                     () -> new BlockEntityType<>(CulinaryGeneratorBlockEntity::new, ScalarPowerBlocks.CULINARY_GENERATOR.get()));
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BarometricGeneratorBlockEntity>> BAROMETRIC_GENERATOR = BLOCK_ENTITY_TYPES
-            .register("barometric_generator",
-                    () -> new BlockEntityType<>(BarometricGeneratorBlockEntity::new, ScalarPowerBlocks.BAROMETRIC_GENERATOR.get()));
-
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EntropyGeneratorBlockEntity>> ENTROPY_GENERATOR = BLOCK_ENTITY_TYPES
             .register("entropy_generator",
                     () -> new BlockEntityType<>(EntropyGeneratorBlockEntity::new, ScalarPowerBlocks.ENTROPY_GENERATOR.get()));
+
+    /* Machines */
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AlloySmelterBlockEntity>> ALLOY_SMELTER = BLOCK_ENTITY_TYPES
+            .register("alloy_smelter",
+                    () -> new BlockEntityType<>(AlloySmelterBlockEntity::new, ScalarPowerBlocks.ALLOY_SMELTER.get()));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ExtractorBlockEntity>> EXTRACTOR = BLOCK_ENTITY_TYPES
+            .register("extractor",
+                    () -> new BlockEntityType<>(ExtractorBlockEntity::new, ScalarPowerBlocks.EXTRACTOR.get()));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GrinderBlockEntity>> GRINDER = BLOCK_ENTITY_TYPES
             .register("grinder",
@@ -52,13 +64,13 @@ public final class ScalarPowerBlockEntities {
             .register("double_grinder",
                     () -> new BlockEntityType<>(DoubleGrinderBlockEntity::new, ScalarPowerBlocks.DOUBLE_GRINDER.get()));
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SawmillBlockEntity>> SAWMILL = BLOCK_ENTITY_TYPES
-            .register("sawmill",
-                    () -> new BlockEntityType<>(SawmillBlockEntity::new, ScalarPowerBlocks.SAWMILL.get()));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MaceratorBlockEntity>> MACERATOR = BLOCK_ENTITY_TYPES
+            .register("macerator",
+                    () -> new BlockEntityType<>(MaceratorBlockEntity::new, ScalarPowerBlocks.MACERATOR.get()));
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ExtractorBlockEntity>> EXTRACTOR = BLOCK_ENTITY_TYPES
-            .register("extractor",
-                    () -> new BlockEntityType<>(ExtractorBlockEntity::new, ScalarPowerBlocks.EXTRACTOR.get()));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DoubleMaceratorBlockEntity>> DOUBLE_MACERATOR = BLOCK_ENTITY_TYPES
+            .register("double_macerator",
+                    () -> new BlockEntityType<>(DoubleMaceratorBlockEntity::new, ScalarPowerBlocks.DOUBLE_MACERATOR.get()));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PoweredFurnaceBlockEntity>> POWERED_FURNACE = BLOCK_ENTITY_TYPES
             .register("powered_furnace",
@@ -68,10 +80,11 @@ public final class ScalarPowerBlockEntities {
             .register("double_powered_furnace",
                     () -> new BlockEntityType<>(DoublePoweredFurnaceBlockEntity::new, ScalarPowerBlocks.DOUBLE_POWERED_FURNACE.get()));
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AlloySmelterBlockEntity>> ALLOY_SMELTER = BLOCK_ENTITY_TYPES
-            .register("alloy_smelter",
-                    () -> new BlockEntityType<>(AlloySmelterBlockEntity::new, ScalarPowerBlocks.ALLOY_SMELTER.get()));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SawmillBlockEntity>> SAWMILL = BLOCK_ENTITY_TYPES
+            .register("sawmill",
+                    () -> new BlockEntityType<>(SawmillBlockEntity::new, ScalarPowerBlocks.SAWMILL.get()));
 
+    /* Energy Storage & Transfer */
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BatteryBlockEntity>> BATTERY = BLOCK_ENTITY_TYPES
             .register("battery", () -> new BlockEntityType<>(BatteryBlockEntity::new, ScalarPowerBlocks.BATTERY.get()));
 

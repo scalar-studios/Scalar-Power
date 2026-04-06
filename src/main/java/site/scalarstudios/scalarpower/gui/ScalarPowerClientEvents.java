@@ -8,6 +8,8 @@ import site.scalarstudios.scalarpower.machines.generator.culinary.CulinaryGenera
 import site.scalarstudios.scalarpower.machines.generator.entropy.EntropyGeneratorScreen;
 import site.scalarstudios.scalarpower.machines.grinder.DoubleGrinderScreen;
 import site.scalarstudios.scalarpower.machines.grinder.GrinderScreen;
+import site.scalarstudios.scalarpower.machines.macerator.DoubleMaceratorScreen;
+import site.scalarstudios.scalarpower.machines.macerator.MaceratorScreen;
 import site.scalarstudios.scalarpower.machines.extractor.ExtractorScreen;
 import site.scalarstudios.scalarpower.machines.sawmill.SawmillScreen;
 import site.scalarstudios.scalarpower.machines.poweredfurnace.DoublePoweredFurnaceScreen;
@@ -29,6 +31,8 @@ public class ScalarPowerClientEvents {
         event.register(ScalarPowerMenus.GRINDER_MENU.get(), GrinderScreen::new);
         event.register(ScalarPowerMenus.DOUBLE_GRINDER_MENU.get(), DoubleGrinderScreen::new);
         event.register(ScalarPowerMenus.SAWMILL_MENU.get(), SawmillScreen::new);
+        event.register(ScalarPowerMenus.MACERATOR_MENU.get(), MaceratorScreen::new);
+        event.register(ScalarPowerMenus.DOUBLE_MACERATOR_MENU.get(), DoubleMaceratorScreen::new);
         event.register(ScalarPowerMenus.EXTRACTOR_MENU.get(), ExtractorScreen::new);
         event.register(ScalarPowerMenus.POWERED_FURNACE_MENU.get(), PoweredFurnaceScreen::new);
         event.register(ScalarPowerMenus.DOUBLE_POWERED_FURNACE_MENU.get(), DoublePoweredFurnaceScreen::new);

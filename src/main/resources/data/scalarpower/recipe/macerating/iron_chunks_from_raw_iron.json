@@ -1,0 +1,9 @@
+{
+  "type": "scalarpower:macerating",
+  "ingredient": "minecraft:raw_iron",
+  "result": {
+    "id": "scalarpower:iron_chunk",
+    "count": 2
+  }
+}
+

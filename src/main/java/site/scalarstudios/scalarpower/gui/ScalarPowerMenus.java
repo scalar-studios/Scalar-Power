@@ -8,6 +8,8 @@ import site.scalarstudios.scalarpower.machines.generator.culinary.CulinaryGenera
 import site.scalarstudios.scalarpower.machines.generator.entropy.EntropyGeneratorMenu;
 import site.scalarstudios.scalarpower.machines.grinder.DoubleGrinderMenu;
 import site.scalarstudios.scalarpower.machines.grinder.GrinderMenu;
+import site.scalarstudios.scalarpower.machines.macerator.DoubleMaceratorMenu;
+import site.scalarstudios.scalarpower.machines.macerator.MaceratorMenu;
 import site.scalarstudios.scalarpower.machines.extractor.ExtractorMenu;
 import site.scalarstudios.scalarpower.machines.sawmill.SawmillMenu;
 import site.scalarstudios.scalarpower.machines.poweredfurnace.DoublePoweredFurnaceMenu;
@@ -43,6 +45,12 @@ public final class ScalarPowerMenus {
 
     public static final DeferredHolder<MenuType<?>, MenuType<SawmillMenu>> SAWMILL_MENU = MENUS
             .register("sawmill", () -> IMenuTypeExtension.create(SawmillMenu::new));
+
+    public static final DeferredHolder<MenuType<?>, MenuType<MaceratorMenu>> MACERATOR_MENU = MENUS
+            .register("macerator", () -> IMenuTypeExtension.create(MaceratorMenu::new));
+
+    public static final DeferredHolder<MenuType<?>, MenuType<DoubleMaceratorMenu>> DOUBLE_MACERATOR_MENU = MENUS
+            .register("double_macerator", () -> IMenuTypeExtension.create(DoubleMaceratorMenu::new));
 
     public static final DeferredHolder<MenuType<?>, MenuType<ExtractorMenu>> EXTRACTOR_MENU = MENUS
             .register("extractor", () -> IMenuTypeExtension.create(ExtractorMenu::new));

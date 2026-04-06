@@ -17,6 +17,8 @@ import site.scalarstudios.scalarpower.machines.generator.culinary.CulinaryGenera
 import site.scalarstudios.scalarpower.machines.generator.entropy.EntropyGeneratorBlock;
 import site.scalarstudios.scalarpower.machines.grinder.DoubleGrinderBlock;
 import site.scalarstudios.scalarpower.machines.grinder.GrinderBlock;
+import site.scalarstudios.scalarpower.machines.macerator.DoubleMaceratorBlock;
+import site.scalarstudios.scalarpower.machines.macerator.MaceratorBlock;
 import site.scalarstudios.scalarpower.machines.extractor.ExtractorBlock;
 import site.scalarstudios.scalarpower.machines.sawmill.SawmillBlock;
 import site.scalarstudios.scalarpower.machines.poweredfurnace.DoublePoweredFurnaceBlock;
@@ -35,6 +37,11 @@ import java.util.function.UnaryOperator;
 public class ScalarPowerBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ScalarPower.MODID);
 
+    /* Generators */
+    public static final DeferredBlock<BarometricGeneratorBlock> BAROMETRIC_GENERATOR = registerBlock("barometric_generator",
+            BarometricGeneratorBlock::new,
+            properties -> properties.strength(4.0F, 4.0F).requiresCorrectToolForDrops().sound(SoundType.IRON).mapColor(MapColor.STONE));
+
     public static final DeferredBlock<CoalGeneratorBlock> COAL_GENERATOR = registerBlock("coal_generator",
             CoalGeneratorBlock::new,
             properties -> properties.strength(3.5F, 3.5F).requiresCorrectToolForDrops().sound(SoundType.IRON).mapColor(MapColor.STONE));
@@ -43,13 +50,18 @@ public class ScalarPowerBlocks {
             CulinaryGeneratorBlock::new,
             properties -> properties.strength(3.5F, 3.5F).requiresCorrectToolForDrops().sound(SoundType.IRON).mapColor(MapColor.STONE));
 
-    public static final DeferredBlock<BarometricGeneratorBlock> BAROMETRIC_GENERATOR = registerBlock("barometric_generator",
-            BarometricGeneratorBlock::new,
-            properties -> properties.strength(4.0F, 4.0F).requiresCorrectToolForDrops().sound(SoundType.IRON).mapColor(MapColor.STONE));
-
     public static final DeferredBlock<EntropyGeneratorBlock> ENTROPY_GENERATOR = registerBlock("entropy_generator",
             EntropyGeneratorBlock::new,
             properties -> properties.strength(4.0F, 4.0F).requiresCorrectToolForDrops().sound(SoundType.IRON).mapColor(MapColor.STONE));
+
+    /* Machines */
+    public static final DeferredBlock<AlloySmelterBlock> ALLOY_SMELTER = registerBlock("alloy_smelter",
+            AlloySmelterBlock::new,
+            properties -> properties.strength(3.5F, 3.5F).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.STONE));
+
+    public static final DeferredBlock<ExtractorBlock> EXTRACTOR = registerBlock("extractor",
+            ExtractorBlock::new,
+            properties -> properties.strength(3.5F, 3.5F).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.STONE));
 
     public static final DeferredBlock<GrinderBlock> GRINDER = registerBlock("grinder",
             GrinderBlock::new,
@@ -59,12 +71,12 @@ public class ScalarPowerBlocks {
             DoubleGrinderBlock::new,
             properties -> properties.strength(3.5F, 3.5F).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.STONE));
 
-    public static final DeferredBlock<SawmillBlock> SAWMILL = registerBlock("sawmill",
-            SawmillBlock::new,
+    public static final DeferredBlock<MaceratorBlock> MACERATOR = registerBlock("macerator",
+            MaceratorBlock::new,
             properties -> properties.strength(3.5F, 3.5F).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.STONE));
 
-    public static final DeferredBlock<ExtractorBlock> EXTRACTOR = registerBlock("extractor",
-            ExtractorBlock::new,
+    public static final DeferredBlock<DoubleMaceratorBlock> DOUBLE_MACERATOR = registerBlock("double_macerator",
+            DoubleMaceratorBlock::new,
             properties -> properties.strength(3.5F, 3.5F).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.STONE));
 
     public static final DeferredBlock<PoweredFurnaceBlock> POWERED_FURNACE = registerBlock("powered_furnace",
@@ -75,10 +87,11 @@ public class ScalarPowerBlocks {
             DoublePoweredFurnaceBlock::new,
             properties -> properties.strength(3.5F, 3.5F).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.STONE));
 
-    public static final DeferredBlock<AlloySmelterBlock> ALLOY_SMELTER = registerBlock("alloy_smelter",
-            AlloySmelterBlock::new,
+    public static final DeferredBlock<SawmillBlock> SAWMILL = registerBlock("sawmill",
+            SawmillBlock::new,
             properties -> properties.strength(3.5F, 3.5F).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.STONE));
 
+    /* Energy Storage & Transfer */
     public static final DeferredBlock<BatteryBlock> BATTERY = registerBlock("battery",
             BatteryBlock::new,
             properties -> properties.strength(3.5F, 3.5F).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.STONE));

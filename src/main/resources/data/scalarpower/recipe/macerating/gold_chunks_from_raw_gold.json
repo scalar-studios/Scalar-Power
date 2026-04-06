@@ -1,0 +1,9 @@
+{
+  "type": "scalarpower:macerating",
+  "ingredient": "minecraft:raw_gold",
+  "result": {
+    "id": "scalarpower:gold_chunk",
+    "count": 2
+  }
+}
+

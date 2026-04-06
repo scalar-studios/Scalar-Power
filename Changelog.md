@@ -8,7 +8,11 @@
   - `c\tags\item\ingots\redium.json`
   - `minecraft\tags\block\mineable\pickaxe.json`
 
-## 26.1.1-1.0.2_beta (Unreleased - Features Pending)
-- Added Barometric Generator
+## 26.1.1-1.0.2_beta (Unreleased - Features Pending)  
+- Added Barometric Generator  
+- Added Macerator (grinding with chance-based secondary output)  
+  - Added Double Macerator (dual-lane upgraded maceration)  
 - Cleaned up JEI Integration GUIs
-- Started this Changelog.md file
+- Reorganized Creative Tab
+- Reorganized code base
+- Started this Changelog.md file  
