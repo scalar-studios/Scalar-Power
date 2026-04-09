@@ -1,0 +1,11 @@
+{
+  "type": "scalarpower:grinding",
+  "ingredient": "minecraft:blaze_rod",
+  "result": {
+    "id": "minecraft:blaze_powder",
+    "count": 4
+  },
+  "bonus_chance": 0.0,
+  "bonus_count": 1
+}
+
