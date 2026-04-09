@@ -4,6 +4,11 @@
   "result": {
     "id": "scalarpower:gold_chunk",
     "count": 2
-  }
+  },
+  "byproduct": {
+    "id": "scalarpower:cobalt_chunk",
+    "count": 1
+  },
+  "byproduct_chance": 0.2
 }
 

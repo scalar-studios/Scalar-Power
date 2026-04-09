@@ -51,11 +51,17 @@ public class ScalarPowerCreativeTabs {
             event.accept(ScalarPowerBlocks.GLASS_FIBER_WIRE.get());
             event.accept(ScalarPowerBlocks.REINFORCED_GLASS_FIBER_WIRE.get());
 
+            /* Normal Blocks */
+            event.accept(ScalarPowerBlocks.COBALT_BLOCK.get());
+            event.accept(ScalarPowerBlocks.ENDER_ALLOY_BLOCK.get());
+
             // Items
             /* Dusts */
             event.accept(ScalarPowerItems.COAL_DUST.get());
             event.accept(ScalarPowerItems.COPPER_DUST.get());
+            event.accept(ScalarPowerItems.COBALT_DUST.get());
             event.accept(ScalarPowerItems.DIAMOND_DUST.get());
+            event.accept(ScalarPowerItems.ENDER_ALLOY_DUST.get());
             event.accept(ScalarPowerItems.EMERALD_DUST.get());
             event.accept(ScalarPowerItems.GOLD_DUST.get());
             event.accept(ScalarPowerItems.IRON_DUST.get());
@@ -65,11 +71,14 @@ public class ScalarPowerCreativeTabs {
             event.accept(ScalarPowerItems.SAWDUST.get());
 
             /* Chunks */
+            event.accept(ScalarPowerItems.COBALT_CHUNK.get());
             event.accept(ScalarPowerItems.COPPER_CHUNK.get());
             event.accept(ScalarPowerItems.IRON_CHUNK.get());
             event.accept(ScalarPowerItems.GOLD_CHUNK.get());
 
             /* Ingots */
+            event.accept(ScalarPowerItems.COBALT_INGOT.get());
+            event.accept(ScalarPowerItems.ENDER_ALLOY_INGOT.get());
             event.accept(ScalarPowerItems.REDIUM_INGOT.get());
             event.accept(ScalarPowerItems.STEEL_INGOT.get());
 

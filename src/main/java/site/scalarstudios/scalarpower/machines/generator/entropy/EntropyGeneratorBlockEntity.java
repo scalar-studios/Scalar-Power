@@ -17,6 +17,7 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.transfer.energy.EnergyHandler;
 import site.scalarstudios.scalarpower.block.ScalarPowerBlockEntities;
+import site.scalarstudios.scalarpower.block.ScalarPowerBlocks;
 import site.scalarstudios.scalarpower.machines.MachineUtils;
 import site.scalarstudios.scalarpower.power.NeoEnergyTransferUtil;
 
@@ -38,12 +39,16 @@ public class EntropyGeneratorBlockEntity extends BlockEntity implements MenuProv
             Map.entry(Blocks.LANTERN, 20),
             Map.entry(Blocks.TORCH, 15),
             Map.entry(Blocks.WALL_TORCH, 15),
+
             Map.entry(Blocks.WATER, -15),
-            Map.entry(Blocks.POWDER_SNOW, -60),
-            Map.entry(Blocks.SNOW_BLOCK, -80),
-            Map.entry(Blocks.ICE, -100),
-            Map.entry(Blocks.PACKED_ICE, -120),
-            Map.entry(Blocks.BLUE_ICE, -150));
+            Map.entry(Blocks.POWDER_SNOW, -30),
+            Map.entry(Blocks.SNOW_BLOCK, -60),
+            Map.entry(Blocks.ICE, -80),
+            Map.entry(Blocks.PACKED_ICE, -100),
+            Map.entry(Blocks.BLUE_ICE, -120),
+            Map.entry(ScalarPowerBlocks.COBALT_BLOCK.get(), -135),
+            Map.entry(ScalarPowerBlocks.ENDER_ALLOY_BLOCK.get(), -150)
+    );
 
     private int currentGeneration;
     private int leftTemperature;

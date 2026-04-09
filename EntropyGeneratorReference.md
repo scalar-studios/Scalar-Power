@@ -18,11 +18,13 @@ Quick reference for the Entropy Generator temperature map and generation formula
 
 ### Cold Values
 - Water: `-15`
-- Powder Snow: `-60`
-- Snow Block: `-80`
-- Ice: `-100`
-- Packed Ice: `-120`
-- Blue Ice: `-150`
+- Powder Snow: `-30`
+- Snow Block: `-60`
+- Ice: `-80`
+- Packed Ice: `-100`
+- Blue Ice: `-120`
+- Cobalt Block: `-135`
+- Ender Alloy Block: `-150`
 
 Any block not listed above counts as `0`.
 

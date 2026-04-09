@@ -130,6 +130,16 @@ public class ScalarPowerBlocks {
             ReinforcedGlassFiberWireBlock::new,
             properties -> properties.strength(0.5F, 0.5F).noOcclusion().sound(SoundType.GLASS).mapColor(MapColor.COLOR_LIGHT_BLUE));
 
+    // Normal Blocks
+    public static final DeferredBlock<Block> COBALT_BLOCK = registerBlock("cobalt_block",
+            Block::new,
+            properties -> properties.strength(5.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.COLOR_BLUE));
+
+    public static final DeferredBlock<Block> ENDER_ALLOY_BLOCK = registerBlock("ender_alloy_block",
+            Block::new,
+            properties -> properties.strength(6.0F, 8.0F).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.COLOR_PURPLE));
+
+
     // Registry Shortcuts
     private static <T extends Block> DeferredBlock<T> registerTooltipBlockItem(String name, Function<BlockBehaviour.Properties, ? extends T> blockFactory, UnaryOperator<BlockBehaviour.Properties> properties) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, blockFactory, properties);

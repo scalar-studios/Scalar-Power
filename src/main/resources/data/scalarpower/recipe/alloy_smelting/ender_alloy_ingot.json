@@ -1,0 +1,11 @@
+{
+  "type": "scalarpower:alloy_smelting",
+  "ingredient1": "scalarpower:cobalt_ingot",
+  "ingredient2": "minecraft:ender_pearl",
+  "ingredient3": "minecraft:netherite_ingot",
+  "result": {
+    "id": "scalarpower:ender_alloy_ingot",
+    "count": 1
+  }
+}
+

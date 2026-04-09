@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "#c:ingots/cobalt",
+    "#c:ingots/ender_alloy",
     "#c:ingots/redium",
     "#c:ingots/steel"
   ]

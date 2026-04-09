@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": "scalarpower:cobalt_dust",
+  "result": {
+    "id": "scalarpower:cobalt_ingot"
+  },
+  "experience": 0.7,
+  "cookingtime": 100
+}
+

@@ -24,6 +24,9 @@
   "block.scalarpower.glass_fiber_wire": "Glass Fiber Wire",
   "block.scalarpower.reinforced_glass_fiber_wire": "Reinforced Glass Fiber Wire",
 
+  "block.scalarpower.cobalt_block": "Cobalt Block",
+  "block.scalarpower.ender_alloy_block": "Ender Alloy Block",
+
   "container.scalarpower.barometric_generator": "Barometric Generator",
   "container.scalarpower.coal_generator": "Coal Generator",
   "container.scalarpower.culinary_generator": "Culinary Generator",
@@ -52,8 +55,10 @@
   "itemGroup.scalarpower.scalar_power": "Scalar Power",
 
   "item.scalarpower.coal_dust": "Coal Dust",
+  "item.scalarpower.cobalt_dust": "Cobalt Dust",
   "item.scalarpower.copper_dust": "Copper Dust",
   "item.scalarpower.diamond_dust": "Diamond Dust",
+  "item.scalarpower.ender_alloy_dust": "Ender Alloy Dust",
   "item.scalarpower.emerald_dust": "Emerald Dust",
   "item.scalarpower.gold_dust": "Gold Dust",
   "item.scalarpower.iron_dust": "Iron Dust",
@@ -62,10 +67,13 @@
   "item.scalarpower.steel_dust": "Steel Dust",
   "item.scalarpower.sawdust": "Sawdust",
 
+  "item.scalarpower.cobalt_chunk": "Cobalt Chunk",
   "item.scalarpower.copper_chunk": "Copper Chunk",
   "item.scalarpower.iron_chunk": "Iron Chunk",
   "item.scalarpower.gold_chunk": "Gold Chunk",
 
+  "item.scalarpower.cobalt_ingot": "Cobalt Ingot",
+  "item.scalarpower.ender_alloy_ingot": "Ender Alloy Ingot",
   "item.scalarpower.redium_ingot": "Redium Ingot",
   "item.scalarpower.steel_ingot": "Steel Ingot",
 

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": "scalarpower:cobalt_ingot"
+  },
+  "result": {
+    "id": "scalarpower:cobalt_block",
+    "count": 1
+  }
+}
+

@@ -22,7 +22,10 @@
 - Started this Changelog.md file
 
 ## 26.1.1-1.0.3_beta (Upcoming)
+- Added Cobalt Block, Chunk, Dust, and Ingot
 - Added Creative Battery
+- Added Ender Alloy Block, Dust, and Ingot
+- Nerfed the cold inputs for the Entropy Generator, added Cobalt Block and Ender Alloy Block as new top-tier cold inputs (for balance)
 - New Barometric Generator Texture
 - Started work on [Wiki](https://scalarstudios.site/wikis/scalar_power.html)
 - Updated README.md
@@ -30,5 +33,4 @@
 ## Planned Features
 - Byproducts from Maceration
 - Ender Battery
-- Make Entropy Generator harder to obtain and nerf the inputs, add new inputs to replace the nerfed ones
 - Wiki

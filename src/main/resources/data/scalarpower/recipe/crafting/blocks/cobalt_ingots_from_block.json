@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "scalarpower:cobalt_block"
+  ],
+  "result": {
+    "id": "scalarpower:cobalt_ingot",
+    "count": 9
+  }
+}
+

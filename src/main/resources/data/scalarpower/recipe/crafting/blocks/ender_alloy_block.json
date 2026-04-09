@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": "scalarpower:ender_alloy_ingot"
+  },
+  "result": {
+    "id": "scalarpower:ender_alloy_block",
+    "count": 1
+  }
+}
+
