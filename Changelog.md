@@ -31,6 +31,5 @@
 - Updated README.md
 
 ## Planned Features
-- Byproducts from Maceration
 - Ender Battery
 - Wiki
