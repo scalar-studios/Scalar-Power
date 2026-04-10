@@ -21,7 +21,7 @@
 - Reorganized code base
 - Started this Changelog.md file
 
-## 26.1.1-1.0.3_beta (Upcoming)
+## 26.1.1-1.0.3_beta
 - Added Cobalt Block, Chunk, Dust, and Ingot
 - Added Creative Battery
 - Added Ender Alloy Block, Dust, and Ingot
@@ -31,6 +31,9 @@
 - New Grinder Recipes: Blaze Powder from Blaze Rod, Bonemeal from Bone, Breeze Charge from Breeze Rod, and String from Wool
 - Started work on [Wiki](https://scalarstudios.site/wikis/scalar_power.html)
 - Updated README.md
+
+## 26.1.2-1.0.4_beta (Upcoming)
+This will be the port to 26.1.2.
 
 ## Planned Features
 - 26.1.2 Port
