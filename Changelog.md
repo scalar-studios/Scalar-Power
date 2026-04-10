@@ -35,5 +35,6 @@
 ## Planned Features
 - 26.1.2 Port
 - Ender Battery
+- Fluid Stuff (Potential)
 - Redstone Clock
 - Wiki
