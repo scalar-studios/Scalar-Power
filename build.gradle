@@ -75,18 +75,18 @@ configurations {
 
 dependencies {
     // Scalar Mods
-    implementation "curse.maven:scalar-core-1112771:7864198" // Scalar Core
-    implementation "curse.maven:scalar-utils-6-1490516:7864289" // Scalar Utils 6.1
-    implementation "curse.maven:scalar-utils-6-integration-1491455:7864305" // Scalar Utils 6.1 Integration
-    implementation "curse.maven:super-coal-928623:7864205" // Super Coal
+    implementation "curse.maven:scalar-core-1112771:7906370" // Scalar Core
+    //implementation "curse.maven:scalar-utils-6-1490516:7864289" // Scalar Utils 6.1
+    //implementation "curse.maven:scalar-utils-6-integration-1491455:7864305" // Scalar Utils 6.1 Integration
+    implementation "curse.maven:super-coal-928623:7906447" // Super Coal
 
     // QoL For Testing
-    implementation "curse.maven:jade-324717:7817285" // Jade
-    implementation "curse.maven:jei-238222:7861613" // JEI
+    implementation "curse.maven:jade-324717:7903350" // Jade
+    implementation "curse.maven:jei-238222:7904641" // JEI
 
     // Other Testing Mods
     implementation "curse.maven:energized-power-782147:7852018" // Energized Power
-    implementation "curse.maven:pipez-443900:7859957" // Pipez
+    implementation "curse.maven:pipez-443900:7904268" // Pipez
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
