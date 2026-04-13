@@ -16,6 +16,7 @@
 
   "block.scalarpower.battery": "Battery",
   "block.scalarpower.steel_battery": "Steel Battery",
+  "block.scalarpower.ender_battery": "Ender Battery",
   "block.scalarpower.creative_battery": "Creative Battery",
   "block.scalarpower.copper_wire": "Copper Wire",
   "block.scalarpower.insulated_copper_wire": "Insulated Copper Wire",
@@ -43,6 +44,7 @@
 
   "container.scalarpower.battery": "Battery",
   "container.scalarpower.steel_battery": "Steel Battery",
+  "container.scalarpower.ender_battery": "Ender Battery",
   "container.scalarpower.creative_battery": "Creative Battery",
 
   "tooltip.scalarpower.copper_wire": "Transfers 40 SPU/t",

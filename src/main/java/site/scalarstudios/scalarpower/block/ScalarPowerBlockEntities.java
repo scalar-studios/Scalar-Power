@@ -4,6 +4,7 @@ import site.scalarstudios.scalarpower.ScalarPower;
 import site.scalarstudios.scalarpower.machines.alloysmelter.AlloySmelterBlockEntity;
 import site.scalarstudios.scalarpower.machines.battery.BatteryBlockEntity;
 import site.scalarstudios.scalarpower.machines.battery.CreativeBatteryBlockEntity;
+import site.scalarstudios.scalarpower.machines.battery.EnderBatteryBlockEntity;
 import site.scalarstudios.scalarpower.machines.battery.SteelBatteryBlockEntity;
 import site.scalarstudios.scalarpower.machines.generator.coal.CoalGeneratorBlockEntity;
 import site.scalarstudios.scalarpower.machines.generator.barometric.BarometricGeneratorBlockEntity;
@@ -92,6 +93,9 @@ public final class ScalarPowerBlockEntities {
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SteelBatteryBlockEntity>> STEEL_BATTERY = BLOCK_ENTITY_TYPES
             .register("steel_battery", () -> new BlockEntityType<>(SteelBatteryBlockEntity::new, ScalarPowerBlocks.STEEL_BATTERY.get()));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EnderBatteryBlockEntity>> ENDER_BATTERY = BLOCK_ENTITY_TYPES
+            .register("ender_battery", () -> new BlockEntityType<>(EnderBatteryBlockEntity::new, ScalarPowerBlocks.ENDER_BATTERY.get()));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CreativeBatteryBlockEntity>> CREATIVE_BATTERY = BLOCK_ENTITY_TYPES
             .register("creative_battery", () -> new BlockEntityType<>(CreativeBatteryBlockEntity::new, ScalarPowerBlocks.CREATIVE_BATTERY.get()));

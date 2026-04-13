@@ -5,14 +5,15 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import site.scalarstudios.scalarpower.gui.ScalarPowerMenus;
 
 public class BatteryMenu extends AbstractContainerMenu {
-    private final BatteryBlockEntity blockEntity;
-    private final ContainerData data;
+    protected final BatteryBlockEntity blockEntity;
+    protected final ContainerData data;
 
     public BatteryMenu(int id, Inventory inventory, FriendlyByteBuf buf) {
         this(id, inventory,
@@ -21,10 +22,15 @@ public class BatteryMenu extends AbstractContainerMenu {
     }
 
     public BatteryMenu(int id, Inventory inventory, BatteryBlockEntity blockEntity, ContainerData data) {
-        super(ScalarPowerMenus.BATTERY_MENU.get(), id);
+        this(ScalarPowerMenus.BATTERY_MENU.get(), id, inventory, blockEntity, data, 3);
+    }
+
+    protected BatteryMenu(MenuType<?> menuType, int id, Inventory inventory, BatteryBlockEntity blockEntity,
+            ContainerData data, int dataCount) {
+        super(menuType, id);
         this.blockEntity = blockEntity;
         this.data = data;
-        checkContainerDataCount(data, 3);
+        checkContainerDataCount(data, dataCount);
         addDataSlots(data);
 
         for (int row = 0; row < 3; row++) {
