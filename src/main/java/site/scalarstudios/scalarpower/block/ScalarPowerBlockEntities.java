@@ -24,6 +24,7 @@ import site.scalarstudios.scalarpower.machines.wire.glassfiber.GlassFiberWireBlo
 import site.scalarstudios.scalarpower.machines.wire.gold.GoldWireBlockEntity;
 import site.scalarstudios.scalarpower.machines.wire.gold.InsulatedGoldWireBlockEntity;
 import site.scalarstudios.scalarpower.machines.wire.reinforcedglassfiber.ReinforcedGlassFiberWireBlockEntity;
+import site.scalarstudios.scalarpower.machines.redstoneclock.RedstoneClockBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -117,6 +118,10 @@ public final class ScalarPowerBlockEntities {
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ReinforcedGlassFiberWireBlockEntity>> REINFORCED_GLASS_FIBER_WIRE = BLOCK_ENTITY_TYPES
             .register("reinforced_glass_fiber_wire", () -> new BlockEntityType<>(ReinforcedGlassFiberWireBlockEntity::new, ScalarPowerBlocks.REINFORCED_GLASS_FIBER_WIRE.get()));
+
+    /* Redstone Utilities */
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RedstoneClockBlockEntity>> REDSTONE_CLOCK = BLOCK_ENTITY_TYPES
+            .register("redstone_clock", () -> new BlockEntityType<>(RedstoneClockBlockEntity::new, ScalarPowerBlocks.REDSTONE_CLOCK.get()));
 
     private ScalarPowerBlockEntities() {
     }

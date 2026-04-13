@@ -56,6 +56,9 @@ public class ScalarPowerCreativeTabs {
             event.accept(ScalarPowerBlocks.COBALT_BLOCK.get());
             event.accept(ScalarPowerBlocks.ENDER_ALLOY_BLOCK.get());
 
+            /* Redstone Utilities */
+            event.accept(ScalarPowerBlocks.REDSTONE_CLOCK.get());
+
             // Items
             /* Dusts */
             event.accept(ScalarPowerItems.COAL_DUST.get());

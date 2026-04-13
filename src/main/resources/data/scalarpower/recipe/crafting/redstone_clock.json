@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CRC",
+    "RKR",
+    "CRC"
+  ],
+  "key": {
+    "C": "minecraft:copper_ingot",
+    "R": "minecraft:redstone",
+    "K": "minecraft:clock"
+  },
+  "result": {
+    "id": "scalarpower:redstone_clock",
+    "count": 1
+  }
+}
+

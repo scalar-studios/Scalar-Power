@@ -23,6 +23,7 @@
     "scalarpower:glass_fiber_wire",
     "scalarpower:reinforced_glass_fiber_wire",
     "scalarpower:cobalt_block",
-    "scalarpower:ender_alloy_block"
+    "scalarpower:ender_alloy_block",
+    "scalarpower:redstone_clock"
   ]
 }

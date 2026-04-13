@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "powered=false": { "model": "scalarpower:block/redstone_clock" },
+    "powered=true":  { "model": "scalarpower:block/redstone_clock_on" }
+  }
+}
+

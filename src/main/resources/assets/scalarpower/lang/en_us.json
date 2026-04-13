@@ -28,6 +28,8 @@
   "block.scalarpower.cobalt_block": "Cobalt Block",
   "block.scalarpower.ender_alloy_block": "Ender Alloy Block",
 
+  "block.scalarpower.redstone_clock": "Redstone Clock",
+
   "container.scalarpower.barometric_generator": "Barometric Generator",
   "container.scalarpower.coal_generator": "Coal Generator",
   "container.scalarpower.culinary_generator": "Culinary Generator",

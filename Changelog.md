@@ -37,11 +37,11 @@
 
 ## 26.1.2-1.0.5_beta (Upcoming)
 - Added Ender Battery
+- Added Redstone Clock
 
 ## Planned Features
 - Crafting Recipe Revamp
 - Ender Battery (Fixes?)
 - Finish Wiki
 - Fluid Stuff (Potential)
-- Redstone Clock
 - Texture Name and Model Cleanup
