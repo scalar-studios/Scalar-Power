@@ -42,6 +42,7 @@
 - Change Machine Frame Models + Texture to be Block instead of Isometric projection of a block
   - Also applied for Steel Machine Frame
 - Renamed Glass Fiber wires to Fiber Glass Wires
+- Updated NeoForge version to 26.1.2.7-beta
 
 ## Planned Features
 - Battery Sidedness (I/O Faces)
