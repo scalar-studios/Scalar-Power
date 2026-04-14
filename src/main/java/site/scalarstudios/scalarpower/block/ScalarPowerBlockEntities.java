@@ -21,10 +21,10 @@ import site.scalarstudios.scalarpower.machines.poweredfurnace.DoublePoweredFurna
 import site.scalarstudios.scalarpower.machines.poweredfurnace.PoweredFurnaceBlockEntity;
 import site.scalarstudios.scalarpower.machines.wire.copper.CopperWireBlockEntity;
 import site.scalarstudios.scalarpower.machines.wire.copper.InsulatedCopperWireBlockEntity;
-import site.scalarstudios.scalarpower.machines.wire.glassfiber.GlassFiberWireBlockEntity;
+import site.scalarstudios.scalarpower.machines.wire.fiberglass.FiberGlassWireBlockEntity;
 import site.scalarstudios.scalarpower.machines.wire.gold.GoldWireBlockEntity;
 import site.scalarstudios.scalarpower.machines.wire.gold.InsulatedGoldWireBlockEntity;
-import site.scalarstudios.scalarpower.machines.wire.reinforcedglassfiber.ReinforcedGlassFiberWireBlockEntity;
+import site.scalarstudios.scalarpower.machines.wire.reinforcedfiberglass.ReinforcedFiberGlassWireBlockEntity;
 import site.scalarstudios.scalarpower.machines.redstoneclock.RedstoneClockBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
@@ -118,11 +118,11 @@ public final class ScalarPowerBlockEntities {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<InsulatedGoldWireBlockEntity>> INSULATED_GOLD_WIRE = BLOCK_ENTITY_TYPES
             .register("insulated_gold_wire", () -> new BlockEntityType<>(InsulatedGoldWireBlockEntity::new, ScalarPowerBlocks.INSULATED_GOLD_WIRE.get()));
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GlassFiberWireBlockEntity>> GLASS_FIBER_WIRE = BLOCK_ENTITY_TYPES
-            .register("glass_fiber_wire", () -> new BlockEntityType<>(GlassFiberWireBlockEntity::new, ScalarPowerBlocks.GLASS_FIBER_WIRE.get()));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<FiberGlassWireBlockEntity>> FIBER_GLASS_WIRE = BLOCK_ENTITY_TYPES
+            .register("fiber_glass_wire", () -> new BlockEntityType<>(FiberGlassWireBlockEntity::new, ScalarPowerBlocks.FIBER_GLASS_WIRE.get()));
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ReinforcedGlassFiberWireBlockEntity>> REINFORCED_GLASS_FIBER_WIRE = BLOCK_ENTITY_TYPES
-            .register("reinforced_glass_fiber_wire", () -> new BlockEntityType<>(ReinforcedGlassFiberWireBlockEntity::new, ScalarPowerBlocks.REINFORCED_GLASS_FIBER_WIRE.get()));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ReinforcedFiberGlassWireBlockEntity>> REINFORCED_FIBER_GLASS_WIRE = BLOCK_ENTITY_TYPES
+            .register("reinforced_fiber_glass_wire", () -> new BlockEntityType<>(ReinforcedFiberGlassWireBlockEntity::new, ScalarPowerBlocks.REINFORCED_FIBER_GLASS_WIRE.get()));
 
     /* Redstone Utilities */
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RedstoneClockBlockEntity>> REDSTONE_CLOCK = BLOCK_ENTITY_TYPES

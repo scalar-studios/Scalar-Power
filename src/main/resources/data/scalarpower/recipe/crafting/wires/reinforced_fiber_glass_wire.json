@@ -8,10 +8,10 @@
   "key": {
     "O": "scalarpower:obsidian_dust",
     "E": "scalarpower:emerald_dust",
-    "W": "scalarpower:glass_fiber_wire"
+    "W": "scalarpower:fiber_glass_wire"
   },
   "result": {
-    "id": "scalarpower:reinforced_glass_fiber_wire",
+    "id": "scalarpower:reinforced_fiber_glass_wire",
     "count": 2
   }
 }

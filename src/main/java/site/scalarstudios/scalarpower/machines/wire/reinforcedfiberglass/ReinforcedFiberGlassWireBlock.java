@@ -1,4 +1,4 @@
-package site.scalarstudios.scalarpower.machines.wire.glassfiber;
+package site.scalarstudios.scalarpower.machines.wire.reinforcedfiberglass;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -25,8 +25,8 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import site.scalarstudios.scalarpower.block.ScalarPowerBlockEntities;
 
-public class GlassFiberWireBlock extends BaseEntityBlock {
-    public static final MapCodec<GlassFiberWireBlock> CODEC = simpleCodec(GlassFiberWireBlock::new);
+public class ReinforcedFiberGlassWireBlock extends BaseEntityBlock {
+    public static final MapCodec<ReinforcedFiberGlassWireBlock> CODEC = simpleCodec(ReinforcedFiberGlassWireBlock::new);
     public static final BooleanProperty NORTH = BlockStateProperties.NORTH;
     public static final BooleanProperty EAST = BlockStateProperties.EAST;
     public static final BooleanProperty SOUTH = BlockStateProperties.SOUTH;
@@ -42,7 +42,7 @@ public class GlassFiberWireBlock extends BaseEntityBlock {
     private static final VoxelShape UP_ARM = box(7, 10, 7, 9, 16, 9);
     private static final VoxelShape DOWN_ARM = box(7, 0, 7, 9, 6, 9);
 
-    public GlassFiberWireBlock(BlockBehaviour.Properties properties) {
+    public ReinforcedFiberGlassWireBlock(BlockBehaviour.Properties properties) {
         super(properties);
         registerDefaultState(stateDefinition.any()
                 .setValue(NORTH, false)
@@ -131,13 +131,13 @@ public class GlassFiberWireBlock extends BaseEntityBlock {
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new GlassFiberWireBlockEntity(pos, state);
+        return new ReinforcedFiberGlassWireBlockEntity(pos, state);
     }
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state,
             BlockEntityType<T> blockEntityType) {
-        return createTickerHelper(blockEntityType, ScalarPowerBlockEntities.GLASS_FIBER_WIRE.get(), GlassFiberWireBlockEntity::tick);
+        return createTickerHelper(blockEntityType, ScalarPowerBlockEntities.REINFORCED_FIBER_GLASS_WIRE.get(), ReinforcedFiberGlassWireBlockEntity::tick);
     }
 }
 

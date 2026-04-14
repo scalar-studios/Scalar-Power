@@ -23,8 +23,8 @@
   "block.scalarpower.insulated_copper_wire": "Insulated Copper Wire",
   "block.scalarpower.gold_wire": "Gold Wire",
   "block.scalarpower.insulated_gold_wire": "Insulated Gold Wire",
-  "block.scalarpower.glass_fiber_wire": "Glass Fiber Wire",
-  "block.scalarpower.reinforced_glass_fiber_wire": "Reinforced Glass Fiber Wire",
+  "block.scalarpower.fiber_glass_wire": "Fiber Glass Wire",
+  "block.scalarpower.reinforced_fiber_glass_wire": "Reinforced Fiber Glass Wire",
 
   "block.scalarpower.cobalt_block": "Cobalt Block",
   "block.scalarpower.ender_alloy_block": "Ender Alloy Block",
@@ -55,8 +55,8 @@
   "tooltip.scalarpower.insulated_copper_wire": "Transfers 40 SPU/t (Insulated)",
   "tooltip.scalarpower.gold_wire": "Transfers 80 SPU/t",
   "tooltip.scalarpower.insulated_gold_wire": "Transfers 80 SPU/t (Insulated)",
-  "tooltip.scalarpower.glass_fiber_wire": "Transfers 320 SPU/t",
-  "tooltip.scalarpower.reinforced_glass_fiber_wire": "Transfers 640 SPU/t",
+  "tooltip.scalarpower.fiber_glass_wire": "Transfers 320 SPU/t",
+  "tooltip.scalarpower.reinforced_fiber_glass_wire": "Transfers 640 SPU/t",
 
   "itemGroup.scalarpower.scalar_power": "Scalar Power",
 
@@ -93,8 +93,8 @@
   "item.scalarpower.insulated_copper_wire": "Insulated Copper Wire",
   "item.scalarpower.gold_wire": "Gold Wire",
   "item.scalarpower.insulated_gold_wire": "Insulated Gold Wire",
-  "item.scalarpower.glass_fiber_wire": "Glass Fiber Wire",
-  "item.scalarpower.reinforced_glass_fiber_wire": "Reinforced Glass Fiber Wire",
+  "item.scalarpower.fiber_glass_wire": "Fiber Glass Wire",
+  "item.scalarpower.reinforced_fiber_glass_wire": "Reinforced Fiber Glass Wire",
 
   "jei.scalarpower.alloy_smelting": "Alloy Smelting",
   "jei.scalarpower.extracting": "Extracting",

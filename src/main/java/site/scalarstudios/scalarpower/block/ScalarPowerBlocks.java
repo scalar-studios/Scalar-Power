@@ -28,10 +28,10 @@ import site.scalarstudios.scalarpower.machines.poweredfurnace.DoublePoweredFurna
 import site.scalarstudios.scalarpower.machines.poweredfurnace.PoweredFurnaceBlock;
 import site.scalarstudios.scalarpower.machines.wire.copper.CopperWireBlock;
 import site.scalarstudios.scalarpower.machines.wire.copper.InsulatedCopperWireBlock;
-import site.scalarstudios.scalarpower.machines.wire.glassfiber.GlassFiberWireBlock;
+import site.scalarstudios.scalarpower.machines.wire.fiberglass.FiberGlassWireBlock;
 import site.scalarstudios.scalarpower.machines.wire.gold.GoldWireBlock;
 import site.scalarstudios.scalarpower.machines.wire.gold.InsulatedGoldWireBlock;
-import site.scalarstudios.scalarpower.machines.wire.reinforcedglassfiber.ReinforcedGlassFiberWireBlock;
+import site.scalarstudios.scalarpower.machines.wire.reinforcedfiberglass.ReinforcedFiberGlassWireBlock;
 import site.scalarstudios.scalarpower.machines.redstoneclock.RedstoneClockBlock;
 import site.scalarstudios.scalarpower.item.ScalarPowerItems;
 import site.scalarstudios.scalarpower.item.custom.TooltipBlockItem;
@@ -133,12 +133,12 @@ public class ScalarPowerBlocks {
             InsulatedGoldWireBlock::new,
             properties -> properties.strength(0.5F, 0.5F).noOcclusion().sound(SoundType.COPPER).mapColor(MapColor.GOLD));
 
-    public static final DeferredBlock<GlassFiberWireBlock> GLASS_FIBER_WIRE = registerTooltipBlockItem("glass_fiber_wire",
-            GlassFiberWireBlock::new,
+    public static final DeferredBlock<FiberGlassWireBlock> FIBER_GLASS_WIRE = registerTooltipBlockItem("fiber_glass_wire",
+            FiberGlassWireBlock::new,
             properties -> properties.strength(0.5F, 0.5F).noOcclusion().sound(SoundType.GLASS).mapColor(MapColor.COLOR_CYAN));
 
-    public static final DeferredBlock<ReinforcedGlassFiberWireBlock> REINFORCED_GLASS_FIBER_WIRE = registerTooltipBlockItem("reinforced_glass_fiber_wire",
-            ReinforcedGlassFiberWireBlock::new,
+    public static final DeferredBlock<ReinforcedFiberGlassWireBlock> REINFORCED_FIBER_GLASS_WIRE = registerTooltipBlockItem("reinforced_fiber_glass_wire",
+            ReinforcedFiberGlassWireBlock::new,
             properties -> properties.strength(0.5F, 0.5F).noOcclusion().sound(SoundType.GLASS).mapColor(MapColor.COLOR_LIGHT_BLUE));
 
     /* Redstone Utilities */

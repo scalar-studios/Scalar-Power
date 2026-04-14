@@ -11,12 +11,12 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "scalarpower:reinforced_glass_fiber_wire"
+          "name": "scalarpower:fiber_glass_wire"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "scalarpower:blocks/reinforced_glass_fiber_wire"
+  "random_sequence": "scalarpower:blocks/fiber_glass_wire"
 }
 

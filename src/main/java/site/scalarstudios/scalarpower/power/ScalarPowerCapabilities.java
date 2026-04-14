@@ -21,10 +21,10 @@ import site.scalarstudios.scalarpower.machines.poweredfurnace.PoweredFurnaceBloc
 import site.scalarstudios.scalarpower.machines.sawmill.SawmillBlockEntity;
 import site.scalarstudios.scalarpower.machines.wire.copper.CopperWireBlockEntity;
 import site.scalarstudios.scalarpower.machines.wire.copper.InsulatedCopperWireBlockEntity;
-import site.scalarstudios.scalarpower.machines.wire.glassfiber.GlassFiberWireBlockEntity;
+import site.scalarstudios.scalarpower.machines.wire.fiberglass.FiberGlassWireBlockEntity;
 import site.scalarstudios.scalarpower.machines.wire.gold.GoldWireBlockEntity;
 import site.scalarstudios.scalarpower.machines.wire.gold.InsulatedGoldWireBlockEntity;
-import site.scalarstudios.scalarpower.machines.wire.reinforcedglassfiber.ReinforcedGlassFiberWireBlockEntity;
+import site.scalarstudios.scalarpower.machines.wire.reinforcedfiberglass.ReinforcedFiberGlassWireBlockEntity;
 
 public final class ScalarPowerCapabilities {
 
@@ -146,13 +146,13 @@ public final class ScalarPowerCapabilities {
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
-                ScalarPowerBlockEntities.GLASS_FIBER_WIRE.get(),
-                GlassFiberWireBlockEntity::getEnergyHandler);
+                ScalarPowerBlockEntities.FIBER_GLASS_WIRE.get(),
+                FiberGlassWireBlockEntity::getEnergyHandler);
 
         event.registerBlockEntity(
                 Capabilities.Energy.BLOCK,
-                ScalarPowerBlockEntities.REINFORCED_GLASS_FIBER_WIRE.get(),
-                ReinforcedGlassFiberWireBlockEntity::getEnergyHandler);
+                ScalarPowerBlockEntities.REINFORCED_FIBER_GLASS_WIRE.get(),
+                ReinforcedFiberGlassWireBlockEntity::getEnergyHandler);
 
         // VanillaContainerWrappers
         /* Generators */

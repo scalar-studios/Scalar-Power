@@ -1,4 +1,4 @@
-package site.scalarstudios.scalarpower.machines.wire.reinforcedglassfiber;
+package site.scalarstudios.scalarpower.machines.wire.fiberglass;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -12,9 +12,9 @@ import site.scalarstudios.scalarpower.block.ScalarPowerBlockEntities;
 import site.scalarstudios.scalarpower.machines.MachineUtils;
 import site.scalarstudios.scalarpower.power.NeoEnergyTransferUtil;
 
-public class ReinforcedGlassFiberWireBlockEntity extends BlockEntity {
-    private static final int ENERGY_CAPACITY = MachineUtils.WIRE_BASE_CAPACITY * MachineUtils.WIRE_T4_MULTIPLIER;
-    private static final int PUSH_PER_SIDE = MachineUtils.WIRE_BASE_THROUGHPUT * MachineUtils.WIRE_T4_MULTIPLIER;
+public class FiberGlassWireBlockEntity extends BlockEntity {
+    private static final int ENERGY_CAPACITY = MachineUtils.WIRE_BASE_CAPACITY * MachineUtils.WIRE_T3_MULTIPLIER;
+    private static final int PUSH_PER_SIDE = MachineUtils.WIRE_BASE_THROUGHPUT * MachineUtils.WIRE_T3_MULTIPLIER;
 
     private final net.neoforged.neoforge.transfer.energy.SimpleEnergyHandler energyHandler =
             new net.neoforged.neoforge.transfer.energy.SimpleEnergyHandler(ENERGY_CAPACITY, ENERGY_CAPACITY, ENERGY_CAPACITY, 0) {
@@ -24,11 +24,11 @@ public class ReinforcedGlassFiberWireBlockEntity extends BlockEntity {
                 }
             };
 
-    public ReinforcedGlassFiberWireBlockEntity(BlockPos pos, BlockState blockState) {
-        super(ScalarPowerBlockEntities.REINFORCED_GLASS_FIBER_WIRE.get(), pos, blockState);
+    public FiberGlassWireBlockEntity(BlockPos pos, BlockState blockState) {
+        super(ScalarPowerBlockEntities.FIBER_GLASS_WIRE.get(), pos, blockState);
     }
 
-    public static void tick(Level level, BlockPos pos, BlockState state, ReinforcedGlassFiberWireBlockEntity blockEntity) {
+    public static void tick(Level level, BlockPos pos, BlockState state, FiberGlassWireBlockEntity blockEntity) {
         if (level == null || level.isClientSide()) {
             return;
         }

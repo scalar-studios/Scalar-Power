@@ -12,10 +12,10 @@ import net.neoforged.neoforge.transfer.energy.EnergyHandlerUtil;
 import net.neoforged.neoforge.transfer.transaction.Transaction;
 import site.scalarstudios.scalarpower.machines.wire.copper.CopperWireBlockEntity;
 import site.scalarstudios.scalarpower.machines.wire.copper.InsulatedCopperWireBlockEntity;
-import site.scalarstudios.scalarpower.machines.wire.glassfiber.GlassFiberWireBlockEntity;
+import site.scalarstudios.scalarpower.machines.wire.fiberglass.FiberGlassWireBlockEntity;
 import site.scalarstudios.scalarpower.machines.wire.gold.GoldWireBlockEntity;
 import site.scalarstudios.scalarpower.machines.wire.gold.InsulatedGoldWireBlockEntity;
-import site.scalarstudios.scalarpower.machines.wire.reinforcedglassfiber.ReinforcedGlassFiberWireBlockEntity;
+import site.scalarstudios.scalarpower.machines.wire.reinforcedfiberglass.ReinforcedFiberGlassWireBlockEntity;
 
 public final class NeoEnergyTransferUtil {
     private NeoEnergyTransferUtil() {
@@ -168,8 +168,8 @@ public final class NeoEnergyTransferUtil {
                 || blockEntity instanceof InsulatedCopperWireBlockEntity
                 || blockEntity instanceof GoldWireBlockEntity
                 || blockEntity instanceof InsulatedGoldWireBlockEntity
-                || blockEntity instanceof GlassFiberWireBlockEntity
-                || blockEntity instanceof ReinforcedGlassFiberWireBlockEntity) {
+                || blockEntity instanceof FiberGlassWireBlockEntity
+                || blockEntity instanceof ReinforcedFiberGlassWireBlockEntity) {
             return true;
         }
 

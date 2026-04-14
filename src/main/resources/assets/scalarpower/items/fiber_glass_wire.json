@@ -1,7 +1,7 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "scalarpower:item/glass_fiber_wire"
+    "model": "scalarpower:item/fiber_glass_wire"
   }
 }
 

@@ -13,7 +13,7 @@
 - Added Macerator (grinding with chance-based secondary output)  
   - Added Double Macerator (dual-lane upgraded maceration)  
   - Added Ore Chunks (intermediate product of maceration)
-- Added Reinforced Glass Fiber Wires
+- Added Reinforced Fiber Glass Wires
 - Cleaned up JEI Integration GUIs
 - Moved to NeoForge 26.1.1.11-beta
 - New Extractor Texture
@@ -41,12 +41,12 @@
 - Added Redstone Clock
 - Change Machine Frame Models + Texture to be Block instead of Isometric projection of a block
   - Also applied for Steel Machine Frame
+- Renamed Glass Fiber wires to Fiber Glass Wires
 
 ## Planned Features
 - Battery Sidedness (I/O Faces)
 - Crafting Recipe Revamp
 - Finish Wiki
 - Fluid Stuff (Potential)
-- Rename Glass Fiber to Fiber Glass
 - Texture Name and Model Cleanup
 - Tooltips

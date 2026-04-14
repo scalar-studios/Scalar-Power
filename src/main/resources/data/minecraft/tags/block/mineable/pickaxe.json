@@ -21,8 +21,8 @@
     "scalarpower:insulated_copper_wire",
     "scalarpower:gold_wire",
     "scalarpower:insulated_gold_wire",
-    "scalarpower:glass_fiber_wire",
-    "scalarpower:reinforced_glass_fiber_wire",
+    "scalarpower:fiber_glass_wire",
+    "scalarpower:reinforced_fiber_glass_wire",
     "scalarpower:cobalt_block",
     "scalarpower:ender_alloy_block",
     "scalarpower:redstone_clock"

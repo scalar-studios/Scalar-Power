@@ -2,8 +2,8 @@
   "render_type": "minecraft:translucent",
   "parent": "minecraft:block/block",
   "textures": {
-    "wire": "scalarpower:block/glass_fiber_wire",
-    "particle": "scalarpower:block/glass_fiber_wire"
+    "wire": "scalarpower:block/reinforced_fiber_glass_wire",
+    "particle": "scalarpower:block/reinforced_fiber_glass_wire"
   },
   "elements": [
     {
