@@ -35,7 +35,7 @@
 ## 26.1.2-1.0.4_beta
 - Ported to 26.1.2
 
-## 26.1.2-1.0.5_beta (Upcoming)
+## 26.1.2-1.0.5_beta
 - Added Ender Battery
 - Added Geothermal Generator
 - Added Redstone Clock
@@ -44,6 +44,8 @@
   - Also applied for Steel Machine Frame
 - Renamed Glass Fiber wires to Fiber Glass Wires
 - Updated NeoForge version to 26.1.2.7-beta
+
+## 26.1.2-1.0.6_beta (Upcoming)
 
 ## Planned Features
 - Battery Sidedness (I/O Faces)
