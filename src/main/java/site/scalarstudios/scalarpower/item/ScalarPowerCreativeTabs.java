@@ -28,6 +28,7 @@ public class ScalarPowerCreativeTabs {
             event.accept(ScalarPowerBlocks.CULINARY_GENERATOR.get());
             event.accept(ScalarPowerBlocks.GEOTHERMAL_GENERATOR.get());
             event.accept(ScalarPowerBlocks.BAROMETRIC_GENERATOR.get());
+            event.accept(ScalarPowerBlocks.WATER_MILL_GENERATOR.get());
             event.accept(ScalarPowerBlocks.ENTROPY_GENERATOR.get());
 
             /* Machines */

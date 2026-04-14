@@ -12,6 +12,7 @@ import site.scalarstudios.scalarpower.machines.generator.barometric.BarometricGe
 import site.scalarstudios.scalarpower.machines.generator.culinary.CulinaryGeneratorBlockEntity;
 import site.scalarstudios.scalarpower.machines.generator.entropy.EntropyGeneratorBlockEntity;
 import site.scalarstudios.scalarpower.machines.generator.geothermal.GeothermalGeneratorBlockEntity;
+import site.scalarstudios.scalarpower.machines.generator.watermill.WaterMillGeneratorBlockEntity;
 import site.scalarstudios.scalarpower.machines.grinder.DoubleGrinderBlockEntity;
 import site.scalarstudios.scalarpower.machines.grinder.GrinderBlockEntity;
 import site.scalarstudios.scalarpower.machines.macerator.DoubleMaceratorBlockEntity;
@@ -56,6 +57,11 @@ public final class ScalarPowerCapabilities {
                 Capabilities.Energy.BLOCK,
                 ScalarPowerBlockEntities.GEOTHERMAL_GENERATOR.get(),
                 GeothermalGeneratorBlockEntity::getEnergyHandler);
+
+        event.registerBlockEntity(
+                Capabilities.Energy.BLOCK,
+                ScalarPowerBlockEntities.WATER_MILL_GENERATOR.get(),
+                WaterMillGeneratorBlockEntity::getEnergyHandler);
 
         /* Machines */
         event.registerBlockEntity(

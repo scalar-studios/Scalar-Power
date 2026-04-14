@@ -17,6 +17,11 @@ public final class MachineUtils {
     public static final int BAROMETRIC_GENERATOR_SPU_PER_Y_STEP = 5;
     public static final double BAROMETRIC_GENERATOR_BAD_WEATHER_MULTIPLIER = 1.5D;
     public static final int BAROMETRIC_GENERATOR_SPU_PER_SIDE = 240; // Potential max of 240 SPU/t in bad weather at y = 320
+    public static final int WATER_MILL_GENERATOR_SPU_AT_FLOW_LEVEL_ONE = 8;
+    public static final int WATER_MILL_GENERATOR_MIN_FLOW_LEVEL = 1;
+    public static final int WATER_MILL_GENERATOR_MAX_FLOW_LEVEL = 7;
+    public static final int WATER_MILL_GENERATOR_MAX_SPU_PER_TICK = 32;
+    public static final int WATER_MILL_GENERATOR_SPU_PER_SIDE = WATER_MILL_GENERATOR_MAX_SPU_PER_TICK;
     public static final int ENTROPY_GENERATOR_SPU_PER_SIDE = 400; // Potential max of 390 SPU/t
 
     // Machines

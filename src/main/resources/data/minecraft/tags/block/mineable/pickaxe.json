@@ -5,6 +5,7 @@
     "scalarpower:culinary_generator",
     "scalarpower:entropy_generator",
     "scalarpower:geothermal_generator",
+    "scalarpower:water_mill_generator",
     "scalarpower:alloy_smelter",
     "scalarpower:extractor",
     "scalarpower:grinder",

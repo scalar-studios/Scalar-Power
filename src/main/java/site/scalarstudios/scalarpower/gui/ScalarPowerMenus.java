@@ -8,6 +8,7 @@ import site.scalarstudios.scalarpower.machines.generator.barometric.BarometricGe
 import site.scalarstudios.scalarpower.machines.generator.culinary.CulinaryGeneratorMenu;
 import site.scalarstudios.scalarpower.machines.generator.entropy.EntropyGeneratorMenu;
 import site.scalarstudios.scalarpower.machines.generator.geothermal.GeothermalGeneratorMenu;
+import site.scalarstudios.scalarpower.machines.generator.watermill.WaterMillGeneratorMenu;
 import site.scalarstudios.scalarpower.machines.grinder.DoubleGrinderMenu;
 import site.scalarstudios.scalarpower.machines.grinder.GrinderMenu;
 import site.scalarstudios.scalarpower.machines.macerator.DoubleMaceratorMenu;
@@ -38,6 +39,9 @@ public final class ScalarPowerMenus {
 
     public static final DeferredHolder<MenuType<?>, MenuType<BarometricGeneratorMenu>> BAROMETRIC_GENERATOR_MENU = MENUS
             .register("barometric_generator", () -> IMenuTypeExtension.create(BarometricGeneratorMenu::new));
+
+    public static final DeferredHolder<MenuType<?>, MenuType<WaterMillGeneratorMenu>> WATER_MILL_GENERATOR_MENU = MENUS
+            .register("water_mill_generator", () -> IMenuTypeExtension.create(WaterMillGeneratorMenu::new));
 
     public static final DeferredHolder<MenuType<?>, MenuType<EntropyGeneratorMenu>> ENTROPY_GENERATOR_MENU = MENUS
             .register("entropy_generator", () -> IMenuTypeExtension.create(EntropyGeneratorMenu::new));
