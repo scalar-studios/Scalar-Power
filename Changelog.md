@@ -62,6 +62,9 @@
 - Crafting Recipe Revamp
 - Finish Wiki
 - Freezer Machine (Water → Ice → Packed Ice → Blue Ice)
+- Full Resource Sets
+- Possible Tools/Armor Suite
+- README.md Update
 - Texture Name and Model Cleanup
 - Tooltips
 - Wrench / Pipe IO
