@@ -27,6 +27,7 @@ import site.scalarstudios.scalarpower.block.machine.wire.fiberglass.FiberGlassWi
 import site.scalarstudios.scalarpower.block.machine.wire.gold.GoldWireBlockEntity;
 import site.scalarstudios.scalarpower.block.machine.wire.gold.InsulatedGoldWireBlockEntity;
 import site.scalarstudios.scalarpower.block.machine.wire.reinforcedfiberglass.ReinforcedFiberGlassWireBlockEntity;
+import site.scalarstudios.scalarpower.block.device.infinitewatersource.InfiniteWaterSourceBlockEntity;
 
 public final class ScalarPowerCapabilities {
 
@@ -238,5 +239,11 @@ public final class ScalarPowerCapabilities {
                 Capabilities.Item.BLOCK,
                 ScalarPowerBlockEntities.SAWMILL.get(),
                 (blockEntity, side) -> VanillaContainerWrapper.of(blockEntity));
+
+        /* Devices */
+        event.registerBlockEntity(
+                Capabilities.Fluid.BLOCK,
+                ScalarPowerBlockEntities.INFINITE_WATER_SOURCE.get(),
+                InfiniteWaterSourceBlockEntity::getFluidHandler);
     }
 }

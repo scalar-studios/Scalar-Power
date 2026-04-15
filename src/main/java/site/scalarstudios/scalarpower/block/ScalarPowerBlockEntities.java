@@ -28,6 +28,7 @@ import site.scalarstudios.scalarpower.block.machine.wire.gold.GoldWireBlockEntit
 import site.scalarstudios.scalarpower.block.machine.wire.gold.InsulatedGoldWireBlockEntity;
 import site.scalarstudios.scalarpower.block.machine.wire.reinforcedfiberglass.ReinforcedFiberGlassWireBlockEntity;
 import site.scalarstudios.scalarpower.block.device.redstoneclock.RedstoneClockBlockEntity;
+import site.scalarstudios.scalarpower.block.device.infinitewatersource.InfiniteWaterSourceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -134,7 +135,10 @@ public final class ScalarPowerBlockEntities {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ReinforcedFiberGlassWireBlockEntity>> REINFORCED_FIBER_GLASS_WIRE = BLOCK_ENTITY_TYPES
             .register("reinforced_fiber_glass_wire", () -> new BlockEntityType<>(ReinforcedFiberGlassWireBlockEntity::new, ScalarPowerBlocks.REINFORCED_FIBER_GLASS_WIRE.get()));
 
-    /* Redstone Utilities */
+    /* Devices */
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<InfiniteWaterSourceBlockEntity>> INFINITE_WATER_SOURCE = BLOCK_ENTITY_TYPES
+            .register("infinite_water_source", () -> new BlockEntityType<>(InfiniteWaterSourceBlockEntity::new, ScalarPowerBlocks.INFINITE_WATER_SOURCE.get()));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RedstoneClockBlockEntity>> REDSTONE_CLOCK = BLOCK_ENTITY_TYPES
             .register("redstone_clock", () -> new BlockEntityType<>(RedstoneClockBlockEntity::new, ScalarPowerBlocks.REDSTONE_CLOCK.get()));
 

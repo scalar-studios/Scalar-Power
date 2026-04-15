@@ -1,17 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "R",
-    "D",
-    "C"
+    "WDW"
   ],
   "key": {
     "D": "scalarpower:device_frame",
-    "R": "minecraft:redstone",
-    "C": "minecraft:clock"
+    "W": "minecraft:water_bucket"
   },
   "result": {
-    "id": "scalarpower:redstone_clock",
+    "id": "scalarpower:infinite_water_source",
     "count": 1
   }
 }

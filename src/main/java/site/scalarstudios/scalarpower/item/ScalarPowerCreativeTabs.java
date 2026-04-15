@@ -59,7 +59,8 @@ public class ScalarPowerCreativeTabs {
             event.accept(ScalarPowerBlocks.COBALT_BLOCK.get());
             event.accept(ScalarPowerBlocks.ENDER_ALLOY_BLOCK.get());
 
-            /* Redstone Utilities */
+            /* Devices */
+            event.accept(ScalarPowerBlocks.INFINITE_WATER_SOURCE.get());
             event.accept(ScalarPowerBlocks.REDSTONE_CLOCK.get());
 
             // Items

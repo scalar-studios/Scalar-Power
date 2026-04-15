@@ -35,6 +35,7 @@ import site.scalarstudios.scalarpower.block.machine.wire.gold.GoldWireBlock;
 import site.scalarstudios.scalarpower.block.machine.wire.gold.InsulatedGoldWireBlock;
 import site.scalarstudios.scalarpower.block.machine.wire.reinforcedfiberglass.ReinforcedFiberGlassWireBlock;
 import site.scalarstudios.scalarpower.block.device.redstoneclock.RedstoneClockBlock;
+import site.scalarstudios.scalarpower.block.device.infinitewatersource.InfiniteWaterSourceBlock;
 import site.scalarstudios.scalarpower.item.ScalarPowerItems;
 import site.scalarstudios.scalarpower.item.custom.TooltipBlockItem;
 
@@ -150,7 +151,11 @@ public class ScalarPowerBlocks {
             ReinforcedFiberGlassWireBlock::new,
             properties -> properties.strength(0.5F, 0.5F).noOcclusion().sound(SoundType.GLASS).mapColor(MapColor.COLOR_LIGHT_BLUE));
 
-    /* Redstone Utilities */
+    /* Devices */
+    public static final DeferredBlock<InfiniteWaterSourceBlock> INFINITE_WATER_SOURCE = registerBlock("infinite_water_source",
+            InfiniteWaterSourceBlock::new,
+            properties -> properties.strength(3.0F, 3.0F).requiresCorrectToolForDrops().sound(SoundType.STONE).mapColor(MapColor.WATER));
+
     public static final DeferredBlock<RedstoneClockBlock> REDSTONE_CLOCK = registerBlock("redstone_clock",
             RedstoneClockBlock::new,
             properties -> properties.strength(2.5F, 2.5F).requiresCorrectToolForDrops().sound(SoundType.COPPER).mapColor(MapColor.COLOR_ORANGE));
