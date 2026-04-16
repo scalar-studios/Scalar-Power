@@ -60,7 +60,7 @@
 - Swapped Fluid in GUIs to be handled by a TankRenderer instead of a Gradient
 - Updated Redstone Clock texture and recipe to use Device Frame
 - Updated Wire Textures
-- 
+
 ## 26.1.2-1.0.7_beta (Upcoming)
 
 ## Planned Features
@@ -68,7 +68,8 @@
 - Crafting Recipe Revamp
 - Finish Wiki
 - Fluid Pipes
-- Full Resource Sets
+- Full Resource Sets (Less for us, more for cross-mod compat)
+- Keep NeoForge up to date
 - Possible Tools/Armor Suite
 - README.md Update
 - Texture Name and Model Cleanup
