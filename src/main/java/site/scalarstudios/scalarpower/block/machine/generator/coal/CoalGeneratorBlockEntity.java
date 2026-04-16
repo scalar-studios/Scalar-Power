@@ -113,7 +113,7 @@ public class CoalGeneratorBlockEntity extends BlockEntity implements Container, 
 
     @Override
     public Component getDisplayName() {
-        return Component.literal("Coal Generator");
+        return Component.translatable("container.scalarpower.coal_generator");
     }
 
     @Override

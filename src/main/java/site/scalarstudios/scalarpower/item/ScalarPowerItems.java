@@ -5,9 +5,13 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import site.scalarstudios.scalarpower.ScalarPower;
+import site.scalarstudios.scalarpower.item.custom.WrenchItem;
 
 public class ScalarPowerItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ScalarPower.MODID);
+
+    // Tools
+    public static final DeferredItem<WrenchItem> WRENCH = ITEMS.registerItem("wrench",  WrenchItem::new);
 
     // Dusts
     public static final DeferredItem<Item> COAL_DUST = ITEMS.registerSimpleItem("coal_dust");

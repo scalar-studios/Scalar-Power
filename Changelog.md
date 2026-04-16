@@ -52,7 +52,9 @@
 - Added Infinite Water Source Block
 - Added Liquifier machine with JEI recipes (Cobblestone, Stone, Basalt, Netherrack, and Magma Block into Lava)
 - Added Netherite Scrap recipe in Macerator (more efficient than Grinder version)
+- Added Wrench which cam be used to set the behavior of wires per side
 - Changed Redstone Clock to be off 16 ticks, on for 4; instead of off 19 ticks, on for 1 
+- Converted several literal components to translatable text components
 - Fixed broken Macerator container translation
 - General code cleanup and reorganization
 - Swapped Fluid in GUIs to be handled by a TankRenderer instead of a Gradient
@@ -60,13 +62,12 @@
 - Updated Wire Textures
 
 ## Planned Features
-- Battery Sidedness (I/O Faces)
 - Better SPU UI (not drawn in GUI)
 - Crafting Recipe Revamp
 - Finish Wiki
+- Fluid Pipes
 - Full Resource Sets
 - Possible Tools/Armor Suite
 - README.md Update
 - Texture Name and Model Cleanup
 - Tooltips
-- Wrench / Pipe IO

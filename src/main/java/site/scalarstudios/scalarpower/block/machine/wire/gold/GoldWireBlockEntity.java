@@ -10,9 +10,10 @@ import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.transfer.energy.EnergyHandler;
 import site.scalarstudios.scalarpower.block.ScalarPowerBlockEntities;
 import site.scalarstudios.scalarpower.block.machine.MachineUtils;
+import site.scalarstudios.scalarpower.block.machine.wire.BaseWireBlockEntity;
 import site.scalarstudios.scalarpower.power.NeoEnergyTransferUtil;
 
-public class GoldWireBlockEntity extends BlockEntity {
+public class GoldWireBlockEntity extends BaseWireBlockEntity {
     private static final int ENERGY_CAPACITY = MachineUtils.WIRE_BASE_CAPACITY * MachineUtils.WIRE_T2_MULTIPLIER;
     private static final int PUSH_PER_SIDE = MachineUtils.WIRE_BASE_THROUGHPUT * MachineUtils.WIRE_T2_MULTIPLIER;;
 

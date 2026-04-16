@@ -2,6 +2,7 @@
 package site.scalarstudios.scalarpower.block.machine.wire.copper;
 
 import site.scalarstudios.scalarpower.block.machine.MachineUtils;
+import site.scalarstudios.scalarpower.block.machine.wire.BaseWireBlockEntity;
 import site.scalarstudios.scalarpower.power.NeoEnergyTransferUtil;
 import site.scalarstudios.scalarpower.block.ScalarPowerBlockEntities;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -14,7 +15,7 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.transfer.energy.EnergyHandler;
 
-public class InsulatedCopperWireBlockEntity extends BlockEntity {
+public class InsulatedCopperWireBlockEntity extends BaseWireBlockEntity {
     private static final int ENERGY_CAPACITY = MachineUtils.WIRE_BASE_CAPACITY;
     private static final int PUSH_PER_SIDE = MachineUtils.WIRE_BASE_THROUGHPUT;
 

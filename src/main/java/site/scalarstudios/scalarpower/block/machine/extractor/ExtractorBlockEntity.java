@@ -170,7 +170,7 @@ public class ExtractorBlockEntity extends BlockEntity implements Container, Menu
     }
 
     @Override
-    public Component getDisplayName() { return Component.literal("Extractor"); }
+    public Component getDisplayName() { return Component.translatable("container.scalarpower.extractor"); }
     @Override
     public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
         return new ExtractorMenu(id, inv, this, new ContainerData() {

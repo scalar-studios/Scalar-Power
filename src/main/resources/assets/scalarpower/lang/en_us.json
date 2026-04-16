@@ -35,6 +35,9 @@
   "block.scalarpower.redstone_clock": "Redstone Clock",
   "block.scalarpower.infinite_water_source": "Infinite Water Source",
 
+  "chat.scalarpower.behavior_set": "§e[%s] §r%s",
+  "chat.scalarpower.current_behavior_display": "§e[%s] Current Behavior: §r%s",
+
   "container.scalarpower.barometric_generator": "Barometric Generator",
   "container.scalarpower.coal_generator": "Coal Generator",
   "container.scalarpower.culinary_generator": "Culinary Generator",
@@ -58,13 +61,6 @@
   "container.scalarpower.steel_battery": "Steel Battery",
   "container.scalarpower.ender_battery": "Ender Battery",
   "container.scalarpower.creative_battery": "Creative Battery",
-
-  "tooltip.scalarpower.copper_wire": "Transfers 40 SPU/t",
-  "tooltip.scalarpower.insulated_copper_wire": "Transfers 40 SPU/t (Insulated)",
-  "tooltip.scalarpower.gold_wire": "Transfers 80 SPU/t",
-  "tooltip.scalarpower.insulated_gold_wire": "Transfers 80 SPU/t (Insulated)",
-  "tooltip.scalarpower.fiber_glass_wire": "Transfers 320 SPU/t",
-  "tooltip.scalarpower.reinforced_fiber_glass_wire": "Transfers 640 SPU/t",
 
   "itemGroup.scalarpower.scalar_power": "Scalar Power",
 
@@ -97,6 +93,7 @@
   "item.scalarpower.device_frame": "Device Frame",
   "item.scalarpower.machine_frame": "Machine Frame",
   "item.scalarpower.steel_machine_frame": "Steel Machine Frame",
+  "item.scalarpower.wrench": "Wrench",
 
   "item.scalarpower.copper_wire": "Copper Wire",
   "item.scalarpower.insulated_copper_wire": "Insulated Copper Wire",
@@ -111,5 +108,14 @@
   "jei.scalarpower.grinding": "Grinding",
   "jei.scalarpower.liquifying": "Liquifying",
   "jei.scalarpower.macerating": "Macerating",
-  "jei.scalarpower.sawmilling": "Sawmilling"
+  "jei.scalarpower.sawmilling": "Sawmilling",
+
+  "tooltip.scalarpower.copper_wire": "Transfers 40 SPU/t",
+  "tooltip.scalarpower.insulated_copper_wire": "Transfers 40 SPU/t (Insulated)",
+  "tooltip.scalarpower.gold_wire": "Transfers 80 SPU/t",
+  "tooltip.scalarpower.insulated_gold_wire": "Transfers 80 SPU/t (Insulated)",
+  "tooltip.scalarpower.fiber_glass_wire": "Transfers 320 SPU/t",
+  "tooltip.scalarpower.reinforced_fiber_glass_wire": "Transfers 640 SPU/t",
+  "tooltip.scalarpower.wrench_configure": "Right-click on wires to configure behavior",
+  "tooltip.scalarpower.wrench_cycle": "Shift + Right-click to cycle through behaviors"
 }

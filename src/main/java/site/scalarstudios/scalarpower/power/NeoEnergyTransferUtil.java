@@ -16,6 +16,8 @@ import site.scalarstudios.scalarpower.block.machine.wire.fiberglass.FiberGlassWi
 import site.scalarstudios.scalarpower.block.machine.wire.gold.GoldWireBlockEntity;
 import site.scalarstudios.scalarpower.block.machine.wire.gold.InsulatedGoldWireBlockEntity;
 import site.scalarstudios.scalarpower.block.machine.wire.reinforcedfiberglass.ReinforcedFiberGlassWireBlockEntity;
+import site.scalarstudios.scalarpower.block.machine.wire.BaseWireBlockEntity;
+import site.scalarstudios.scalarpower.block.machine.wire.WireBehavior;
 
 public final class NeoEnergyTransferUtil {
     private NeoEnergyTransferUtil() {
@@ -34,10 +36,20 @@ public final class NeoEnergyTransferUtil {
             return 0;
         }
 
-        boolean sourceIsTransferBlock = isTransferBlock(level.getBlockEntity(sourcePos));
+        // Get source wire entity to check output behaviors
+        BlockEntity sourceEntity = level.getBlockEntity(sourcePos);
+        boolean sourceIsTransferBlock = isTransferBlock(sourceEntity);
         List<EnergyHandler> nonTransferTargets = new ArrayList<>();
         List<EnergyHandler> transferTargets = new ArrayList<>();
         for (Direction direction : Direction.values()) {
+            // Check if source wire allows output on this direction
+            if (sourceEntity instanceof BaseWireBlockEntity sourceWire) {
+                WireBehavior behavior = sourceWire.getBehavior(direction);
+                if (behavior == WireBehavior.DISABLED || behavior == WireBehavior.INPUT) {
+                    continue;
+                }
+            }
+
             BlockPos targetPos = sourcePos.relative(direction);
             boolean targetIsTransferBlock = isTransferBlock(level.getBlockEntity(targetPos));
             if (transferBlocksOnly && !targetIsTransferBlock) {
@@ -125,7 +137,16 @@ public final class NeoEnergyTransferUtil {
         }
 
         int pulled = 0;
+        BlockEntity receiverEntity = level.getBlockEntity(receiverPos);
         for (Direction direction : Direction.values()) {
+            // Check if receiver wire allows input on this direction
+            if (receiverEntity instanceof BaseWireBlockEntity receiverWire) {
+                WireBehavior behavior = receiverWire.getBehavior(direction);
+                if (behavior == WireBehavior.DISABLED || behavior == WireBehavior.OUTPUT) {
+                    continue;
+                }
+            }
+
             long remainingLong = receiver.getCapacityAsLong() - receiver.getAmountAsLong();
             if (remainingLong <= 0) {
                 break;

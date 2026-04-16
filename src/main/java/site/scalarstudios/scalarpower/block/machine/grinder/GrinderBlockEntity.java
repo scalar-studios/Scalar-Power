@@ -188,7 +188,7 @@ public class GrinderBlockEntity extends BlockEntity implements Container, MenuPr
     }
 
     @Override
-    public Component getDisplayName() { return Component.literal("Grinder"); }
+    public Component getDisplayName() { return Component.translatable("container.scalarpower.grinder"); }
     @Override
     public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
         return new GrinderMenu(id, inv, this, new ContainerData() {

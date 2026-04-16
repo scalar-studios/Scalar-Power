@@ -1,6 +1,5 @@
 package site.scalarstudios.scalarpower.block.machine.wire.copper;
 
-import site.scalarstudios.scalarpower.block.ScalarPowerBlockEntities;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -24,6 +23,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.capabilities.Capabilities;
+import site.scalarstudios.scalarpower.block.ScalarPowerBlockEntities;
 
 public class InsulatedCopperWireBlock extends BaseEntityBlock {
     public static final MapCodec<InsulatedCopperWireBlock> CODEC = simpleCodec(InsulatedCopperWireBlock::new);
